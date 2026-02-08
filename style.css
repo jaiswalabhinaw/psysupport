@@ -7,6 +7,8 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:Poppins,Arial,sans-serif;}
 
+/* ===== HEADER ===== */
+
 header{
   position:fixed;
   top:0;
@@ -23,6 +25,7 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  position:relative;
 }
 
 .brand{
@@ -31,12 +34,34 @@ header{
   text-decoration:none;
 }
 
+/* ===== NAV ===== */
+
+.nav-links{
+  display:flex;
+}
+
 .nav-links a{
   margin-left:16px;
   color:var(--text-dark);
   text-decoration:none;
   font-weight:500;
 }
+
+/* ===== MOBILE MENU TOGGLE ===== */
+
+#nav-toggle{
+  display:none;
+}
+
+.nav-toggle-label{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+  user-select:none;
+  color:var(--text-dark);
+}
+
+/* ===== HERO ===== */
 
 .hero{
   min-height:100vh;
@@ -62,7 +87,7 @@ header{
 .highlight{color:var(--brand);}
 .hero p{margin-top:16px;font-size:18px;color:var(--text-soft);}
 
-/* ===== PROFESSIONAL SPACING SYSTEM ===== */
+/* ===== SECTIONS ===== */
 
 .section{
   padding:56px 20px;
@@ -175,6 +200,39 @@ header{
 
 html{scroll-behavior:smooth;}
 
+/* ===== MOBILE RESPONSIVE ===== */
+
 @media(max-width:768px){
+
   .hero h1{font-size:30px;}
+
+  /* show hamburger */
+  .nav-toggle-label{
+    display:block;
+  }
+
+  /* hide links initially */
+  .nav-links{
+    position:absolute;
+    top:64px;
+    left:0;
+    width:100%;
+    background:#fff;
+    flex-direction:column;
+    text-align:center;
+    padding:10px 0;
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    display:none;
+  }
+
+  .nav-links a{
+    margin:0;
+    padding:14px 0;
+    font-size:16px;
+  }
+
+  /* toggle menu */
+  #nav-toggle:checked + .nav-toggle-label + .nav-links{
+    display:flex;
+  }
 }
