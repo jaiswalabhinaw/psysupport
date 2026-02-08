@@ -1,344 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<title>Psychologist & Psychiatrist in Noida | Anxiety, Depression, Overthinking</title>
-
+<title>PsySupport | Mental Health Support in Noida & Online</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Online and in-person psychologist & psychiatrist support in Noida, India. Help for anxiety, depression, overthinking, panic attacks, sleep problems and relationship stress.">
-
-<meta name="keywords" content="
-psychologist in noida,
-psychiatrist in noida,
-mental health doctor noida,
-anxiety treatment noida,
-depression treatment noida,
-overthinking problem solution,
-panic attack treatment,
-online psychologist india,
-online psychiatrist consultation,
-mental stress doctor,
-relationship counselling noida,
-sleep problem treatment,
-ghabrahat ka ilaj,
-tension ka ilaj,
-dimag ka doctor
-">
-
-<meta name="robots" content="index, follow">
-<meta name="author" content="PsySupport Noida">
-
-<!-- ===== SCHEMA ===== -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"MedicalBusiness",
-  "name":"PsySupport",
-  "areaServed":{"@type":"City","name":"Noida"},
-  "address":{"@type":"PostalAddress","addressLocality":"Noida","addressCountry":"IN"},
-  "medicalSpecialty":["Psychiatry","Psychology"]
-}
-</script>
-
-<style>
-:root{
-  --brand:#2b7a87;
-  --text-dark:#0f2e36;
-  --text-soft:rgba(255,255,255,0.88);
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Poppins,Arial,sans-serif;}
-
-header{
-  position:fixed;top:0;width:100%;z-index:1000;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(10px);
-}
-
-.navbar{
-  max-width:1200px;margin:auto;
-  padding:14px 20px;
-  display:flex;justify-content:space-between;align-items:center;
-}
-
-.brand{font-weight:600;color:var(--text-dark);}
-.nav-cta{
-  padding:8px 20px;border-radius:999px;
-  background:var(--brand);color:#fff;text-decoration:none;
-}
-
-/* ===== HERO ===== */
-.hero{
-  min-height:100vh;
-  padding-top:100px;
-  display:flex;align-items:center;
-  background:
-    linear-gradient(to right,rgba(15,46,54,0.55),rgba(15,46,54,0.15)),
-    url("hero.png") center/cover no-repeat;
-  color:#fff;
-}
-
-.hero-content{
-  max-width:900px;margin:auto;
-  padding:42px;
-  background:rgba(255,255,255,0.10);
-  border-radius:24px;text-align:center;
-}
-
-.hero h1{font-size:44px;line-height:1.25;}
-.highlight{color:var(--brand);}
-.hero p{margin-top:16px;font-size:18px;color:var(--text-soft);}
-
-.hero-buttons{
-  margin-top:28px;
-  display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
-}
-
-.btn{
-  padding:14px 28px;border-radius:999px;
-  border:none;cursor:pointer;font-size:15px;
-}
-.btn-primary{background:var(--brand);color:#fff;}
-.btn-secondary{background:#fff;color:var(--brand);}
-
-/* ===== COMMON SECTION ===== */
-.section{
-  padding:90px 20px;
-  background:#f7fbfc;
-}
-.section h2{
-  text-align:center;
-  font-size:34px;
-  color:var(--text-dark);
-  margin-bottom:50px;
-}
-.content{
-  max-width:1000px;margin:auto;
-  font-size:16px;line-height:1.8;color:#333;
-}
-
-/* ===== SERVICES ===== */
-.services-grid{
-  max-width:1200px;margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
-}
-.service-card{
-  background:#fff;
-  padding:36px 24px;
-  border-radius:22px;
-  text-align:center;
-  box-shadow:0 18px 40px rgba(0,0,0,0.08);
-}
-.service-card span{
-  font-size:36px;display:block;margin-bottom:14px;
-}
-.service-card h3{
-  font-size:16px;color:var(--text-dark);
-}
-
-/* ===== HOW IT WORKS ===== */
-.steps{
-  max-width:1000px;margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:30px;
-  text-align:center;
-}
-.step span{
-  width:70px;height:70px;
-  border-radius:50%;
-  background:var(--brand);
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;font-size:26px;
-  margin:0 auto 14px;
-}
-
-/* ===== BLOG ===== */
-.blog-grid{
-  max-width:1200px;margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:28px;
-}
-.blog-card{
-  background:#fff;padding:26px;border-radius:22px;
-  box-shadow:0 14px 35px rgba(0,0,0,0.08);
-}
-.blog-card h3{font-size:17px;color:var(--text-dark);}
-.blog-card p{font-size:14px;color:#555;margin-top:8px;}
-.blog-card a{display:inline-block;margin-top:12px;color:var(--brand);text-decoration:none;}
-
-/* ===== FLOAT CTA ===== */
-.floating-cta{
-  position:fixed;right:14px;bottom:20px;
-  display:flex;flex-direction:column;gap:12px;z-index:2000;
-}
-.floating-cta a{
-  width:54px;height:54px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;font-size:24px;text-decoration:none;
-}
-.whatsapp{background:#25D366;}
-.call{background:#2b7a87;}
-
-@media(max-width:768px){
-  .hero h1{font-size:30px;}
-}
-</style>
+<meta name="description" content="Mental health support for anxiety, overthinking, depression and stress. Serving Noida and online across India.">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
 <header>
   <div class="navbar">
-    <div class="brand">PsySupport – Noida</div>
-    <a href="#blog" class="nav-cta">Blog</a>
+    <div class="brand">PsySupport</div>
+    <div class="nav-links">
+      <a href="anxiety.html">Anxiety</a>
+      <a href="overthinking.html">Overthinking</a>
+      <a href="depression.html">Depression</a>
+      <a href="online.html">Online</a>
+      <a href="blog.html">Blog</a>
+    </div>
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <h1>
-      Psychologist & Psychiatrist in <span class="highlight">Noida</span><br>
-      for <span class="highlight">Anxiety</span>,
-      <span class="highlight">Depression</span> &
-      <span class="highlight">Overthinking</span>
-    </h1>
-    <p>
-      Compassionate and professional mental health support —
-      online across India.
-    </p>
-    <div class="hero-buttons">
-      <a href="tel:+91XXXXXXXXXX" class="btn btn-secondary">📞 Call Now</a>
-      <a href="https://wa.me/91XXXXXXXXXX" class="btn btn-primary">💬 WhatsApp Chat</a>
-    </div>
+    <h1>Psychologist Support in <span class="highlight">Noida</span><br>for Anxiety, Depression & Overthinking</h1>
+    <p>Calm, confidential and supportive conversations — online across India.</p>
   </div>
 </section>
 
-<!-- OUR SERVICES -->
 <section class="section">
-  <h2>Our Services</h2>
-  <div class="services-grid">
-    <div class="service-card"><span>🧠</span><h3>Emotional Support Conversations</h3></div>
-    <div class="service-card"><span>🌿</span><h3>Stress & Overthinking Support</h3></div>
-    <div class="service-card"><span>🔄</span><h3>Thought Pattern Awareness</h3></div>
-    <div class="service-card"><span>❤️</span><h3>Relationship & Family Support</h3></div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section">
-  <h2>How It Works</h2>
-  <div class="steps">
-    <div class="step"><span>📅</span>Book a Session</div>
-    <div class="step"><span>💬</span>Safe Conversation</div>
-    <div class="step"><span>🧩</span>Understand Patterns</div>
-    <div class="step"><span>🌱</span>Feel Lighter & Clearer</div>
-  </div>
-</section>
-
-<!-- SEO CONTENT -->
-<section class="section">
-  <h2>Mental Health Support in Noida & Online</h2>
+  <h2>Welcome to PsySupport</h2>
   <div class="content">
-    <p>
-      Many people search for a psychologist in Noida or psychiatrist in Noida when
-      experiencing anxiety, depression, panic attacks, overthinking or stress.
-    </p>
+    <p>This is the main hub of PsySupport. Explore dedicated pages for specific concerns like anxiety, overthinking and depression.</p>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section">
-  <h2>Frequently Asked Questions</h2>
-  <div class="content">
-    <p><strong>Do I need a diagnosis?</strong><br>No.</p>
-    <p><strong>Is anxiety treatable?</strong><br>Yes.</p>
-    <p><strong>Is online consultation available?</strong><br>Yes.</p>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section class="section" id="blog">
-  <h2>Blog & Mental Health Insights</h2>
-  <div class="blog-grid">
-    <div class="blog-card"><h3>Why Do I Overthink So Much?</h3><p>Understanding anxiety driven thoughts.</p><a href="#">Read More →</a></div>
-    <div class="blog-card"><h3>Anxiety vs Stress</h3><p>Know the difference.</p><a href="#">Read More →</a></div>
-    <div class="blog-card"><h3>When to See a Psychologist</h3><p>Early signs.</p><a href="#">Read More →</a></div>
-    <div class="blog-card"><h3>Online Therapy in India</h3><p>How it works.</p><a href="#">Read More →</a></div>
-  </div>
-</section>
-
-<!-- ================= ABOUT ================= -->
-<section class="section">
-  <h2>About PsySupport</h2>
-  <div class="content">
-    <p>
-      PsySupport offers calm, confidential, and respectful emotional support for
-      individuals facing everyday mental and emotional challenges. Our approach
-      is supportive, non-judgmental, and focused on helping you feel lighter and clearer.
-    </p>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section class="section">
-  <h2>Contact & Availability</h2>
-  <div class="content">
-    <p>📍 Serving Noida and online across India</p>
-    <p>💬 WhatsApp & 📞 Call support available</p>
-    <p>⏱️ Typical response time: within 24 hours</p>
-  </div>
-</section>
-
-<!-- ================= DISCLAIMER ================= -->
-<section class="section">
-  <h2>Important Disclaimer</h2>
-  <div class="content">
-    <p>
-      PsySupport provides non-clinical emotional support and is not a substitute
-      for medical diagnosis, psychiatric treatment, or emergency care.
-    </p>
-    <p>
-      If you are in immediate danger or experiencing thoughts of self-harm,
-      please contact local emergency services (India: 112) immediately.
-    </p>
-  </div>
-</section>
-
-<!-- ================= PRIVACY ================= -->
-<section class="section">
-  <h2>Privacy Policy</h2>
-  <div class="content">
-    <p>
-      We respect your privacy. Any information shared with PsySupport is used
-      only for communication and support purposes and is kept confidential.
-    </p>
-  </div>
-</section>
-
-<!-- ================= TERMS ================= -->
-<section class="section">
-  <h2>Terms of Use</h2>
-  <div class="content">
-    <p>
-      By using this website or contacting PsySupport, you acknowledge that the
-      services provided are for emotional support only and outcomes may vary.
-    </p>
-  </div>
-</section>
-
-<!-- FLOAT CTA -->
 <div class="floating-cta">
   <a href="https://wa.me/919654846611" class="whatsapp">💬</a>
   <a href="tel:+91XXXXXXXXXX" class="call">📞</a>
 </div>
-
 </body>
 </html>
