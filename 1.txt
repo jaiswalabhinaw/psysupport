@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PsySupport – Mental Wellness Support</title>
+<title>PsySupport – Emotional & Mental Support</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+/* ================= ROOT COLORS ================= */
+:root{
+  --brand:#2b7a87;
+  --brand-soft:rgba(43,122,135,0.15);
+  --text-dark:#0f2e36;
+  --text-soft:rgba(255,255,255,0.88);
+}
+
 /* ================= RESET ================= */
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{
@@ -16,12 +25,14 @@ html,body{
 /* ================= NAVBAR ================= */
 header{
   position:fixed;
-  top:0;width:100%;
+  top:0;
+  width:100%;
   z-index:1000;
-  background:rgba(255,255,255,0.9);
+  background:rgba(255,255,255,0.92);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(0,0,0,0.05);
 }
+
 .navbar{
   max-width:1200px;
   margin:auto;
@@ -30,42 +41,48 @@ header{
   justify-content:space-between;
   align-items:center;
 }
+
 .brand{
   font-size:22px;
   font-weight:600;
   line-height:1.2;
+  color:var(--text-dark);
 }
+
 .brand-tagline{
-  font-size:12px;
+  font-size:11px;
   font-weight:400;
   color:#666;
 }
+
 .nav-links{
   display:flex;
   gap:22px;
-  align-items:center; /* ✅ vertical alignment fix */
+  align-items:center;
 }
 
 .nav-links a{
   display:flex;
   align-items:center;
   line-height:1;
+  color:var(--text-dark);
+  text-decoration:none;
+  font-weight:500;
 }
 
 .nav-cta{
-  padding:7px 20px;   /* 👈 1px less vertical */
+  padding:7px 20px;
   line-height:1;
   border-radius:999px;
-  background:#2b7a87;
+  background:var(--brand);
   color:#fff !important;
 }
-
 
 /* ================= HERO ================= */
 .hero{
   position:relative;
   min-height:100vh;
-  padding-top:100px;
+  padding-top:110px;
   display:flex;
   align-items:center;
   background:
@@ -78,6 +95,7 @@ header{
     url("hero.png") center/cover no-repeat;
   color:#fff;
 }
+
 .hero::before{
   content:"";
   position:absolute;
@@ -88,6 +106,7 @@ header{
     transparent 55%
   );
 }
+
 .hero-content{
   position:relative;
   z-index:2;
@@ -100,28 +119,35 @@ header{
   text-align:center;
   animation:fadeUp .8s ease forwards;
 }
+
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(12px_topics);}
+  from{opacity:0;transform:translateY(12px);}
   to{opacity:1;transform:translateY(0);}
 }
 
-/* Text styles */
 .hero-eyebrow{
   font-size:13px;
   letter-spacing:1.4px;
   text-transform:uppercase;
-  opacity:0.85;
   margin-bottom:14px;
-}
-.hero h1{
-  font-size:48px;
+  color:var(--brand);
   font-weight:600;
-  line-height:1.15;
 }
+
+.hero h1{
+  font-size:46px;
+  font-weight:600;
+  line-height:1.2;
+}
+
+.highlight{
+  color:var(--brand);
+}
+
 .hero p{
   margin-top:18px;
   font-size:18px;
-  color:rgba(255,255,255,0.92);
+  color:var(--text-soft);
 }
 
 /* Rotating relatable text */
@@ -129,18 +155,20 @@ header{
   margin-top:16px;
   font-size:15px;
   font-style:italic;
-  opacity:0.9;
   min-height:22px;
   transition:opacity .5s ease;
+  color:var(--text-soft);
+  opacity:0.9;
 }
 
-/* Buttons */
+
 .hero-buttons{
   margin-top:32px;
   display:flex;
   gap:18px;
   justify-content:center;
 }
+
 .btn{
   padding:14px 34px;
   border-radius:999px;
@@ -148,15 +176,18 @@ header{
   cursor:pointer;
   border:none;
 }
+
 .btn-primary{
-  background:#2b7a87;
+  background:var(--brand);
   color:#fff;
 }
+
 .btn-secondary{
   background:transparent;
   color:#fff;
   border:1px solid rgba(255,255,255,0.4);
 }
+
 .hero-note{
   margin-top:22px;
   font-size:13px;
@@ -168,21 +199,24 @@ header{
   padding:100px 24px;
   background:#eef6f8;
 }
+
 .section-title{
   text-align:center;
   font-size:36px;
-  color:#0f2e36;
+  color:var(--text-dark);
   margin-bottom:70px;
 }
+
 .section-title::after{
   content:"";
   width:60px;
   height:3px;
-  background:#2b7a87;
+  background:var(--brand);
   display:block;
   margin:16px auto 0;
   border-radius:10px;
 }
+
 .services-grid{
   max-width:1200px;
   margin:auto;
@@ -190,6 +224,7 @@ header{
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:30px;
 }
+
 .service-card{
   background:#fff;
   padding:42px 28px;
@@ -197,13 +232,16 @@ header{
   text-align:center;
   box-shadow:0 18px 40px rgba(0,0,0,0.08);
 }
+
 .service-icon{
   font-size:36px;
   margin-bottom:18px;
 }
+
 .service-title{
   font-size:16px;
   font-weight:600;
+  color:var(--text-dark);
 }
 
 /* ================= HOW IT WORKS ================= */
@@ -211,6 +249,7 @@ header{
   padding:90px 24px;
   background:#f7fbfc;
 }
+
 .steps{
   max-width:1200px;
   margin:auto;
@@ -218,26 +257,34 @@ header{
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:30px;
 }
+
 .step{text-align:center;}
+
 .step-circle{
-  width:70px;height:70px;
+  width:70px;
+  height:70px;
   margin:0 auto 14px;
   border-radius:50%;
-  background:#2b7a87;
+  background:var(--brand);
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:28px;
 }
-.step-title{font-size:14px;}
+
+.step-title{
+  font-size:14px;
+  color:var(--text-dark);
+}
 
 /* ================= MOBILE ================= */
 @media(max-width:768px){
-  .hero h1{font-size:36px;}
+  .hero h1{font-size:34px;}
   .hero-buttons{flex-direction:column;}
   .nav-links{display:none;}
 }
+
 </style>
 </head>
 
@@ -267,14 +314,15 @@ header{
     </div>
 
     <h1>
-      Feeling anxious stressed<br>
-       fear emotionally overwhelmed <br>
-       not sure where to begin?
+      Feeling <span class="highlight">anxious</span>
+      <span class="highlight">stressed</span><br>
+      or emotionally <span class="highlight">overwhelmed</span> <br>
+      not sure where to begin?
     </h1>
 
     <p>
-      PsySupport offers non-clinical emotional and mental support for people
-      dealing with anxiety overthinking fear relationship stress and emotional heaviness.
+      PsySupport offers non-clinical emotional and mental support for people dealing with
+      anxiety, overthinking, fear, relationship stress, and emotional heaviness.
     </p>
 
     <div class="hero-rotating">
@@ -314,7 +362,7 @@ header{
 </section>
 
 <script>
-const thoughts = [
+const thoughts=[
   "Your mind doesn’t slow down.",
   "You overthink even small things.",
   "You feel anxious without knowing why.",
@@ -323,17 +371,17 @@ const thoughts = [
   "You just want to feel lighter again."
 ];
 
-let i = 0;
-const el = document.getElementById("changingText");
+let i=0;
+const el=document.getElementById("changingText");
 
-setInterval(() => {
-  el.style.opacity = 0;
-  setTimeout(() => {
-    i = (i + 1) % thoughts.length;
-    el.textContent = thoughts[i];
-    el.style.opacity = 1;
-  }, 500);
-}, 3000);
+setInterval(()=>{
+  el.style.opacity=0;
+  setTimeout(()=>{
+    i=(i+1)%thoughts.length;
+    el.textContent=thoughts[i];
+    el.style.opacity=1;
+  },500);
+},3000);
 </script>
 
 </body>
