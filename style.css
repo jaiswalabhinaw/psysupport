@@ -1,412 +1,323 @@
-/* ================= GLOBAL ================= */
-
-html, body {
+/* ===============================
+   GLOBAL RESET
+=================================*/
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Poppins', sans-serif;
-  background: #f7fbfb;
+  line-height: 1.6;
   color: #333;
-  overflow-x: hidden;
 }
 
-h1 {
-  font-size: 38px;
-  line-height: 1.2;
-  margin-bottom: 15px;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-h2 {
-  font-size: 28px; /* balanced for all pages */
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-p {
-  line-height: 1.7;
-  font-size: 16px;
-}
-
-/* ================= NAV ================= */
-
+/* ===============================
+   NAVBAR
+=================================*/
 .nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  justify-content: space-between;
+  padding: 15px 8%;
+  background: #ffffff;
+  position: relative;
 }
 
 .logo {
   font-size: 22px;
   font-weight: 600;
-  color: #1a7f8e;
 }
 
 .logo span {
-  color: #6bbf9c;
+  color: #1dbf73;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #444;
-  font-weight: 500;
-}
-
-.nav-btns {
-  display: flex;
-  gap: 12px;
-}
-
-.menu-icon {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-}
-
+/* Hide checkbox */
 #menu-toggle {
   display: none;
 }
 
-/* ================= BUTTON ================= */
-
-.btn {
-  background: #1a7f8e;
-  color: #fff;
-  padding: 12px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s ease;
-  display: inline-block;
-  text-align: center;
+/* Hamburger */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
 }
 
-.btn.green {
-  background: #6bbf9c;
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #1dbf73;
+}
+
+/* Buttons */
+.nav-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  background: #333;
+  color: #fff;
+  transition: 0.3s;
+  display: inline-block;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  opacity: 0.9;
 }
 
-/* ================= HERO ================= */
+.btn.green {
+  background: #1dbf73;
+}
 
-/* Homepage hero */
+/* ===============================
+   HERO SECTION
+=================================*/
 .hero-split {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 90px 60px;
-  background: linear-gradient(135deg,#eef6f6,#f7fbfb);
+  padding: 70px 8%;
+  gap: 40px;
 }
 
 .hero-left {
-  width: 50%;
+  flex: 1;
+}
+
+.hero-left h1 {
+  font-size: 38px;
+  margin-bottom: 20px;
 }
 
 .hero-left span {
-  color: #6bbf9c;
+  color: #1dbf73;
 }
 
-.hero-right {
-  width: 45%;
-}
-
-.hero-right img {
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+.hero-left p {
+  margin-bottom: 25px;
+  font-size: 16px;
 }
 
 .hero-btns {
-  margin-top: 25px;
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
-/* Inner page hero */
-.hero {
-  padding: 70px 20px 40px;
-  text-align: center;
-  background: linear-gradient(135deg,#eef6f6,#f7fbfb);
+.hero-right {
+  flex: 1;
 }
 
-/* ================= SECTION ================= */
+.hero-right img {
+  border-radius: 14px;
+}
 
+/* ===============================
+   SECTIONS
+=================================*/
 .section {
-  padding: 70px 20px; /* balanced for all pages */
+  padding: 70px 8%;
   text-align: center;
 }
 
-.section.white {
-  background: #fff;
-}
-
-.section.light {
-  background: #f7fbfb;
-}
-
-.section-subtitle {
-  max-width: 750px;
-  margin: 0 auto 30px;
-  color: #555;
-  font-size: 18px;
-}
-
-/* ================= GRID ================= */
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-/* ================= CARD ================= */
-
-.card {
-  background: #fff;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-  text-align: left;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
-}
-
-.card h3 {
-  margin: 12px 0;
-  font-size: 18px;
-  color: #1a7f8e;
-}
-
-.icon {
+.section h2 {
+  margin-bottom: 20px;
   font-size: 28px;
 }
 
-/* ================= HOMEPAGE ONLY PREMIUM LAYOUT ================= */
-
-.approach-section {
-  padding: 100px 20px; /* extra space only homepage */
+.section-subtitle {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  color: #555;
 }
 
+.section.light {
+  background: #f4f6f8;
+}
+
+.section.white {
+  background: #ffffff;
+}
+
+.section.cta {
+  background: #1dbf73;
+  color: #fff;
+}
+
+.section.cta .btn {
+  background: #fff;
+  color: #333;
+}
+
+.section.cta .btn.green {
+  background: #333;
+  color: #fff;
+}
+
+/* ===============================
+   GRID & CARDS
+=================================*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ===============================
+   APPROACH SECTION
+=================================*/
 .approach-container {
-  max-width: 1100px;
-  margin: auto;
   display: flex;
-  justify-content: space-between;
-  gap: 60px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.approach-left,
+.approach-right {
+  flex: 1;
   text-align: left;
 }
 
-/* Highlight Boxes for Approach Section */
-.highlight-box {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-}
-
-.highlight-box-alt {
-  background: linear-gradient(180deg,#f7fbfb,#eef6f6);
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-}
-
-.approach-left {
-  width: 50%;
-}
-
-.approach-right {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .approach-points {
-  list-style: none;
-  padding: 0;
-  margin-top: 25px;
+  margin-top: 20px;
+  list-style: disc;
+  padding-left: 20px;
 }
 
-.approach-points li {
-  margin-bottom: 15px;
-  padding-left: 25px;
-  position: relative;
-}
-
-.approach-points li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  color: #1a7f8e;
-  font-weight: bold;
-}
-
-/* Link cards */
 .link-card {
+  display: block;
+  margin-bottom: 15px;
   text-decoration: none;
   color: #333;
-  font-weight: 500;
-  background: #f9fbfb;
 }
 
-.link-card:hover {
-  background: #eef6f6;
-  color: #1a7f8e;
-}
-
-/* ================= CTA ================= */
-
-.cta {
-  background: #177481;
-  color: #fff;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.cta h2,
-.cta p {
-  max-width: 650px;
-  margin: auto;
-}
-
-.cta .btn {
-  margin: 20px 10px 0 10px;
-  background: #fff;
-  color: #177481;
-}
-
-.cta .btn.green {
-  background: #6bbf9c;
-  color: #fff;
-}
-
-/* ================= FOOTER ================= */
-
+/* ===============================
+   FOOTER
+=================================*/
 footer {
-  background: #177481;
-  color: #fff;
   text-align: center;
-  padding: 35px 20px;
-  border-top: 4px solid #6bbf9c;
+  padding: 30px 10px;
+  background: #111;
+  color: #fff;
+  font-size: 14px;
 }
 
-/* ================= WHATSAPP ================= */
-
+/* ===============================
+   WHATSAPP FLOAT
+=================================*/
 .whatsapp {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 55px;
-  height: 55px;
-  background: #25D366;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 22px;
+  padding: 12px 16px;
   border-radius: 50%;
   text-decoration: none;
-  font-size: 22px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-@media(max-width:768px){
+/* ===============================
+   RESPONSIVE DESIGN
+=================================*/
 
-  /* NAV FIX */
-  .nav {
-    padding: 15px 20px;
+/* Tablet */
+@media (max-width: 992px) {
+
+  .hero-split {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .menu-icon {
-    display: block;
+  .hero-left h1 {
+    font-size: 30px;
   }
 
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .approach-container {
+    flex-direction: column;
+  }
+
+  /* Mobile Menu */
   .nav-links {
     position: absolute;
     top: 70px;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: #ffffff;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     padding: 20px 0;
     display: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
   }
 
   #menu-toggle:checked + .menu-icon + .nav-links {
     display: flex;
   }
 
+  .menu-icon {
+    display: block;
+  }
+
   .nav-btns {
     display: none;
   }
+}
 
-  /* HERO FIX */
-  .hero-split {
-    flex-direction: column;
-    padding: 60px 20px;
-    text-align: center;
+/* Small Mobile */
+@media (max-width: 600px) {
+
+  .hero-left h1 {
+    font-size: 24px;
   }
 
-  .hero-left,
-  .hero-right {
-    width: 100%;
+  .grid {
+    grid-template-columns: 1fr;
   }
 
-  .hero-btns {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* APPROACH FIX */
-  .approach-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .approach-left,
-  .approach-right {
-    width: 100%;
-  }
-
-  .highlight-box,
-  .highlight-box-alt {
-    padding: 25px;
-  }
-
-  /* BUTTON FIX */
-  .btn {
-    width: 100%;
-    max-width: 320px;
-  }
-
-  /* TEXT SIZE */
-  h1 {
-    font-size: 26px;
-  }
-
-  h2 {
-    font-size: 22px;
+  .section {
+    padding: 50px 6%;
   }
 }
