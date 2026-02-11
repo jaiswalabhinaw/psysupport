@@ -215,6 +215,21 @@ p {
   text-align: left;
 }
 
+/* Highlight Boxes for Approach Section */
+.highlight-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.highlight-box-alt {
+  background: linear-gradient(180deg,#f7fbfb,#eef6f6);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
 .approach-left {
   width: 50%;
 }
