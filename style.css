@@ -221,7 +221,7 @@ img {
 }
 
 /* ===============================
-   APPROACH SECTION FIX (ADDED)
+   APPROACH SECTION
 ================================= */
 .approach-container {
   display: flex;
@@ -315,14 +315,30 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* ===== FIXED APPROACH MOBILE ===== */
   .approach-container {
     flex-direction: column;
-    text-align: center;
+    gap: 30px;
   }
 
   .approach-left {
     text-align: center;
   }
+
+  .approach-points {
+    text-align: left;
+    max-width: 420px;
+    margin: 20px auto;
+  }
+
+  .approach-right {
+    width: 100%;
+  }
+
+  .link-card {
+    width: 100%;
+  }
+  /* ===== END FIX ===== */
 
   .nav-links {
     position: absolute;
