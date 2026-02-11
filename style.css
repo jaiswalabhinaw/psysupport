@@ -1,4 +1,6 @@
-body{
+/* PREVENT HORIZONTAL SCROLL */
+html, body{
+  overflow-x:hidden;
   margin:0;
   font-family:Poppins,Arial;
   background:#f6fbfb;
@@ -10,9 +12,10 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 40px;
+  padding:15px 20px;
   background:#fff;
   box-shadow:0 2px 6px rgba(0,0,0,.05);
+  position:relative;
 }
 
 .logo{
@@ -28,6 +31,7 @@ body{
   display:flex;
   gap:20px;
   padding:0;
+  margin:0;
 }
 
 .nav ul li a{
@@ -53,7 +57,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:60px 40px;
+  padding:60px 20px;
   background:linear-gradient(#e8f6f6,#f6fbfb);
 }
 
@@ -80,7 +84,7 @@ body{
 /* WHY */
 .why{
   text-align:center;
-  padding:60px;
+  padding:60px 20px;
 }
 
 .why-grid{
@@ -100,7 +104,7 @@ body{
 .approach{
   display:flex;
   justify-content:space-between;
-  padding:60px;
+  padding:60px 20px;
   background:#fff;
 }
 
@@ -123,7 +127,7 @@ body{
 /* SERVICES */
 .services{
   text-align:center;
-  padding:60px;
+  padding:60px 20px;
 }
 
 .service-grid{
@@ -142,7 +146,7 @@ body{
 /* FLOW */
 .flow{
   text-align:center;
-  padding:60px;
+  padding:60px 20px;
   background:#eef7f7;
 }
 
@@ -156,7 +160,7 @@ body{
 /* FOOTER */
 footer{
   text-align:center;
-  padding:30px;
+  padding:30px 20px;
   background:#1a7f8e;
   color:#fff;
 }
@@ -175,4 +179,36 @@ footer{
 }
 
 /* MOBILE */
-@media(
+@media(max-width:768px){
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-img{
+    width:100%;
+    margin-top:20px;
+  }
+
+  .why-grid,
+  .service-grid,
+  .flow-grid{
+    grid-template-columns:1fr;
+  }
+
+  .approach{
+    flex-direction:column;
+  }
+
+  .approach-text,
+  .approach-img{
+    width:100%;
+  }
+
+  .nav ul{
+    flex-direction:column;
+    gap:10px;
+  }
+
+}
