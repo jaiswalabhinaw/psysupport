@@ -86,26 +86,31 @@ html, body{
   background:#6bbf9c;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO SPLIT ================= */
 
-.hero{
-  padding:120px 20px;
-  text-align:center;
-  background:linear-gradient(rgba(232,246,246,0.92),rgba(246,251,251,0.95)),
-  url("hero.jpg") center/cover no-repeat;
+.hero-split{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:100px 20px;
+  background:#f6fbfb;
 }
 
-.hero h1{
+.hero-left{
+  width:50%;
+}
+
+.hero-left h1{
   font-size:38px;
   color:#1a7f8e;
   line-height:1.3;
 }
 
-.hero span{
+.hero-left span{
   color:#6bbf9c;
 }
 
-.hero p{
+.hero-left p{
   margin-top:15px;
   font-size:18px;
 }
@@ -115,7 +120,17 @@ html, body{
 }
 
 .hero-btns .btn{
-  margin:0 8px;
+  margin-right:10px;
+}
+
+.hero-right{
+  width:45%;
+}
+
+.hero-right img{
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 /* ================= SECTION BASE ================= */
@@ -238,7 +253,21 @@ footer{
     grid-template-columns:1fr;
   }
 
-  .hero h1{
+  .hero-split{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-left,
+  .hero-right{
+    width:100%;
+  }
+
+  .hero-right{
+    margin-top:30px;
+  }
+
+  .hero-left h1{
     font-size:26px;
   }
 
