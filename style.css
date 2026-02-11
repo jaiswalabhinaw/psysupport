@@ -1,23 +1,29 @@
 /* ================= GLOBAL ================= */
 
-html, body{
+html,body{
   margin:0;
   padding:0;
   overflow-x:hidden;
-  font-family:Poppins, Arial, sans-serif;
-  background:#f6fbfb;
+  font-family:'Poppins',sans-serif;
+  background:#f7fbfb;
   color:#333;
 }
 
-/* ================= NAVIGATION ================= */
+h1{font-size:42px;line-height:1.2;}
+h2{font-size:30px;margin-bottom:10px;}
+h3{font-size:20px;margin:0;}
+
+p{line-height:1.7;font-size:16px;}
+
+/* ================= NAV ================= */
 
 .nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
-  background:#ffffff;
-  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  padding:15px 40px;
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
   position:sticky;
   top:0;
   z-index:1000;
@@ -28,151 +34,150 @@ html, body{
   font-weight:600;
   color:#1a7f8e;
 }
-
-.logo span{
-  color:#6bbf9c;
-}
+.logo span{color:#6bbf9c;}
 
 .nav-links{
   list-style:none;
   display:flex;
-  gap:25px;
+  gap:30px;
   margin:0;
   padding:0;
 }
 
 .nav-links a{
   text-decoration:none;
-  color:#333;
+  color:#444;
   font-weight:500;
-  transition:0.3s;
 }
 
-.nav-links a:hover{
-  color:#1a7f8e;
-}
+.nav-links a:hover{color:#1a7f8e;}
 
-.nav-btns .btn{
-  margin-left:10px;
-}
-
-#menu-toggle{
-  display:none;
-}
-
-.menu-icon{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
-}
-
-/* ================= BUTTON ================= */
+.menu-icon{display:none;}
+#menu-toggle{display:none;}
 
 .btn{
   background:#1a7f8e;
   color:#fff;
-  padding:9px 16px;
+  padding:10px 18px;
   border-radius:6px;
   text-decoration:none;
   font-size:14px;
-  transition:0.3s;
+  transition:.3s;
 }
+.btn.green{background:#6bbf9c;}
+.btn:hover{opacity:.9;}
 
-.btn:hover{
-  opacity:0.9;
-}
-
-.btn.green{
-  background:#6bbf9c;
-}
-
-/* ================= HERO SPLIT ================= */
+/* ================= HERO SPLIT (HOME) ================= */
 
 .hero-split{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:100px 20px;
-  background:#f6fbfb;
+  padding:100px 60px;
 }
 
-.hero-left{
-  width:50%;
-}
-
-.hero-left h1{
-  font-size:38px;
-  color:#1a7f8e;
-  line-height:1.3;
-}
-
-.hero-left span{
-  color:#6bbf9c;
-}
-
-.hero-left p{
-  margin-top:15px;
-  font-size:18px;
-}
-
-.hero-btns{
-  margin-top:25px;
-}
-
-.hero-btns .btn{
-  margin-right:10px;
-}
-
-.hero-right{
-  width:45%;
-}
-
+.hero-left{width:50%;}
+.hero-left span{color:#6bbf9c;}
+.hero-right{width:45%;}
 .hero-right img{
   width:100%;
   border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-/* ================= SECTION BASE ================= */
+/* ================= HERO CENTER (OTHER PAGES) ================= */
+
+.hero{
+  padding:100px 20px 60px;
+  text-align:center;
+  background:#eef6f6;
+}
+
+.hero span{color:#6bbf9c;}
+.hero-btns{margin-top:20px;}
+
+/* ================= SECTION ================= */
 
 .section{
-  padding:80px 20px;
+  padding:80px 60px;
   text-align:center;
 }
 
-.section.light{
-  background:#f6fbfb;
-}
-
-.section.white{
-  background:#ffffff;
-}
+.section.light{background:#f7fbfb;}
+.section.white{background:#fff;}
 
 .section p{
-  max-width:700px;
-  margin:20px auto 0;
-  line-height:1.6;
+  max-width:750px;
+  margin:20px auto;
 }
 
-/* ================= GRID SYSTEM ================= */
+/* ================= GRID ================= */
 
 .grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:25px;
+  gap:30px;
   margin-top:40px;
 }
 
 .card{
   background:#fff;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 6px 18px rgba(0,0,0,.05);
-  transition:0.3s;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.04);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-6px);}
+
+/* ================= BLOG LIST ================= */
+
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:40px;
+  margin-top:50px;
 }
 
-.card:hover{
-  transform:translateY(-4px);
+.blog-card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+  text-align:left;
+}
+
+.blog-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.blog-content{
+  padding:25px;
+}
+
+.blog-meta{
+  font-size:13px;
+  color:#888;
+  margin-bottom:10px;
+}
+
+/* ================= BLOG POST ================= */
+
+.blog-post{
+  max-width:800px;
+  margin:80px auto;
+  padding:0 20px;
+  text-align:left;
+}
+
+.blog-post img{
+  width:100%;
+  border-radius:14px;
+  margin-bottom:30px;
+}
+
+.blog-post h2{
+  margin-top:40px;
 }
 
 /* ================= CTA ================= */
@@ -180,11 +185,7 @@ html, body{
 .cta{
   background:#1a7f8e;
   color:#fff;
-}
-
-.cta .btn{
-  margin-top:20px;
-  display:inline-block;
+  padding:80px 20px;
 }
 
 /* ================= FOOTER ================= */
@@ -196,38 +197,14 @@ footer{
   color:#fff;
 }
 
-/* ================= FLOAT WHATSAPP ================= */
-
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:14px;
-  border-radius:50%;
-  text-decoration:none;
-  font-size:20px;
-  box-shadow:0 4px 10px rgba(0,0,0,.2);
-}
-
-/* ================= TABLET ================= */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:900px){
-
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
+  .grid{grid-template-columns:repeat(2,1fr);}
+  .blog-grid{grid-template-columns:1fr;}
 }
 
-/* ================= MOBILE ================= */
-
 @media(max-width:768px){
-
-  .menu-icon{
-    display:block;
-  }
 
   .nav-links{
     position:absolute;
@@ -241,16 +218,9 @@ footer{
     padding:20px 0;
   }
 
+  .menu-icon{display:block;}
   #menu-toggle:checked + .menu-icon + .nav-links{
     display:flex;
-  }
-
-  .nav-btns{
-    display:none;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
   }
 
   .hero-split{
@@ -263,12 +233,7 @@ footer{
     width:100%;
   }
 
-  .hero-right{
-    margin-top:30px;
+  .grid{
+    grid-template-columns:1fr;
   }
-
-  .hero-left h1{
-    font-size:26px;
-  }
-
 }
