@@ -256,17 +256,40 @@ footer{
   }
 
   .nav-btns{
-    display:none; /* hide Book/Talk on mobile */
+    display:none;
   }
+
+  /* HERO FIX */
 
   .hero-split{
     flex-direction:column;
+    padding:60px 20px;
     text-align:center;
   }
 
-  .hero-left,
+  .hero-left{
+    width:100%;
+  }
+
+  .hero-left h1{
+    font-size:28px;
+  }
+
+  .hero-left p{
+    margin-top:15px;
+  }
+
   .hero-right{
     width:100%;
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .hero-right img{
+    width:85%;
+    max-width:320px;
+    border-radius:14px;
   }
 
   .grid{
@@ -274,3 +297,4 @@ footer{
   }
 
 }
+
