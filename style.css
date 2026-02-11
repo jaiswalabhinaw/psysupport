@@ -9,10 +9,9 @@ html,body{
   color:#333;
 }
 
-h1{font-size:42px;line-height:1.2;}
+h1{font-size:42px;line-height:1.2;margin:0;}
 h2{font-size:30px;margin-bottom:10px;}
 h3{font-size:20px;margin:0;}
-
 p{line-height:1.7;font-size:16px;}
 
 /* ================= NAV ================= */
@@ -48,12 +47,31 @@ p{line-height:1.7;font-size:16px;}
   text-decoration:none;
   color:#444;
   font-weight:500;
+  transition:.3s;
 }
 
-.nav-links a:hover{color:#1a7f8e;}
+.nav-links a:hover{
+  color:#1a7f8e;
+}
 
-.menu-icon{display:none;}
-#menu-toggle{display:none;}
+/* Book / Talk buttons */
+.nav-btns{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.menu-icon{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+#menu-toggle{
+  display:none;
+}
+
+/* ================= BUTTON ================= */
 
 .btn{
   background:#1a7f8e;
@@ -63,9 +81,14 @@ p{line-height:1.7;font-size:16px;}
   text-decoration:none;
   font-size:14px;
   transition:.3s;
+  display:inline-block;
 }
+
 .btn.green{background:#6bbf9c;}
-.btn:hover{opacity:.9;}
+
+.btn:hover{
+  opacity:.9;
+}
 
 /* ================= HERO SPLIT (HOME) ================= */
 
@@ -78,13 +101,14 @@ p{line-height:1.7;font-size:16px;}
 
 .hero-left{width:50%;}
 .hero-left span{color:#6bbf9c;}
+
 .hero-right{width:45%;}
 .hero-right img{
   width:100%;
   border-radius:16px;
 }
 
-/* ================= HERO CENTER (OTHER PAGES) ================= */
+/* ================= HERO CENTER ================= */
 
 .hero{
   padding:100px 20px 60px;
@@ -126,7 +150,10 @@ p{line-height:1.7;font-size:16px;}
   box-shadow:0 8px 20px rgba(0,0,0,.04);
   transition:.3s;
 }
-.card:hover{transform:translateY(-6px);}
+
+.card:hover{
+  transform:translateY(-6px);
+}
 
 /* ================= BLOG LIST ================= */
 
@@ -204,7 +231,13 @@ footer{
   .blog-grid{grid-template-columns:1fr;}
 }
 
+/* ================= MOBILE ================= */
+
 @media(max-width:768px){
+
+  .menu-icon{
+    display:block;
+  }
 
   .nav-links{
     position:absolute;
@@ -218,9 +251,12 @@ footer{
     padding:20px 0;
   }
 
-  .menu-icon{display:block;}
   #menu-toggle:checked + .menu-icon + .nav-links{
     display:flex;
+  }
+
+  .nav-btns{
+    display:none; /* hide Book/Talk on mobile */
   }
 
   .hero-split{
@@ -236,4 +272,5 @@ footer{
   .grid{
     grid-template-columns:1fr;
   }
+
 }
