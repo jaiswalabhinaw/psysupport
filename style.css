@@ -1,20 +1,22 @@
+/* ================= GLOBAL ================= */
 
-html,body{
+html, body{
   margin:0;
   padding:0;
   overflow-x:hidden;
-  font-family:Poppins,Arial,sans-serif;
+  font-family:Poppins, Arial, sans-serif;
   background:#f6fbfb;
   color:#333;
 }
 
-/* NAV */
+/* ================= NAVIGATION ================= */
+
 .nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 20px;
-  background:#fff;
+  background:#ffffff;
   box-shadow:0 2px 8px rgba(0,0,0,.06);
   position:sticky;
   top:0;
@@ -26,21 +28,45 @@ html,body{
   font-weight:600;
   color:#1a7f8e;
 }
-.logo span{color:#6bbf9c;}
+
+.logo span{
+  color:#6bbf9c;
+}
 
 .nav-links{
   list-style:none;
   display:flex;
   gap:25px;
-  padding:0;
   margin:0;
+  padding:0;
 }
 
 .nav-links a{
   text-decoration:none;
   color:#333;
   font-weight:500;
+  transition:0.3s;
 }
+
+.nav-links a:hover{
+  color:#1a7f8e;
+}
+
+.nav-btns .btn{
+  margin-left:10px;
+}
+
+#menu-toggle{
+  display:none;
+}
+
+.menu-icon{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* ================= BUTTON ================= */
 
 .btn{
   background:#1a7f8e;
@@ -49,43 +75,77 @@ html,body{
   border-radius:6px;
   text-decoration:none;
   font-size:14px;
+  transition:0.3s;
 }
-.btn.green{background:#6bbf9c;}
 
-#menu-toggle{display:none;}
-.menu-icon{display:none;font-size:26px;cursor:pointer;}
+.btn:hover{
+  opacity:0.9;
+}
 
-/* HERO */
+.btn.green{
+  background:#6bbf9c;
+}
+
+/* ================= HERO ================= */
+
 .hero{
   padding:120px 20px;
   text-align:center;
-  background:linear-gradient(rgba(232,246,246,0.9),rgba(246,251,251,0.95)),
+  background:linear-gradient(rgba(232,246,246,0.92),rgba(246,251,251,0.95)),
   url("hero.jpg") center/cover no-repeat;
 }
 
 .hero h1{
-  font-size:40px;
+  font-size:38px;
   color:#1a7f8e;
+  line-height:1.3;
 }
-.hero span{color:#6bbf9c;}
-.hero p{margin-top:15px;font-size:18px;}
-.hero-btns{margin-top:25px;}
-.hero-btns .btn{margin:0 8px;}
 
-/* SECTIONS */
+.hero span{
+  color:#6bbf9c;
+}
+
+.hero p{
+  margin-top:15px;
+  font-size:18px;
+}
+
+.hero-btns{
+  margin-top:25px;
+}
+
+.hero-btns .btn{
+  margin:0 8px;
+}
+
+/* ================= SECTION BASE ================= */
+
 .section{
-  padding:70px 20px;
+  padding:80px 20px;
   text-align:center;
 }
 
-.light{background:#f6fbfb;}
-.white{background:#ffffff;}
+.section.light{
+  background:#f6fbfb;
+}
 
-.grid-4{
+.section.white{
+  background:#ffffff;
+}
+
+.section p{
+  max-width:700px;
+  margin:20px auto 0;
+  line-height:1.6;
+}
+
+/* ================= GRID SYSTEM ================= */
+
+.grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:20px;
-  margin-top:35px;
+  gap:25px;
+  margin-top:40px;
 }
 
 .card{
@@ -93,21 +153,35 @@ html,body{
   padding:25px;
   border-radius:12px;
   box-shadow:0 6px 18px rgba(0,0,0,.05);
+  transition:0.3s;
 }
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+/* ================= CTA ================= */
 
 .cta{
   background:#1a7f8e;
   color:#fff;
 }
-.cta .btn{margin-top:20px;display:inline-block;}
 
-/* FOOTER */
+.cta .btn{
+  margin-top:20px;
+  display:inline-block;
+}
+
+/* ================= FOOTER ================= */
+
 footer{
   text-align:center;
-  padding:30px 20px;
+  padding:40px 20px;
   background:#1a7f8e;
   color:#fff;
 }
+
+/* ================= FLOAT WHATSAPP ================= */
 
 .whatsapp{
   position:fixed;
@@ -119,19 +193,26 @@ footer{
   border-radius:50%;
   text-decoration:none;
   font-size:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
 
-/* TABLET */
+/* ================= TABLET ================= */
+
 @media(max-width:900px){
-  .grid-4{
+
+  .grid{
     grid-template-columns:repeat(2,1fr);
   }
+
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
+
 @media(max-width:768px){
 
-  .menu-icon{display:block;}
+  .menu-icon{
+    display:block;
+  }
 
   .nav-links{
     position:absolute;
@@ -149,11 +230,16 @@ footer{
     display:flex;
   }
 
-  .nav-btns{display:none;}
+  .nav-btns{
+    display:none;
+  }
 
-  .grid-4{
+  .grid{
     grid-template-columns:1fr;
   }
 
-  .hero h1{font-size:28px;}
+  .hero h1{
+    font-size:26px;
+  }
+
 }
