@@ -34,7 +34,7 @@
   </ul>
 
   <div class="nav-btns">
-    <a href="#" class="btn">Book</a>
+    <a href="#booking" class="btn">Book a Session</a>
     <a href="#" class="btn green">Talk</a>
   </div>
 </nav>
@@ -53,7 +53,8 @@
     </p>
 
     <div class="hero-btns">
-      <a href="#" class="btn">Book a Session</a>
+      <a href="#booking" class="btn">Book a Session</a>
+
       <a href="https://wa.me/919654846611?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session." 
    class="btn green" target="_blank">
    Talk on WhatsApp
@@ -229,12 +230,33 @@
   </p>
 </section>
 
+<!-- BOOKING FORM -->
+<section class="section light" id="booking">
+  <h2>Book a Session</h2>
+  <p>Please fill details below. We will confirm your slot on WhatsApp.</p>
+
+  <form id="bookingForm" class="booking-form">
+    <input type="text" id="name" placeholder="Your Full Name" required>
+    
+    <input type="text" id="concern" placeholder="Your Concern (Anxiety, Stress etc)" required>
+    
+    <input type="date" id="date" required>
+    
+    <input type="time" id="time" required>
+    
+    <button type="submit" class="btn green">
+      Confirm Booking on WhatsApp
+    </button>
+  </form>
+</section>
+
 <!-- FINAL CTA -->
 <section class="section cta">
   <h2>Ready to Take the First Step?</h2>
   <p>You deserve clarity, calm and emotional balance.</p>
   <div style="margin-top:20px;">
-    <a href="#" class="btn">Book Your Session</a>
+    <a href="#booking" class="btn">Book Your Session</a>
+
     <a href="https://wa.me/919654846611?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session." 
    class="btn green" target="_blank">
    Talk on WhatsApp
@@ -253,6 +275,26 @@
    💬
 </a>
 
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var concern = document.getElementById("concern").value;
+    var date = document.getElementById("date").value;
+    var time = document.getElementById("time").value;
+
+    var message = "Hello PsySupport,%0A%0AI would like to book a session.%0A%0A" +
+                  "Name: " + name + "%0A" +
+                  "Concern: " + concern + "%0A" +
+                  "Preferred Date: " + date + "%0A" +
+                  "Preferred Time: " + time + "%0A%0AThank you.";
+
+    var whatsappURL = "https://wa.me/919654846611?text=" + message;
+
+    window.open(whatsappURL, "_blank");
+});
+</script>
 
 </body>
 </html>
