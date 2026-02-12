@@ -31,7 +31,7 @@
   "name": "PsySupport",
   "image": "https://www.psysupport.in/hero.jpg",
   "url": "https://www.psysupport.in",
-  "telephone": "+91 9654846611",
+  "telephone": "+91 8756680477",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Noida",
@@ -82,35 +82,35 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero-split">
-  <div class="hero-left">
-    <h1>
-      Stress Anxiety Anxious Fearness
-      <span>and seeking for mental wellness</span>
-    </h1>
+<section class="hero-full">
+  <div class="hero-overlay">
+    <div class="hero-content">
 
-    <p class="hero-sub">
-      PsySupport team offers a calm, judgement-free space where your
-      thoughts are heard, understood and gently guided toward clarity. Its an online platform  for complete metal wellness where we helping you to feel lighter and more in control to overcome with imotional imbalance .
-    </p>
+      <h1>
+        Mental Health Counseling in Noida
+        <span>Support for Stress, Anxiety & Emotional Wellness</span>
+      </h1>
 
-    <div class="hero-btns">
-      <a href="#booking" class="btn">Book a Session</a>
+      <p class="hero-emotion">
+        Struggling with overthinking? When thoughts don’t stop and anxiety feels overwhelming, professional guidance can help.
+      </p>
 
-      <a href="https://wa.me/919654846611?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session." 
-   class="btn green" target="_blank">
-   Talk on WhatsApp
-</a>
+      <p class="hero-sub">
+        Our mental health counseling services in Noida are designed to support individuals facing anxiety disorders, chronic stress and emotional imbalance. Through structured and confidential sessions, we help you build clarity, emotional regulation and long-term resilience.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#booking" class="btn">Book a Session</a>
+        <a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session." 
+           class="btn green" target="_blank">
+           Talk on WhatsApp
+        </a>
+      </div>
 
     </div>
   </div>
-
-  <div class="hero-right">
-    <img src="hero.jpg" loading="lazy" alt="Mental health counseling session in Noida for anxiety and stress support">
-
-  </div>
 </section>
+
 
 
 <!-- ABOUT -->
@@ -302,7 +302,7 @@
   <div style="margin-top:20px;">
     <a href="#booking" class="btn">Book Your Session</a>
 
-    <a href="https://wa.me/919654846611?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session." 
+    <a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session." 
    class="btn green" target="_blank">
    Talk on WhatsApp
 </a>
@@ -312,7 +312,7 @@
 <section class="section white">
   <h2>Contact PsySupport – Noida</h2>
   <p><strong>Location:</strong> Noida, Uttar Pradesh, India</p>
-  <p><strong>Phone:</strong> +91 9654846611</p>
+  <p><strong>Phone:</strong> +91 8756680477</p>
   <p><strong>Service Area:</strong> Noida, Greater Noida, Delhi NCR & Online Across India</p>
 </section>
 
@@ -325,7 +325,7 @@
 </footer>
 
 
-<a href="https://wa.me/919654846611?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session." 
+<a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session." 
    class="whatsapp" target="_blank">
    💬
 </a>
@@ -362,7 +362,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
         "Preferred Time: " + formattedTime + "%0A%0A" +
         "Please confirm available slot.";
 
-    var whatsappURL = "https://wa.me/919654846611?text=" + message;
+    var whatsappURL = "https://wa.me/918756680477?text=" + message;
 
     window.open(whatsappURL, "_blank");
 
@@ -371,7 +371,32 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
 });
 </script>
 
+<script>
+window.addEventListener("scroll", function() {
+  const nav = document.querySelector(".nav");
+  if (window.scrollY > 50) {
+    nav.style.background = "rgba(255,255,255,0.95)";
+    nav.style.boxShadow = "0 5px 20px rgba(0,0,0,0.08)";
+  } else {
+    nav.style.background = "rgba(255,255,255,0.85)";
+    nav.style.boxShadow = "none";
+  }
+});
+</script>
 
+
+<script>
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      section.classList.add("visible");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
