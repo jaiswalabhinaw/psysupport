@@ -233,95 +233,52 @@ img {
 }
 
 /* ===============================
-   BOOKING FORM
+   APPROACH SECTION FIX
 ================================= */
-.booking-form {
-  max-width: 500px;
-  margin: 30px auto;
+
+.approach-container {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.booking-form input {
-  padding: 14px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-.booking-form button {
-  cursor: pointer;
-}
-
-/* ===============================
-   BLOG
-================================= */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 50px;
+  align-items: flex-start;
+  justify-content: space-between;
   margin-top: 40px;
 }
 
-.blog-card {
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+.approach-left {
+  flex: 1;
+  text-align: left;
 }
 
-.blog-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.approach-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.blog-content {
-  padding: 20px;
+.approach-points {
+  margin-top: 25px;
+  padding-left: 20px;
+  line-height: 1.8;
 }
 
-.blog-meta {
-  font-size: 13px;
-  color: #777;
-  margin-bottom: 10px;
+.approach-points li {
+  margin-bottom: 12px;
 }
 
-.blog-post {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 0 20px;
-}
-
-.blog-post img {
-  margin-bottom: 25px;
-  border-radius: 10px;
-}
-
-/* ===============================
-   FOOTER
-================================= */
-footer {
-  text-align: center;
-  padding: 30px 10px;
-  background: #111;
-  color: #fff;
-  font-size: 14px;
-}
-
-/* ===============================
-   WHATSAPP FLOAT
-================================= */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--secondary);
-  color: #fff;
-  font-size: 22px;
-  padding: 14px 18px;
-  border-radius: 50%;
+.link-card {
   text-decoration: none;
-  z-index: 9999;
+  color: var(--dark);
+  padding: 20px;
+  border-radius: 14px;
+  background: #f8fafa;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.link-card:hover {
+  transform: translateY(-4px);
+  background: #eef6f6;
 }
 
 /* ===============================
@@ -366,6 +323,21 @@ footer {
 
   .hero-full h1 {
     font-size: 34px;
+  }
+
+  /* APPROACH MOBILE */
+  .approach-container {
+    flex-direction: column;
+  }
+
+  .approach-left {
+    text-align: center;
+  }
+
+  .approach-points {
+    text-align: left;
+    max-width: 500px;
+    margin: 20px auto;
   }
 }
 
