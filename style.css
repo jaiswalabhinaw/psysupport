@@ -106,50 +106,61 @@ img {
   opacity: 0.9;
 }
 
+
 /* ===============================
-   HERO (HOME)
+   HERO (IMPROVED ALIGNMENT)
 ================================= */
 .hero-split {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 100px 8%;
-  gap: 50px;
+  padding: 110px 8%;
+  gap: 60px;
   background: var(--light-bg);
 }
 
 .hero-left {
   flex: 1;
+  max-width: 550px;
 }
 
 .hero-left h1 {
-  font-size: 42px;
+  font-size: 33px;
   margin-bottom: 20px;
   line-height: 1.2;
+  font-weight: 600;
 }
 
 .hero-left span {
   color: var(--secondary);
+  display: block;
+  margin-top: 10px;
 }
 
-.hero-left p {
-  margin-bottom: 30px;
-  font-size: 17px;
+.hero-sub {
+  margin-bottom: 35px;
+  font-size: 18px;
   color: #555;
+  line-height: 1.6;
 }
 
 .hero-btns {
   display: flex;
-  gap: 15px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
 .hero-right {
   flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-right img {
-  border-radius: 16px;
+  border-radius: 18px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 /* ===============================
