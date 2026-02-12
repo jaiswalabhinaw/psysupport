@@ -41,14 +41,14 @@ img {
   position: relative;
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: 600;
+.logo img {
+  max-height: 70px;
+  height: auto;
+  width: auto;
+  display: block;
 }
 
-.logo span {
-  color: var(--secondary);
-}
+
 
 #menu-toggle {
   display: none;
@@ -394,3 +394,4 @@ footer {
     flex-direction: column;
   }
 }
+
