@@ -284,17 +284,24 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
     var date = document.getElementById("date").value;
     var time = document.getElementById("time").value;
 
-    var message = "Hello PsySupport,%0A%0AI would like to book a session.%0A%0A" +
-                  "Name: " + name + "%0A" +
-                  "Concern: " + concern + "%0A" +
-                  "Preferred Date: " + date + "%0A" +
-                  "Preferred Time: " + time + "%0A%0AThank you.";
+    // Format time to AM/PM
+    var formattedTime = new Date("1970-01-01T" + time + "Z")
+        .toLocaleTimeString("en-IN", {hour: '2-digit', minute:'2-digit'});
+
+    var message = 
+        "New Booking Request – PsySupport%0A%0A" +
+        "Name: " + name + "%0A" +
+        "Concern: " + concern + "%0A" +
+        "Preferred Date: " + date + "%0A" +
+        "Preferred Time: " + formattedTime + "%0A%0A" +
+        "Please confirm available slot.";
 
     var whatsappURL = "https://wa.me/919654846611?text=" + message;
 
     window.open(whatsappURL, "_blank");
 });
 </script>
+
 
 </body>
 </html>
