@@ -403,17 +403,43 @@ background: rgba(255,255,255,0.85);
     grid-template-columns: 1fr;
   }
 
+  /* Reduce section spacing */
   .section {
-    padding: 70px 6%;
+    padding: 50px 20px;
   }
 
-  .btn {
+  /* Fix hero height */
+  .hero-full {
+    min-height: auto;
+    padding: 60px 20px;
+  }
+
+  /* Better headline scale */
+  .hero-full h1 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  /* Improve paragraph spacing */
+  .hero-emotion {
+    font-size: 15px;
+    margin: 14px 0;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  /* Stack buttons properly */
+  .hero-btns {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-btns .btn {
     width: 100%;
-    text-align: center;
   }
 
-  .hero-full h1,
-  .hero h1 {
-    font-size: 28px;
-  }
 }
+
