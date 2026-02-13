@@ -129,13 +129,11 @@ background: rgba(255,255,255,0.85);
 ================================= */
 .hero-full {
   position: relative;
-  height: 85vh;   /* smaller height */
+  height: 75vh;   /* smaller height */
   display: flex;
   align-items: center;
   overflow: hidden;
 }
-
-
 
 
 
@@ -174,7 +172,7 @@ background: rgba(255,255,255,0.85);
 
 
 .hero-full h1 {
-  font-size: 40px;
+  font-size: 35px;
   margin-bottom: 18px;
 }
 
@@ -192,7 +190,7 @@ background: rgba(255,255,255,0.85);
 }
 
 .hero-sub {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.8;
   margin-bottom: 32px;
   max-width: 560px;
