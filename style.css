@@ -22,7 +22,10 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: var(--dark);
+  background: #dde5ec;
+   
 }
+
 
 img {
   max-width: 100%;
@@ -41,6 +44,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 9999;
+background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
 }
 
 .logo img {
@@ -83,16 +88,22 @@ img {
    BUTTONS
 ================================= */
 .btn {
-  padding: 12px 22px;
-  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;   /* same width for both */
+  height: 52px;       /* fixed height */
+  padding: 0 26px;
+  border-radius: 10px;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  display: inline-block;
+  letter-spacing: 0.5px;   /* professional spacing */
   background: var(--primary);
   color: #fff;
   transition: all 0.3s ease;
 }
+
 
 .btn.green {
   background: var(--secondary);
@@ -108,11 +119,14 @@ img {
 ================================= */
 .hero-full {
   position: relative;
-  min-height: 92vh;
+  min-height: 72vh;
   display: flex;
   align-items: center;
   overflow: hidden;
 }
+
+
+
 
 .hero-full::before {
   content: "";
@@ -128,7 +142,7 @@ img {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 120px 8%;
+  padding: 80px 8%;
   display: flex;
   align-items: center;
   background: linear-gradient(
@@ -139,9 +153,14 @@ img {
 }
 
 .hero-content {
-  max-width: 640px;
+  max-width: 600px;   /* tighter width = better alignment */
   color: #fff;
 }
+
+.hero-content p {
+  letter-spacing: 0.3px;
+}
+
 
 .hero-full h1 {
   font-size: 44px;
@@ -155,14 +174,19 @@ img {
 }
 
 .hero-emotion {
-  font-size: 20px;
-  margin: 20px 0;
+  font-size: 19px;
+  line-height: 1.7;
+  margin: 22px 0;
+  max-width: 560px;
 }
 
 .hero-sub {
-  font-size: 18px;
-  margin-bottom: 35px;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  max-width: 560px;
 }
+
 
 /* ===============================
    INNER PAGE HERO
@@ -192,13 +216,20 @@ img {
   margin: 0 auto;
 }
 
-.section.light {
-  background: var(--section-light);
+.section.white {
+  background: #ffffff;
+  border-radius: 18px;
+  margin: 40px auto;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
 }
 
-.section.white {
-  background: #fff;
+.section.light {
+  background: #f8fafc;
+  border-radius: 18px;
+  margin: 40px auto;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.04);
 }
+
 
 .section.cta {
   background: var(--primary);
