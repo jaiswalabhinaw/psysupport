@@ -104,6 +104,16 @@ background: rgba(255,255,255,0.85);
   transition: all 0.3s ease;
 }
 
+/* NAVBAR BUTTONS SMALLER */
+.nav-btns .btn {
+  min-width: 100px;
+  height: 42px;
+  padding: 0 18px;
+  font-size: 14px;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
 
 .btn.green {
   background: var(--secondary);
@@ -119,11 +129,12 @@ background: rgba(255,255,255,0.85);
 ================================= */
 .hero-full {
   position: relative;
-  min-height: 72vh;
+  height: 85vh;   /* smaller height */
   display: flex;
   align-items: center;
   overflow: hidden;
 }
+
 
 
 
@@ -142,7 +153,7 @@ background: rgba(255,255,255,0.85);
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 80px 8%;
+  padding: 55px 8%;
   display: flex;
   align-items: center;
   background: linear-gradient(
@@ -163,7 +174,7 @@ background: rgba(255,255,255,0.85);
 
 
 .hero-full h1 {
-  font-size: 44px;
+  font-size: 40px;
   margin-bottom: 18px;
 }
 
@@ -174,14 +185,14 @@ background: rgba(255,255,255,0.85);
 }
 
 .hero-emotion {
-  font-size: 19px;
+  font-size: 13px;
   line-height: 1.7;
   margin: 22px 0;
   max-width: 560px;
 }
 
 .hero-sub {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.8;
   margin-bottom: 32px;
   max-width: 560px;
