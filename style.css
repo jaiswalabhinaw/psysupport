@@ -129,7 +129,7 @@ background: rgba(255,255,255,0.85);
 ================================= */
 .hero-full {
   position: relative;
-  height: 75vh;   /* smaller height */
+  height: 79vh;   /* smaller height */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -162,12 +162,14 @@ background: rgba(255,255,255,0.85);
 }
 
 .hero-content {
-  max-width: 600px;   /* tighter width = better alignment */
+  max-width: 520px;  /* tighter width = better alignment */
   color: #fff;
+  text-align: left;
 }
 
 .hero-content p {
   letter-spacing: 0.3px;
+    text-align: justify;
 }
 
 
