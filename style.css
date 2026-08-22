@@ -640,6 +640,29 @@ footer a:hover {
   color: var(--primary);
 }
 
+/* In-body links: brand colour instead of default browser blue.
+   Scoped to paragraphs and lists so buttons and cards are unaffected. */
+.section p a:not(.btn),
+.section li a:not(.btn),
+.blog-post p a:not(.btn),
+.blog-post li a:not(.btn) {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.section p a:not(.btn):hover,
+.section li a:not(.btn):hover,
+.blog-post p a:not(.btn):hover,
+.blog-post li a:not(.btn):hover {
+  color: #145c6b;
+}
+
+.section.cta p a:not(.btn) {
+  color: #fff;
+}
+
 .view-all {
   margin-top: 24px;
 }
