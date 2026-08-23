@@ -147,7 +147,11 @@ background: rgba(255,255,255,0.85);
 ================================= */
 .hero-full {
   position: relative;
-  height: 79vh;   /* smaller height */
+  /* min-height, not height: a fixed height combined with overflow:hidden and
+     align-items:center clips the TOP of the heading when content is taller
+     than the box (common on Android, where the address bar shrinks vh and
+     system font scaling makes text taller). min-height lets it grow instead. */
+  min-height: 79vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -351,6 +355,20 @@ background: rgba(255,255,255,0.85);
 /* ===============================
    RESPONSIVE
 ================================= */
+
+/* Short viewports (phones in landscape, small windows). Width-based
+   breakpoints miss these: a landscape phone can be wider than 600px while
+   only ~360px tall, where 79vh is far too short for the hero content. */
+@media (max-height: 640px) {
+  .hero-full {
+    min-height: auto;
+  }
+
+  .hero-overlay {
+    padding: 40px 8%;
+  }
+}
+
 @media (max-width: 992px) {
 
   .grid {
