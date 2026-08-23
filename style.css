@@ -3,7 +3,12 @@
 ================================= */
 :root {
   --primary: #1f7a8c;
+  /* Light green: only for text on DARK backgrounds (hero overlay, footer),
+     where it already meets WCAG AA. */
   --secondary: #66c2a5;
+  /* Accessible green: same hue, darkened so white text on it, and it as text
+     on white/light backgrounds, both clear WCAG AA 4.5:1. */
+  --secondary-dark: #317a63;
   --dark: #2f2f2f;
   --light-bg: #eef3f4;
   --section-light: #f7f9fa;
@@ -128,13 +133,13 @@ background: rgba(255,255,255,0.85);
 
 .nav-btns .btn.green {
   background: transparent;
-  border: 2px solid var(--secondary);
-  color: var(--secondary);
+  border: 2px solid var(--secondary-dark);
+  color: var(--secondary-dark);
 }
 
 
 .btn.green {
-  background: var(--secondary);
+  background: var(--secondary-dark);
 }
 
 .btn:hover {
@@ -243,7 +248,7 @@ background: rgba(255,255,255,0.85);
 }
 
 .hero span {
-  color: var(--secondary);
+  color: var(--secondary-dark);
 }
 
 /* ===============================
@@ -350,6 +355,59 @@ background: rgba(255,255,255,0.85);
 .link-card:hover {
   transform: translateY(-4px);
   background: #eef6f6;
+}
+
+/* ===============================
+   BOOKING FORM
+================================= */
+.booking-form {
+  max-width: 460px;
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;   /* .section centres text; fields read better left-aligned */
+}
+
+.booking-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.booking-form label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.booking-form input {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--dark);
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #b9cbcf;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.booking-form input::placeholder {
+  color: #5f6c6e;   /* meets contrast on white */
+}
+
+.booking-form input:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+
+.booking-form button {
+  width: 100%;
+  margin-top: 4px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 /* ===============================
