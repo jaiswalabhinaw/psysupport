@@ -155,6 +155,8 @@
   </div>
 </nav>
 
+<main id="main">
+
 <section class="hero-full">
   <div class="hero-overlay">
     <div class="hero-content">
@@ -354,14 +356,28 @@
   <p>Please fill details below. We will confirm your slot on WhatsApp.</p>
 
   <form id="bookingForm" class="booking-form">
-    <input type="text" id="name" placeholder="Your Full Name" required>
-    
-    <input type="text" id="concern" placeholder="Your Concern (Anxiety, Stress etc)" required>
-    
-    <input type="date" id="date" required>
-    
-    <input type="time" id="time" required>
-    
+    <div class="field">
+      <label for="name">Your full name</label>
+      <input type="text" id="name" name="name" autocomplete="name"
+             placeholder="e.g. Priya Sharma" required>
+    </div>
+
+    <div class="field">
+      <label for="concern">What would you like support with?</label>
+      <input type="text" id="concern" name="concern"
+             placeholder="e.g. anxiety, overthinking, work stress" required>
+    </div>
+
+    <div class="field">
+      <label for="date">Preferred date</label>
+      <input type="date" id="date" name="date" required>
+    </div>
+
+    <div class="field">
+      <label for="time">Preferred time</label>
+      <input type="time" id="time" name="time" required>
+    </div>
+
     <button type="submit" class="btn green">
       Confirm Booking on WhatsApp
     </button>
@@ -420,6 +436,8 @@
   <p><strong>Service Area:</strong> Noida, Greater Noida, Ghaziabad, Delhi NCR & online across India</p>
   <p><strong>How sessions work:</strong> All sessions are conducted online over secure video. PsySupport does not operate a walk-in office.</p>
 </section>
+
+</main>
 
 <footer>
   <p>
