@@ -13,7 +13,12 @@
 
 <link rel="canonical" href="https://www.psysupport.in/">
 
-<link rel="preload" as="image" href="hero.jpg" fetchpriority="high">
+<!-- Preloads the WebP only: virtually all current browsers support WebP and
+     will pick it via image-set() in style.css, so preloading both here
+     would just double the download. Browsers without WebP support silently
+     skip this preload and fall back to the JPEG via the normal CSS
+     background-image cascade, without a warmed cache. -->
+<link rel="preload" as="image" href="hero.webp" type="image/webp" fetchpriority="high">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -120,7 +125,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -501,30 +508,20 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
 </script>
 
 <script>
+const navEl = document.querySelector(".nav");
+let navScrolled = false;
 window.addEventListener("scroll", function() {
-  const nav = document.querySelector(".nav");
-  if (window.scrollY > 50) {
-    nav.style.background = "rgba(255,255,255,0.95)";
-    nav.style.boxShadow = "0 5px 20px rgba(0,0,0,0.08)";
+  const shouldBeScrolled = window.scrollY > 50;
+  if (shouldBeScrolled === navScrolled) return; // avoid redundant style writes
+  navScrolled = shouldBeScrolled;
+  if (navScrolled) {
+    navEl.style.background = "rgba(255,255,255,0.95)";
+    navEl.style.boxShadow = "0 5px 20px rgba(0,0,0,0.08)";
   } else {
-    nav.style.background = "rgba(255,255,255,0.85)";
-    nav.style.boxShadow = "none";
+    navEl.style.background = "rgba(255,255,255,0.85)";
+    navEl.style.boxShadow = "none";
   }
-});
-</script>
-
-
-<script>
-const sections = document.querySelectorAll(".section");
-
-window.addEventListener("scroll", () => {
-  sections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      section.classList.add("visible");
-    }
-  });
-});
+}, { passive: true });
 </script>
 
 </body>

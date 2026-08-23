@@ -168,7 +168,18 @@ background: rgba(255,255,255,0.85);
   content: "";
   position: absolute;
   inset: 0;
+  /* JPEG fallback first (always applies); browsers that understand
+     image-set() with WebP override it with the smaller file below.
+     Browsers that don't recognise image-set() ignore that declaration
+     entirely and keep this fallback, so no @supports guard is needed. */
   background: url('hero.jpg') center center / cover no-repeat;
+  background-image: image-set(
+    url('hero.webp') type('image/webp') 1x,
+    url('hero.jpg') type('image/jpeg') 1x
+  );
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
   filter: blur(1.8px);
   transform: scale(1.05);
   z-index: 0;
