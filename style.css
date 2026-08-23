@@ -10,6 +10,18 @@
 }
 
 /* ===============================
+   TEXT SIZING
+   Prevents Android Chrome from auto-inflating font sizes for
+   readability, which overrides the sizes set below and causes
+   headings to wrap onto extra, cramped lines that don't match the
+   design on iOS/desktop.
+================================= */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ===============================
    RESET
 ================================= */
 * {
