@@ -778,21 +778,21 @@
 
     el("rbody").textContent = band.b + (T.note ? " " + T.note : "");
 
-    // PHQ-9 item 9 asks about thoughts of self-harm. Any answer above
-    // "not at all" gets the crisis numbers, whatever the total score.
+    // Item 9 asks about thoughts of self-harm. Any answer above "not at
+    // all" surfaces this note, whatever the total score. The helpline
+    // numbers live once in the page footer, so they are not repeated here.
     var flagged = (key === "phq9" && answers[8] > 0);
     el("rcrisis").innerHTML = flagged
       ? '<div class="crisis"><b>Please read this one thing</b>'
       + 'You said thoughts of being better off dead or of hurting yourself have come up. Whatever the rest of '
-      + 'the score says, please tell someone today — a person you trust, your doctor, or the KIRAN helpline free on '
-      + '<a href="tel:18005990019">1800-599-0019</a>. If you feel unsafe right now, call <a href="tel:112">112</a>. '
-      + 'PsySupport is not an emergency service, but you do not have to sit with this on your own.</div>'
+      + 'the score says, please tell someone today — a person you trust, or your doctor. '
+      + 'You do not have to sit with this on your own.</div>'
       : "";
 
     el("rsafety").innerHTML =
         '<div class="safety">'
       + '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"/></svg>'
-      + '<span>This is a screening questionnaire, not a diagnosis. PsySupport provides counselling and emotional '
+      + '<span>This is a snapshot of how you are feeling, not a diagnosis. PsySupport provides counselling and emotional '
       + 'support for exactly these patterns — a first conversation costs you nothing, and you can decide afterwards '
       + 'whether to continue.</span></div>';
 
