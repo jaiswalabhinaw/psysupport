@@ -15,9 +15,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@300;400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -106,12 +106,36 @@
     <a href="terms.html">Terms of Use</a> ·
     <a href="tel:+918756680477">+91 87566 80477</a>
   </p>
+  <p class="footer-crisis">
+    PsySupport provides counselling and emotional support, and is not an emergency service.
+    If you are in crisis or having thoughts of self-harm, please call the KIRAN helpline free on
+    <a href="tel:18005990019">1800-599-0019</a>, or emergency services on <a href="tel:112">112</a>.
+  </p>
 </footer>
 
 <a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session."
    class="whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
    💬
 </a>
+
+
+<!-- Always-reachable actions on phones, where the nav buttons are hidden -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="index.html#booking" class="btn">Book a session</a>
+  <a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session."
+     class="btn green" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  var bar = document.getElementById("stickyCta");
+  var booking = document.getElementById("booking");
+  if (!bar || !booking || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(function(entries){
+    bar.setAttribute("data-hidden", entries[0].isIntersecting ? "true" : "false");
+  }, {threshold:0.12}).observe(booking);
+})();
+</script>
 
 </body>
 </html>
