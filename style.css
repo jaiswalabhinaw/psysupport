@@ -1599,3 +1599,103 @@ footer a:hover { text-decoration: underline; }
 }
 .crisis a { color: var(--primary-deep); font-weight: 600; }
 .crisis b { display: block; margin-bottom: 4px; }
+
+/* ------------------------------------------------------------------
+   Score-interpretation tables. These carry the same bands the quiz
+   reports, but as real markup so they are readable without running the
+   test — and indexable.
+------------------------------------------------------------------- */
+.stable-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 18px; }
+
+.stable {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  text-align: left;
+}
+
+.stable caption {
+  text-align: left;
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 19px;
+  color: var(--ink);
+  padding-bottom: 10px;
+}
+
+.stable th, .stable td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.stable thead th {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  border-bottom: 1.5px solid var(--line);
+  white-space: nowrap;
+}
+
+.stable tbody th {
+  font-weight: 600;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.stable tbody tr:nth-child(odd) td,
+.stable tbody tr:nth-child(odd) th { background: var(--mist); }
+
+.stable b { color: var(--ink); font-weight: 600; }
+.stable td:last-child { color: var(--ink-soft); }
+
+/* ------------------------------------------------------------------
+   Optional score history. Opt-in only: a score is written to this
+   browser's storage when the visitor asks for it, never automatically,
+   because a saved depression score on a shared computer is sensitive.
+------------------------------------------------------------------- */
+.hist {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--mist);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.hist b { color: var(--ink); }
+.hist .hist-move { color: var(--primary); font-weight: 600; }
+
+.hist ul { list-style: none; margin: 10px 0 0; padding: 0; }
+.hist li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-top: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+
+.hist-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+
+.minibtn {
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 99px;
+  padding: 7px 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color .18s ease, color .18s ease;
+}
+.minibtn:hover { border-color: var(--primary); color: var(--primary); }
+.minibtn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }

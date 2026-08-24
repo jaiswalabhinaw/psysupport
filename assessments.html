@@ -55,7 +55,7 @@
       "name": "Are my answers private?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Every question is scored inside your own browser. No answer and no score is ever sent to a server, stored, or seen by anyone, including PsySupport."
+        "text": "Yes. Every question is scored inside your own browser and no answer or score is ever sent to PsySupport. Nothing is stored unless you choose to save a score, which is kept only in that browser on that device and can be deleted at any time."
       }
     },
     {
@@ -170,7 +170,7 @@
 
         <p class="privacy-note" style="margin-top:22px">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
-          Everything is scored on your own device. No answer and no score is sent, saved or seen by anyone — including us.
+          Everything is scored on your own device. No answer and no score is ever sent to us, and nothing is saved unless you ask for it — at the end you can choose to keep a score in this browser so you can compare next time.
         </p>
       </div>
 
@@ -209,6 +209,7 @@
         <div class="res-body"><p id="rbody"></p></div>
 
         <div id="rcrisis"></div>
+        <div id="rhist"></div>
         <div id="rsafety"></div>
         <div class="res-cta" id="rcta"></div>
 
@@ -225,6 +226,117 @@
     colleagues, with an educational grant from Pfizer Inc. No permission is required to reproduce, translate,
     display or distribute them.
   </p>
+</section>
+
+<!-- ================= SCORE TABLES ================= -->
+<section class="section light" id="scores">
+  <p class="eyebrow" style="justify-content:center">Score guide</p>
+  <h2>What each score actually means</h2>
+  <p class="section-subtitle">
+    You do not have to take a test to read these. Each questionnaire adds up to a single number, and that
+    number falls into one of a few bands. The bands below are the standard ones clinicians use — they
+    describe how much you are reporting, not what is causing it.
+  </p>
+
+  <div style="max-width:900px;margin:36px auto 0">
+
+    <div class="stable-wrap">
+      <table class="stable">
+        <caption>PHQ-9 depression score, 0&ndash;27</caption>
+        <thead>
+          <tr><th scope="col">Score</th><th scope="col">Band</th><th scope="col">What it usually means, and what tends to help</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">0&ndash;4</th><td><b>Minimal</b></td>
+            <td>The range most people fall into on an ordinary fortnight. If something still feels hard, that counts — no threshold is required to talk to someone.</td>
+          </tr>
+          <tr>
+            <th scope="row">5&ndash;9</th><td><b>Mild</b></td>
+            <td>A few symptoms showing up regularly. Patterns are usually still loose here and shift comparatively easily. Worth watching if it has run more than a month.</td>
+          </tr>
+          <tr>
+            <th scope="row">10&ndash;14</th><td><b>Moderate</b></td>
+            <td>Enough symptoms, often enough, to be affecting concentration, energy and self-image. The point at which talking to a counsellor or doctor is a reasonable step rather than an overreaction.</td>
+          </tr>
+          <tr>
+            <th scope="row">15&ndash;19</th><td><b>Moderately severe</b></td>
+            <td>Most symptoms present on most days. Tiring to live with, and not something willpower is meant to fix. Counselling, plus a doctor&rsquo;s view on anything physical contributing, are both worth arranging.</td>
+          </tr>
+          <tr>
+            <th scope="row">20&ndash;27</th><td><b>Severe</b></td>
+            <td>Nearly everything present nearly every day. A strong signal not to carry this alone. Speaking to a doctor or mental health professional soon is the right next step.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="privacy-note" style="margin:20px 0 44px">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v5m0 3.5h.01M10.3 3.9 2.4 17.5a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0z"/></svg>
+      Question 9 of the PHQ-9 asks about thoughts of self-harm. Any answer above &ldquo;not at all&rdquo; is treated as
+      important on its own, whatever the total comes to.
+    </p>
+
+    <div class="stable-wrap">
+      <table class="stable">
+        <caption>GAD-7 anxiety score, 0&ndash;21</caption>
+        <thead>
+          <tr><th scope="col">Score</th><th scope="col">Band</th><th scope="col">What it usually means, and what tends to help</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">0&ndash;4</th><td><b>Minimal</b></td>
+            <td>Anxiety symptoms are not showing up often. Whatever is keeping you steady is worth protecting.</td>
+          </tr>
+          <tr>
+            <th scope="row">5&ndash;9</th><td><b>Mild</b></td>
+            <td>Present, but not dominating the fortnight. A good point to learn what sets it off and what settles it, before the habits around it harden.</td>
+          </tr>
+          <tr>
+            <th scope="row">10&ndash;14</th><td><b>Moderate</b></td>
+            <td>Taking up real space — sleep, concentration and patience usually go first. Structured support genuinely helps here, and waiting tends to make it harder.</td>
+          </tr>
+          <tr>
+            <th scope="row">15&ndash;21</th><td><b>Severe</b></td>
+            <td>Most symptoms on most days. That level of alertness wears down the body as well as the mind. Worth arranging counselling, and a doctor&rsquo;s view on anything physical feeding it.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stable-wrap" style="margin-top:44px">
+      <table class="stable">
+        <caption>Stress &amp; burnout check, 0&ndash;18</caption>
+        <thead>
+          <tr><th scope="col">Score</th><th scope="col">Band</th><th scope="col">What it usually means, and what tends to help</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">0&ndash;4</th><td><b>Low</b></td>
+            <td>Pressure is there but you are absorbing it. The recovery you are getting is doing its job.</td>
+          </tr>
+          <tr>
+            <th scope="row">5&ndash;8</th><td><b>Moderate</b></td>
+            <td>Running warm. This is the stage where people quietly drop the things that were keeping them steady.</td>
+          </tr>
+          <tr>
+            <th scope="row">9&ndash;12</th><td><b>High</b></td>
+            <td>The pattern that becomes burnout if it runs long enough — depleted, short-tempered, unable to switch off, doing it alone. Responds well to support, better early.</td>
+          </tr>
+          <tr>
+            <th scope="row">13&ndash;18</th><td><b>Very high</b></td>
+            <td>Close to burnout: energy gone, meaning gone, nobody sharing the load. Not a personal failing, and it does not resolve by pushing harder.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="section-subtitle" style="margin-top:22px;font-size:13px">
+      The stress check is a PsySupport reflection rather than a validated instrument, so its bands are a guide
+      only. The PHQ-9 and GAD-7 bands are the published ones.
+    </p>
+
+  </div>
 </section>
 
 <!-- ================= WHAT A SCORE IS AND ISN'T ================= -->
@@ -560,6 +672,99 @@
     return T.bands[T.bands.length - 1];
   }
 
+  /* ----------------------------------------------------------------
+     Optional score history. Nothing is written unless the visitor asks
+     for it: a saved depression score on a shared or family computer is
+     sensitive, so remembering is a deliberate choice, not a default.
+     Storage can also throw outright (private windows, blocked site
+     data), so every access is guarded.
+  ---------------------------------------------------------------- */
+  var STORE = "psy-history";
+
+  function readHist(){
+    try {
+      var raw = window.localStorage.getItem(STORE);
+      var o = raw ? JSON.parse(raw) : {};
+      return (o && typeof o === "object") ? o : {};
+    } catch (e) { return {}; }
+  }
+  function writeHist(o){
+    try { window.localStorage.setItem(STORE, JSON.stringify(o)); return true; }
+    catch (e) { return false; }
+  }
+  function canStore(){
+    try {
+      window.localStorage.setItem(STORE + "-t", "1");
+      window.localStorage.removeItem(STORE + "-t");
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function fmt(iso){
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return iso;
+    var M = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return d.getDate() + " " + M[d.getMonth()] + " " + d.getFullYear();
+  }
+
+  function renderHist(score, saved){
+    var box = el("rhist");
+    if (!canStore()) { box.innerHTML = ""; return; }
+
+    var all = readHist();
+    var mine = (all[key] || []).slice();
+    var html = "";
+
+    var prev = mine.length ? mine[mine.length - 1] : null;
+    if (prev) {
+      var diff = score - prev.s;
+      var move = diff === 0
+        ? "the same as last time"
+        : Math.abs(diff) + " point" + (Math.abs(diff) === 1 ? "" : "s")
+          + (diff < 0 ? " lower" : " higher") + " than last time";
+      html += "<b>Compared with " + fmt(prev.d) + ", when you scored " + prev.s + "/" + T.max + ":</b> "
+            + "today is <span class='hist-move'>" + move + "</span>. "
+            + "A single number moves around; what matters is the direction over a few weeks.";
+      html += "<ul>";
+      mine.slice(-5).forEach(function(r){
+        html += "<li><span>" + fmt(r.d) + "</span><span>" + r.s + " / " + T.max + "</span></li>";
+      });
+      html += "<li><span><b>Today</b></span><span><b>" + score + " / " + T.max + "</b></span></li></ul>";
+    } else {
+      html += "These questionnaires are designed to be repeated. Saving today’s score lets you see the "
+            + "direction of travel when you take it again in a few weeks.";
+    }
+
+    html += "<div class='hist-btns'>";
+    html += saved
+      ? "<span class='minibtn' aria-live='polite'>✓ Saved in this browser</span>"
+      : "<button class='minibtn' type='button' id='hsave'>Remember this score</button>";
+    if (mine.length) html += "<button class='minibtn' type='button' id='hclear'>Delete saved scores</button>";
+    html += "</div>";
+
+    html += "<p style='margin-top:10px;font-size:12px;color:var(--muted)'>Saved scores stay in this browser "
+          + "on this device only. They are never sent to PsySupport, and anyone using this device could see them.</p>";
+
+    box.innerHTML = "<div class='hist'>" + html + "</div>";
+
+    var save = el("hsave");
+    if (save) save.addEventListener("click", function(){
+      var o = readHist();
+      if (!o[key]) o[key] = [];
+      o[key].push({d: new Date().toISOString().slice(0, 10), s: score});
+      o[key] = o[key].slice(-10);      // keep the list short
+      if (writeHist(o)) renderHist(score, true);
+    });
+
+    var clear = el("hclear");
+    if (clear) clear.addEventListener("click", function(){
+      var o = readHist();
+      delete o[key];
+      writeHist(o);
+      renderHist(score, false);
+    });
+  }
+
   function result(){
     moving = false;
     var score = answers.reduce(function(a, b){ return a + (b || 0); }, 0);
@@ -601,6 +806,8 @@
         '<a class="btn" target="_blank" rel="noopener" href="' + WA + encodeURIComponent(msg) + '">Talk about this on WhatsApp</a>'
       + '<a class="btn green" href="index.html#booking">Book a session</a>'
       + '<a class="btn green" href="' + T.read.href + '">Read about ' + T.read.name + '</a>';
+
+    renderHist(score, false);
 
     head.textContent = T.name;
     sub.textContent = "Your result — nothing was sent anywhere.";
