@@ -1526,3 +1526,76 @@ footer a:hover { text-decoration: underline; }
   .res-cta .btn { width: 100%; }
   .btn { min-width: 0; }
 }
+
+/* ------------------------------------------------------------------
+   Assessment picker (assessments.html). Sits inside the same .tool
+   card the self-check uses, so it inherits that card's chrome and only
+   needs the row treatment for each choice.
+------------------------------------------------------------------- */
+.picks { display: grid; gap: 12px; }
+
+.pick {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  background: var(--surface);
+  font-family: 'Poppins', sans-serif;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.pick:hover { border-color: var(--sage); background: var(--mist); transform: translateX(2px); }
+.pick:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+.pick b {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.pick b span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--mist-2);
+  border-radius: 99px;
+  padding: 3px 9px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.pick i { font-style: normal; font-size: 12.5px; color: var(--muted); }
+.pick em { font-style: normal; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+
+/* Score badge on the result screen */
+.score {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 34px;
+  color: var(--primary);
+  line-height: 1;
+}
+.score small { font-size: 15px; color: var(--muted); font-family: 'Poppins', sans-serif; }
+
+.crisis {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: #FDF3EC;
+  border: 1px solid #E8CDB6;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.crisis a { color: var(--primary-deep); font-weight: 600; }
+.crisis b { display: block; margin-bottom: 4px; }
