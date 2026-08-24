@@ -15,12 +15,16 @@
                               so it clears WCAG AA 4.5:1 on white,
                               --mist and --mist-2 alike               */
 
-  --primary: #1F7A8C;      /* existing brand teal                     */
+  --primary: #1E7485;      /* brand teal, darkened from #1F7A8C so it
+                              clears WCAG AA 4.5:1 as text on white,
+                              --mist and --mist-2 alike                */
   --primary-deep: #155F6E;
   --sage: #5FA88C;         /* accessible green on dark grounds        */
   --secondary: #8FD3BD;    /* light green: text on DARK backgrounds   */
-  --secondary-dark: #317a63;
-  --honey: #C9922F;        /* single warm accent, used sparingly      */
+  --secondary-dark: #2A6B56;
+  --honey: #896320;        /* warm accent, darkened from #C9922F: the
+                              step numbers sit on --mist-2 where the old
+                              value was only 2.31:1                    */
 
   --mist: #F1F5F4;         /* page ground                             */
   --mist-2: #E4EDEB;       /* tinted band                             */
@@ -453,14 +457,16 @@ h1, h2, h3 {
 }
 
 .section.cta {
-  background: linear-gradient(135deg, var(--primary-deep), var(--primary) 55%, var(--sage) 145%);
+  /* stays within the dark half of the ramp: the previous gradient ran
+     out to --sage, where white text fell to 2.81:1. */
+  background: linear-gradient(135deg, var(--ink) 0%, var(--primary-deep) 60%, var(--primary) 130%);
   color: #fff;
   max-width: none;
   margin: 0;
 }
 
 .section.cta h2 { color: #fff; }
-.section.cta p { color: #D8ECE8; max-width: 34rem; margin-inline: auto; }
+.section.cta p { color: #EAF5F3; max-width: 34rem; margin-inline: auto; }
 .section.cta .btn { background: #fff; color: var(--primary-deep); border-color: #fff; margin-top: 24px; }
 .section.cta .btn:hover { background: #fff; color: var(--primary-deep); }
 
@@ -1357,6 +1363,29 @@ footer a:hover { text-decoration: underline; }
   .step:first-child { padding: 0 0 0 22px; border-left: 2px solid var(--line); }
 
   .approach-left { text-align: left; }
+}
+
+/* Phones get a 860px-wide crop instead of the 1280px desktop file:
+   same picture, roughly half the bytes. */
+@media (max-width: 860px) {
+  .hero-full::before {
+    background-image: image-set(
+      url('hero-m.webp') type('image/webp') 1x,
+      url('hero.jpg') type('image/jpeg') 1x
+    );
+  }
+}
+
+/* On narrow screens the hero copy spans the full width, so the angled
+   scrim's light end ends up underneath the text. Swap to a near-uniform
+   vertical scrim there. */
+@media (max-width: 860px) {
+  .hero-full::after {
+    background: linear-gradient(180deg,
+      rgba(9,40,46,.90) 0%,
+      rgba(9,40,46,.93) 60%,
+      rgba(9,40,46,.95) 100%);
+  }
 }
 
 /* Sticky bar replaces the hidden nav buttons on phones/tablets */

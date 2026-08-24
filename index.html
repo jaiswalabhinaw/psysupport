@@ -18,7 +18,8 @@
      would just double the download. Browsers without WebP support silently
      skip this preload and fall back to the JPEG via the normal CSS
      background-image cascade, without a warmed cache. -->
-<link rel="preload" as="image" href="hero.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="hero-m.webp" type="image/webp" media="(max-width: 860px)" fetchpriority="high">
+<link rel="preload" as="image" href="hero.webp" type="image/webp" media="(min-width: 861px)" fetchpriority="high">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -125,9 +126,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@300;400;500;600&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -329,7 +330,7 @@
           <p class="q-text" id="qtext"></p>
           <p class="q-hint" id="qhint"></p>
         </div>
-        <div class="opts" id="qopts" role="group" aria-labelledby="qtext"></div>
+        <div class="opts" id="qopts" role="group" aria-label="How often has this applied over the last two weeks?"></div>
         <div class="tool-nav">
           <button class="linkbtn" id="tback" type="button">&larr; Back</button>
           <button class="linkbtn" id="tskip" type="button">Skip this one</button>
@@ -624,7 +625,7 @@
 
 <a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session."
    class="whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-   💬
+   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"/></svg>
 </a>
 
 <!-- Always-reachable actions on phones, where the nav buttons are hidden -->
@@ -662,21 +663,6 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
   new IntersectionObserver(function(entries){
     bar.setAttribute("data-hidden", entries[0].isIntersecting ? "true" : "false");
   }, {threshold:0.12}).observe(booking);
-})();
-</script>
-
-<script>
-/* Nav background on scroll */
-(function(){
-  var navEl = document.querySelector(".nav");
-  var navScrolled = false;
-  window.addEventListener("scroll", function(){
-    var shouldBeScrolled = window.scrollY > 50;
-    if (shouldBeScrolled === navScrolled) return;   // avoid redundant style writes
-    navScrolled = shouldBeScrolled;
-    navEl.style.background = navScrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.90)";
-    navEl.style.boxShadow  = navScrolled ? "0 5px 20px rgba(13,50,57,0.07)" : "none";
-  }, { passive: true });
 })();
 </script>
 
