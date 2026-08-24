@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Mental Health Journey | Track Progress & Build Habits – PsySupport</title>
+<meta name="description" content="Track your daily mood, weekly progress, work-life balance and celebrate milestones. Build healthy habits with private, personal insights from PsySupport.">
+<meta name="keywords" content="mood tracker, mental health tracking, wellness dashboard, stress tracking, habit building, progress tracking">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.psysupport.in/engagement.html">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<meta property="og:title" content="Track Your Mental Health Journey – PsySupport">
+<meta property="og:description" content="Daily mood tracking, weekly progress dashboard, and personal milestones. All private, all yours.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.psysupport.in/engagement.html">
+<meta property="og:image" content="https://www.psysupport.in/hero.jpg">
+<meta property="og:site_name" content="PsySupport">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Track Your Mental Health Journey – PsySupport">
+<meta name="twitter:description" content="Daily mood tracking, weekly progress dashboard, and personal milestones.">
+<meta name="twitter:image" content="https://www.psysupport.in/hero.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">
+    <a href="index.html">
+      <img src="blogo.png" alt="PsySupport Logo" width="180" height="58">
+    </a>
+  </div>
+
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-icon">☰</label>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="anxiety.html">Anxiety</a></li>
+    <li><a href="overthinking.html">Overthinking</a></li>
+    <li><a href="depression.html">Depression</a></li>
+    <li><a href="assessments.html">Assessments</a></li>
+    <li><a href="engagement.html" aria-current="page">Your Dashboard</a></li>
+    <li><a href="online.html">Online</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+
+  <div class="nav-btns">
+    <a href="index.html#booking" class="btn">Book</a>
+    <a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session."
+       class="btn green" target="_blank" rel="noopener">Talk</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="hero">
+  <h1>Your Mental Health Journey<br><span>Track Progress, Build Habits</span></h1>
+  <p>
+    Daily check-ins, weekly insights, and personal milestones. Everything is private, stored only on your device,
+    and designed to help you understand yourself better over time.
+  </p>
+</section>
+
+<!-- ================= DAILY MOOD PULSE ================= -->
+<section class="section white" id="mood-section">
+  <p class="eyebrow" style="justify-content:center">Today</p>
+  <h2>How are you today?</h2>
+  <p class="section-subtitle" style="margin-bottom:28px">
+    One quick check-in. Takes 5 seconds. Completely private.
+  </p>
+
+  <div class="mood-pulse">
+    <div class="mood-options">
+      <button class="mood-btn" data-mood="1" title="Not well">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
+        <span>Not well</span>
+      </button>
+      <button class="mood-btn" data-mood="2" title="Struggling">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 13s1 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
+        <span>Struggling</span>
+      </button>
+      <button class="mood-btn" data-mood="3" title="Okay">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/><path d="M9 9h.01M15 9h.01"/></svg>
+        <span>Okay</span>
+      </button>
+      <button class="mood-btn" data-mood="4" title="Good">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 13s1-2 4-2 4 2 4 2"/><path d="M9 9h.01M15 9h.01"/></svg>
+        <span>Good</span>
+      </button>
+      <button class="mood-btn" data-mood="5" title="Great">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5-2 4-2 4 2 4 2"/><path d="M9 9h.01M15 9h.01"/></svg>
+        <span>Great</span>
+      </button>
+    </div>
+    <p class="mood-feedback" id="mood-feedback" style="margin-top:20px;text-align:center;color:var(--muted);font-size:14px;min-height:20px"></p>
+  </div>
+
+  <div class="mood-week" id="mood-week" style="margin-top:40px;display:none">
+    <h3 style="font-size:16px;margin-bottom:16px">Your week at a glance</h3>
+    <div class="mood-bars" id="mood-bars" style="display:flex;gap:8px;align-items:flex-end;height:120px;margin-bottom:8px"></div>
+    <p style="font-size:12px;color:var(--muted);text-align:center" id="mood-summary"></p>
+  </div>
+</section>
+
+<!-- ================= WEEKLY REFLECTION ================= -->
+<section class="section light" id="weekly-section">
+  <p class="eyebrow" style="justify-content:center">Weekly</p>
+  <h2>Reflect on your week</h2>
+  <p class="section-subtitle" style="margin-bottom:28px">
+    Optional — help us understand how your week went.
+  </p>
+
+  <div class="tool" id="weekly-tool">
+    <div class="tool-head">
+      <div>
+        <b>Weekly reflection check-in</b>
+        <p>Energy, stress, balance — a quick pulse on how the week is treating you.</p>
+        <span class="tool-flag"><i aria-hidden="true"></i>Free &middot; 1 minute &middot; Private</span>
+      </div>
+    </div>
+    <div class="bar"><i id="weekly-bar"></i></div>
+
+    <div class="tool-body">
+      <!-- Weekly form -->
+      <div id="weekly-form">
+        <div style="margin-bottom:24px">
+          <label style="display:block;margin-bottom:12px;font-weight:500">How's your energy level this week? <span style="color:var(--muted)">(1 = Drained, 10 = Energized)</span></label>
+          <input type="range" id="energy" min="1" max="10" value="5" style="width:100%;height:6px;border-radius:3px;background:var(--mist-2);outline:none;accent-color:var(--primary)">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px">
+            <span id="energy-label" style="font-weight:500;color:var(--ink-soft)">5</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom:24px">
+          <label style="display:block;margin-bottom:12px;font-weight:500">How much stress are you carrying? <span style="color:var(--muted)">(1 = No stress, 10 = Overwhelmed)</span></label>
+          <input type="range" id="stress" min="1" max="10" value="5" style="width:100%;height:6px;border-radius:3px;background:var(--mist-2);outline:none;accent-color:var(--primary)">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px">
+            <span id="stress-label" style="font-weight:500;color:var(--ink-soft)">5</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom:24px">
+          <label style="display:block;margin-bottom:12px;font-weight:500">Work-life balance this week? <span style="color:var(--muted)">(1 = Imbalanced, 10 = Perfectly balanced)</span></label>
+          <input type="range" id="balance" min="1" max="10" value="5" style="width:100%;height:6px;border-radius:3px;background:var(--mist-2);outline:none;accent-color:var(--primary)">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px">
+            <span id="balance-label" style="font-weight:500;color:var(--ink-soft)">5</span>
+          </div>
+        </div>
+
+        <button class="btn" id="save-weekly" type="button" style="width:100%;margin-top:24px">Save This Week's Reflection</button>
+        <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px">Optional — save when you're ready.</p>
+      </div>
+
+      <!-- Weekly trend -->
+      <div id="weekly-trend" style="display:none">
+        <div class="dashboard-card" style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px">
+          <h3 style="font-size:16px;margin-bottom:16px">Your weekly patterns</h3>
+          <div id="weekly-graphs"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DASHBOARD ================= -->
+<section class="section white" id="dashboard-section">
+  <p class="eyebrow" style="justify-content:center">Your progress</p>
+  <h2>Dashboard</h2>
+
+  <div class="dashboard-grid">
+    <!-- Streak card -->
+    <div class="dashboard-card">
+      <div class="card-icon" style="font-size:32px">🔥</div>
+      <h3 id="streak-days">0</h3>
+      <p>Day Streak</p>
+      <span class="card-meta" id="streak-msg">Start checking in today</span>
+    </div>
+
+    <!-- Total checkups -->
+    <div class="dashboard-card">
+      <div class="card-icon" style="font-size:32px">📊</div>
+      <h3 id="total-checkups">0</h3>
+      <p>Total Check-ins</p>
+      <span class="card-meta" id="checkups-msg">Track your progress</span>
+    </div>
+
+    <!-- Avg mood -->
+    <div class="dashboard-card">
+      <div class="card-icon" style="font-size:32px">😊</div>
+      <h3 id="avg-mood">—</h3>
+      <p>Average Mood</p>
+      <span class="card-meta" id="mood-trend">Start checking in</span>
+    </div>
+
+    <!-- Consistency score -->
+    <div class="dashboard-card">
+      <div class="card-icon" style="font-size:32px">⭐</div>
+      <h3 id="consistency-score">0%</h3>
+      <p>Consistency</p>
+      <span class="card-meta">Keep it going</span>
+    </div>
+  </div>
+
+  <!-- Achievements section -->
+  <div style="margin-top:40px">
+    <h3 style="font-size:18px;margin-bottom:20px">Milestones & Achievements</h3>
+    <div class="achievements-grid" id="achievements-grid">
+      <!-- Dynamically populated -->
+    </div>
+  </div>
+
+  <!-- Mood trend chart -->
+  <div style="margin-top:40px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px">
+    <h3 style="font-size:16px;margin-bottom:16px">Your mood over time</h3>
+    <div id="mood-chart-container">
+      <p style="text-align:center;color:var(--muted)">Start checking in daily to see your mood trend</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DAILY INSIGHT ================= -->
+<section class="section light">
+  <p class="eyebrow" style="justify-content:center">Thought for today</p>
+  <h2>Your daily insight</h2>
+
+  <div class="insight-card" id="insight-card">
+    <blockquote id="insight-text">
+      "Progress isn't linear — it's still progress."
+    </blockquote>
+    <button class="linkbtn" id="new-insight" type="button">Get a new insight</button>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section white">
+  <div style="text-align:center;max-width:600px;margin:0 auto">
+    <h2>Ready to talk?</h2>
+    <p style="margin:16px 0 24px">These check-ins help you understand yourself. When you're ready to go deeper, our counsellors are here to help.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="index.html#booking" class="btn">Book a Session</a>
+      <a href="assessments.html" class="btn" style="background:none;border:2px solid var(--primary);color:var(--primary)">Take an Assessment</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>PsySupport</h4>
+      <p>Mental health counseling and support for anxiety, stress, and overthinking.</p>
+      <p style="margin-top:12px;font-size:13px;color:var(--muted)">📞 <a href="tel:+918756680477" style="color:inherit">+91 8756680477</a></p>
+      <p style="font-size:13px;color:var(--muted)">📧 <a href="mailto:support@psysupport.in" style="color:inherit">support@psysupport.in</a></p>
+    </div>
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul style="list-style:none;padding:0">
+        <li><a href="anxiety.html">Anxiety Support</a></li>
+        <li><a href="depression.html">Depression Support</a></li>
+        <li><a href="overthinking.html">Overthinking</a></li>
+        <li><a href="online.html">Online Counselling</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>More</h4>
+      <ul style="list-style:none;padding:0">
+        <li><a href="assessments.html">Assessments</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="text-align:center;padding:20px;border-top:1px solid var(--line);margin-top:20px;font-size:12px;color:var(--muted)">
+    <p>PsySupport © 2025. All rights reserved. | <a href="privacy.html" style="color:inherit">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script>
+  // ================= DATA MANAGEMENT =================
+  const STORAGE_KEY = "psysupport-engagement";
+
+  function getData() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : { moods: [], weekly: [], insights: 0 };
+    } catch (e) {
+      return { moods: [], weekly: [], insights: 0 };
+    }
+  }
+
+  function saveData(data) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function today() {
+    return new Date().toISOString().split('T')[0];
+  }
+
+  // ================= DAILY MOOD PULSE =================
+  const moodBtns = document.querySelectorAll('.mood-btn');
+  const moodFeedback = document.getElementById('mood-feedback');
+  const moodWeek = document.getElementById('mood-week');
+
+  const moodMessages = {
+    1: "Take it easy today. Reach out if you need support.",
+    2: "You're doing your best. That matters.",
+    3: "You're managing. One step at a time.",
+    4: "That's good. Keep going.",
+    5: "Great! That's worth celebrating."
+  };
+
+  moodBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const mood = parseInt(this.dataset.mood);
+      const data = getData();
+      data.moods.push({ date: today(), mood: mood });
+      if (saveData(data)) {
+        moodFeedback.textContent = moodMessages[mood];
+        moodBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        updateMoodDisplay();
+        setTimeout(() => moodFeedback.textContent = "", 4000);
+      }
+    });
+  });
+
+  function updateMoodDisplay() {
+    const data = getData();
+    if (data.moods.length === 0) return;
+
+    // Show week view
+    moodWeek.style.display = 'block';
+
+    // Get last 7 days
+    const last7 = data.moods.slice(-7);
+    const barsContainer = document.getElementById('mood-bars');
+    barsContainer.innerHTML = '';
+
+    last7.forEach(entry => {
+      const bar = document.createElement('div');
+      const height = (entry.mood / 5) * 100;
+      const color = ['#D32F2F', '#FF6F00', '#FDD835', '#7CB342', '#388E3C'][entry.mood - 1];
+      bar.style.cssText = `flex:1;height:${height}%;background:${color};border-radius:4px 4px 0 0;position:relative`;
+      bar.title = ['Not well', 'Struggling', 'Okay', 'Good', 'Great'][entry.mood - 1];
+      barsContainer.appendChild(bar);
+    });
+
+    // Summary
+    const avgMood = Math.round(last7.reduce((sum, e) => sum + e.mood, 0) / last7.length * 2) / 2;
+    const moodLabels = ['Not well', 'Struggling', 'Okay', 'Good', 'Great'];
+    document.getElementById('mood-summary').textContent = `Last 7 days average: ${avgMood}/5 (${moodLabels[Math.round(avgMood) - 1]})`;
+
+    // Update dashboard
+    updateDashboard();
+  }
+
+  // ================= WEEKLY REFLECTION =================
+  const energySlider = document.getElementById('energy');
+  const stressSlider = document.getElementById('stress');
+  const balanceSlider = document.getElementById('balance');
+  const saveWeeklyBtn = document.getElementById('save-weekly');
+
+  [energySlider, stressSlider, balanceSlider].forEach((slider, idx) => {
+    const labels = ['energy-label', 'stress-label', 'balance-label'];
+    slider.addEventListener('input', function() {
+      document.getElementById(labels[idx]).textContent = this.value;
+    });
+  });
+
+  saveWeeklyBtn.addEventListener('click', function() {
+    const data = getData();
+    data.weekly.push({
+      date: today(),
+      energy: parseInt(energySlider.value),
+      stress: parseInt(stressSlider.value),
+      balance: parseInt(balanceSlider.value)
+    });
+    if (saveData(data)) {
+      this.textContent = '✓ Saved!';
+      this.disabled = true;
+      updateWeeklyDisplay();
+      setTimeout(() => {
+        this.textContent = 'Save This Week\'s Reflection';
+        this.disabled = false;
+      }, 2000);
+    }
+  });
+
+  function updateWeeklyDisplay() {
+    const data = getData();
+    if (data.weekly.length === 0) return;
+
+    const last4weeks = data.weekly.slice(-4);
+    const graphsContainer = document.getElementById('weekly-graphs');
+    graphsContainer.innerHTML = '';
+
+    const metrics = [
+      { key: 'energy', label: 'Energy', color: '#FDD835' },
+      { key: 'stress', label: 'Stress', color: '#FF6F00' },
+      { key: 'balance', label: 'Work-Life Balance', color: '#388E3C' }
+    ];
+
+    metrics.forEach(metric => {
+      const graph = document.createElement('div');
+      graph.style.marginBottom = '20px';
+
+      const title = document.createElement('p');
+      title.style.cssText = 'font-size:13px;font-weight:500;margin-bottom:8px;color:var(--ink-soft)';
+      title.textContent = metric.label;
+      graph.appendChild(title);
+
+      const bars = document.createElement('div');
+      bars.style.cssText = 'display:flex;gap:6px;align-items:flex-end;height:60px';
+
+      last4weeks.forEach(week => {
+        const bar = document.createElement('div');
+        const value = week[metric.key];
+        const height = (value / 10) * 100;
+        bar.style.cssText = `flex:1;height:${height}%;background:${metric.color};border-radius:2px;position:relative;`;
+        bar.title = `${value}/10`;
+        bars.appendChild(bar);
+      });
+
+      graph.appendChild(bars);
+      graphsContainer.appendChild(graph);
+    });
+  }
+
+  // ================= DASHBOARD =================
+  function updateDashboard() {
+    const data = getData();
+
+    // Streak
+    let streak = 0;
+    const today_date = today();
+    for (let i = data.moods.length - 1; i >= 0; i--) {
+      const checkDate = data.moods[i].date;
+      const expectedDate = new Date(today_date);
+      expectedDate.setDate(expectedDate.getDate() - (data.moods.length - 1 - i));
+      if (checkDate === expectedDate.toISOString().split('T')[0]) {
+        streak++;
+      } else {
+        break;
+      }
+    }
+
+    document.getElementById('streak-days').textContent = streak;
+    document.getElementById('streak-msg').textContent = streak > 0 ? `Keep it up! 🎯` : 'Start checking in today';
+
+    // Total checkups
+    document.getElementById('total-checkups').textContent = data.moods.length;
+
+    // Average mood
+    if (data.moods.length > 0) {
+      const avg = Math.round(data.moods.reduce((sum, e) => sum + e.mood, 0) / data.moods.length * 2) / 2;
+      const moodEmoji = ['😢', '😕', '😐', '🙂', '😊'][Math.round(avg) - 1];
+      document.getElementById('avg-mood').textContent = `${avg}/5 ${moodEmoji}`;
+
+      // Trend
+      const last3 = data.moods.slice(-3);
+      if (last3.length >= 2) {
+        const trend = last3[last3.length - 1].mood - last3[0].mood;
+        const trendText = trend > 0 ? '📈 Going up!' : trend < 0 ? '📉 Going down' : '➡️ Steady';
+        document.getElementById('mood-trend').textContent = trendText;
+      }
+    }
+
+    // Consistency score
+    const lastMonth = data.moods.filter(m => {
+      const moodDate = new Date(m.date);
+      const thirtyDaysAgo = new Date();
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      return moodDate >= thirtyDaysAgo;
+    });
+
+    const consistency = lastMonth.length > 0 ? Math.round((lastMonth.length / 30) * 100) : 0;
+    document.getElementById('consistency-score').textContent = consistency + '%';
+
+    // Achievements
+    updateAchievements(data);
+
+    // Mood chart
+    if (data.moods.length > 0) {
+      updateMoodChart(data);
+    }
+  }
+
+  // ================= ACHIEVEMENTS =================
+  const achievementsList = [
+    { id: 'first-checkin', name: 'First Step', desc: 'Completed your first mood check-in', icon: '🎯', check: (data) => data.moods.length >= 1 },
+    { id: '7-days', name: 'Week Warrior', desc: '7 days of checking in', icon: '🔥', check: (data) => data.moods.length >= 7 },
+    { id: '30-days', name: 'Consistency Pro', desc: '30 days of tracking', icon: '⭐', check: (data) => data.moods.length >= 30 },
+    { id: 'all-assessments', name: 'Self-Aware', desc: 'Took all 3 assessments', icon: '🧠', check: (data) => {
+      try {
+        const assessData = JSON.parse(localStorage.getItem('psy-assessments') || '{}');
+        return Object.keys(assessData).length >= 3;
+      } catch { return false; }
+    }},
+    { id: 'weekly-reflections', name: 'Reflective', desc: '5 weekly reflections', icon: '📝', check: (data) => data.weekly.length >= 5 },
+    { id: 'positive-streak', name: 'Positive Mind', desc: '5 consecutive "Good" or "Great" moods', icon: '😊', check: (data) => {
+      if (data.moods.length < 5) return false;
+      const last5 = data.moods.slice(-5);
+      return last5.every(m => m.mood >= 4);
+    }}
+  ];
+
+  function updateAchievements(data) {
+    const grid = document.getElementById('achievements-grid');
+    grid.innerHTML = '';
+
+    achievementsList.forEach(achievement => {
+      const unlocked = achievement.check(data);
+      const card = document.createElement('div');
+      card.className = 'achievement-card';
+      card.style.cssText = `
+        background: ${unlocked ? 'var(--surface)' : 'var(--mist-2)'};
+        border: 1px solid ${unlocked ? 'var(--primary)' : 'var(--line)'};
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        opacity: ${unlocked ? '1' : '0.6'};
+        transition: all 0.3s;
+      `;
+
+      card.innerHTML = `
+        <div style="font-size:32px;margin-bottom:12px">${achievement.icon}</div>
+        <h4 style="font-size:14px;font-weight:600;margin-bottom:4px">${achievement.name}</h4>
+        <p style="font-size:12px;color:var(--muted)">${achievement.desc}</p>
+        ${unlocked ? '<p style="font-size:11px;color:var(--primary);margin-top:8px">✓ Unlocked</p>' : '<p style="font-size:11px;color:var(--muted);margin-top:8px">Keep going...</p>'}
+      `;
+
+      grid.appendChild(card);
+    });
+  }
+
+  // ================= MOOD CHART =================
+  function updateMoodChart(data) {
+    const container = document.getElementById('mood-chart-container');
+    if (data.moods.length < 2) return;
+
+    const last30 = data.moods.slice(-30);
+    const width = Math.max(300, last30.length * 20);
+
+    let svg = `<svg width="100%" height="200" viewBox="0 0 ${width} 200" style="overflow:visible">`;
+
+    // Grid lines
+    for (let i = 1; i <= 5; i++) {
+      const y = (200 - 50) * (1 - (i / 5)) + 50;
+      svg += `<line x1="40" y1="${y}" x2="${width}" y2="${y}" stroke="var(--line)" stroke-width="1" stroke-dasharray="4"/>`;
+      svg += `<text x="10" y="${y + 5}" font-size="12" fill="var(--muted)">${i}</text>`;
+    }
+
+    // Path
+    const points = last30.map((entry, idx) => {
+      const x = 40 + (idx / (last30.length - 1 || 1)) * (width - 80);
+      const y = 200 - 50 - (entry.mood / 5) * (200 - 100);
+      return `${x},${y}`;
+    }).join(' ');
+
+    svg += `<polyline points="${points}" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
+
+    // Dots
+    last30.forEach((entry, idx) => {
+      const x = 40 + (idx / (last30.length - 1 || 1)) * (width - 80);
+      const y = 200 - 50 - (entry.mood / 5) * (200 - 100);
+      svg += `<circle cx="${x}" cy="${y}" r="4" fill="var(--primary)"/>`;
+    });
+
+    svg += `</svg>`;
+    container.innerHTML = svg;
+  }
+
+  // ================= DAILY INSIGHT =================
+  const insights = [
+    "Progress isn't linear — it's still progress.",
+    "You don't need to be 'broken' to ask for help.",
+    "Small steps today are giant leaps tomorrow.",
+    "Your feelings are valid, even if they're confusing.",
+    "Healing looks different for everyone.",
+    "Rest is not laziness. It's recovery.",
+    "You're doing better than you think.",
+    "One day at a time. That's enough.",
+    "Your struggle is not your identity.",
+    "It's okay to not be okay sometimes.",
+    "Growth happens in the quiet moments.",
+    "You're allowed to change your mind.",
+    "Self-care isn't selfish. It's necessary.",
+    "Your past doesn't define your future.",
+    "Asking for help is strength, not weakness.",
+    "You deserve kindness, especially from yourself."
+  ];
+
+  let currentInsightIndex = -1;
+
+  function showNewInsight() {
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * insights.length);
+    } while (newIndex === currentInsightIndex && insights.length > 1);
+
+    currentInsightIndex = newIndex;
+    document.getElementById('insight-text').textContent = `"${insights[newIndex]}"`;
+  }
+
+  document.getElementById('new-insight').addEventListener('click', showNewInsight);
+  showNewInsight();
+
+  // ================= INITIALIZATION =================
+  updateMoodDisplay();
+  updateWeeklyDisplay();
+  updateDashboard();
+
+  // Auto-update every minute
+  setInterval(() => {
+    updateDashboard();
+  }, 60000);
+</script>
+
+<style>
+  .mood-options {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .mood-btn {
+    background: var(--surface);
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-soft);
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 80px;
+  }
+
+  .mood-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  .mood-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+  }
+
+  .mood-btn svg {
+    color: currentColor;
+  }
+
+  .mood-week {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .dashboard-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .dashboard-card h3 {
+    font-size: 28px;
+    color: var(--primary);
+    margin: 12px 0;
+  }
+
+  .dashboard-card p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .card-meta {
+    font-size: 12px;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 8px;
+  }
+
+  .card-icon {
+    opacity: 0.8;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .insight-card {
+    background: var(--surface);
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .insight-card blockquote {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary);
+    margin: 0 0 20px;
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .mood-btn {
+      min-width: 70px;
+      padding: 12px 8px;
+      font-size: 11px;
+    }
+
+    .mood-btn svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .dashboard-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .achievement-card {
+      padding: 16px !important;
+    }
+
+    .insight-card blockquote {
+      font-size: 16px;
+    }
+  }
+</style>
+
+</body>
+</html>
