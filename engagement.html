@@ -258,37 +258,29 @@
 
 </main>
 
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-section">
-      <h4>PsySupport</h4>
-      <p>Mental health counseling and support for anxiety, stress, and overthinking.</p>
-      <p style="margin-top:12px;font-size:13px;color:var(--muted)">📞 <a href="tel:+918756680477" style="color:inherit">+91 8756680477</a></p>
-      <p style="font-size:13px;color:var(--muted)">📧 <a href="mailto:support@psysupport.in" style="color:inherit">support@psysupport.in</a></p>
-    </div>
-    <div class="footer-section">
-      <h4>Services</h4>
-      <ul style="list-style:none;padding:0">
-        <li><a href="anxiety.html">Anxiety Support</a></li>
-        <li><a href="depression.html">Depression Support</a></li>
-        <li><a href="overthinking.html">Overthinking</a></li>
-        <li><a href="online.html">Online Counselling</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h4>More</h4>
-      <ul style="list-style:none;padding:0">
-        <li><a href="assessments.html">Assessments</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div style="text-align:center;padding:20px;border-top:1px solid var(--line);margin-top:20px;font-size:12px;color:var(--muted)">
-    <p>PsySupport © 2025. All rights reserved. | <a href="privacy.html" style="color:inherit">Privacy Policy</a></p>
-  </div>
+<footer>
+  <p>
+  <strong>PsySupport</strong> provides mental health counseling and emotional wellness guidance in Noida and online across India.
+  <br>
+  Not a substitute for medical or psychiatric treatment.
+  </p>
+  <p class="footer-links">
+    <a href="about.html">About</a> &middot;
+    <a href="privacy.html">Privacy Policy</a> &middot;
+    <a href="terms.html">Terms of Use</a> &middot;
+    <a href="tel:+918756680477">+91 87566 80477</a>
+  </p>
+  <p class="footer-crisis">
+    PsySupport provides counselling and emotional support, and is not an emergency service.
+    If you are in crisis or having thoughts of self-harm, please call the KIRAN helpline free on
+    <a href="tel:18005990019">1800-599-0019</a>, or emergency services on <a href="tel:112">112</a>.
+  </p>
 </footer>
+
+<a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session."
+   class="whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"/></svg>
+</a>
 
 <script>
   // ================= DATA MANAGEMENT =================
@@ -333,7 +325,12 @@
     btn.addEventListener('click', function() {
       const mood = parseInt(this.dataset.mood);
       const data = getData();
-      data.moods.push({ date: today(), mood: mood });
+      const last = data.moods[data.moods.length - 1];
+      if (last && last.date === today()) {
+        last.mood = mood;          // revising today's answer, not a new day
+      } else {
+        data.moods.push({ date: today(), mood: mood });
+      }
       if (saveData(data)) {
         moodFeedback.textContent = moodMessages[mood];
         moodBtns.forEach(b => b.classList.remove('active'));
@@ -451,17 +448,14 @@
     const data = getData();
 
     // Streak
+    const seen = new Set(data.moods.map(m => m.date));
     let streak = 0;
-    const today_date = today();
-    for (let i = data.moods.length - 1; i >= 0; i--) {
-      const checkDate = data.moods[i].date;
-      const expectedDate = new Date(today_date);
-      expectedDate.setDate(expectedDate.getDate() - (data.moods.length - 1 - i));
-      if (checkDate === expectedDate.toISOString().split('T')[0]) {
-        streak++;
-      } else {
-        break;
-      }
+    const cursor = new Date(today());
+    // Yesterday still counts as an unbroken run until today's check-in lands.
+    if (!seen.has(today())) cursor.setDate(cursor.getDate() - 1);
+    while (seen.has(cursor.toISOString().split('T')[0])) {
+      streak++;
+      cursor.setDate(cursor.getDate() - 1);
     }
 
     document.getElementById('streak-days').textContent = streak;
@@ -510,9 +504,9 @@
     { id: 'first-checkin', name: 'First Step', desc: 'Completed your first mood check-in', icon: '🎯', check: (data) => data.moods.length >= 1 },
     { id: '7-days', name: 'Week Warrior', desc: '7 days of checking in', icon: '🔥', check: (data) => data.moods.length >= 7 },
     { id: '30-days', name: 'Consistency Pro', desc: '30 days of tracking', icon: '⭐', check: (data) => data.moods.length >= 30 },
-    { id: 'all-assessments', name: 'Self-Aware', desc: 'Took all 3 assessments', icon: '🧠', check: (data) => {
+    { id: 'all-assessments', name: 'Self-Aware', desc: 'Saved a score from all three check-ins', icon: '🧠', check: (data) => {
       try {
-        const assessData = JSON.parse(localStorage.getItem('psy-assessments') || '{}');
+        const assessData = JSON.parse(localStorage.getItem('psy-history') || '{}');
         return Object.keys(assessData).length >= 3;
       } catch { return false; }
     }},
