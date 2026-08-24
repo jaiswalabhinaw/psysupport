@@ -764,6 +764,92 @@ a.card:hover .card-go svg { transform: translateX(3px); }
 }
 
 /* ===============================
+   SELF-CHECK: ATTENTION
+   Draws the eye to the self-check without the page feeling like it is
+   flashing. Everything animated is transform/opacity on a pseudo-element,
+   so it is GPU-composited and never triggers layout -- it cannot add to
+   the forced-reflow figure. All of it stops for prefers-reduced-motion,
+   and it switches off permanently once the visitor engages.
+================================= */
+#tstart {
+  position: relative;
+  isolation: isolate;
+}
+
+#tstart::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 13px;
+  border: 2px solid var(--primary);
+  opacity: 0;
+  pointer-events: none;
+  animation: sc-ring 2.8s cubic-bezier(.22, .61, .36, 1) infinite;
+}
+
+@keyframes sc-ring {
+  0%   { transform: scale(1);    opacity: .55; }
+  60%  { transform: scale(1.13); opacity: 0; }
+  100% { transform: scale(1.13); opacity: 0; }
+}
+
+.tool.is-idle {
+  animation: sc-breathe 4.2s ease-in-out infinite;
+}
+
+@keyframes sc-breathe {
+  0%, 100% { box-shadow: 0 2px 4px rgba(13,50,57,.05), 0 16px 40px rgba(13,50,57,.09); }
+  50%      { box-shadow: 0 2px 4px rgba(13,50,57,.06), 0 18px 46px rgba(30,116,133,.20); }
+}
+
+.tool-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: var(--mist-2);
+  color: var(--primary-deep);
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.tool-flag i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: sc-blip 2.8s ease-in-out infinite;
+}
+
+@keyframes sc-blip {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: .35; transform: scale(.72); }
+}
+
+.tool.is-engaged #tstart::after,
+.tool.is-engaged .tool-flag i {
+  animation: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #tstart::after,
+  .tool.is-idle,
+  .tool-flag i {
+    animation: none;
+  }
+
+  #tstart::after {
+    opacity: 0;
+  }
+}
+
+/* ===============================
    SELF-CHECK TOOL
 ================================= */
 .tool {

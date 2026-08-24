@@ -305,6 +305,7 @@
       <div>
         <b>Emotional self-check</b>
         <p>Not a test or a diagnosis — a mirror.</p>
+        <span class="tool-flag"><i aria-hidden="true"></i>Free · 2 minutes</span>
       </div>
       <span class="tool-count" id="tcount">8 questions</span>
     </div>
@@ -706,6 +707,16 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
   var i = 0;
 
   var scrIntro = el("scr-intro"), scrQ = el("scr-q"), scrRes = el("scr-res");
+  var tool = el("tool");
+
+  // Idle "breathing" only while the card is on screen, so nothing animates
+  // off-screen, and never once the visitor has engaged with it.
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function(entries){
+      if (tool.classList.contains("is-engaged")) return;
+      tool.classList.toggle("is-idle", entries[0].isIntersecting);
+    }, {threshold: 0.35}).observe(tool);
+  }
   var bar = el("tbar"), count = el("tcount");
   if (!scrIntro) return;
 
@@ -839,7 +850,11 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
     });
   }
 
-  el("tstart").addEventListener("click", function(){ i = 0; show(scrQ); render(); });
+  el("tstart").addEventListener("click", function(){
+    tool.classList.add("is-engaged");
+    tool.classList.remove("is-idle");
+    i = 0; show(scrQ); render();
+  });
   el("tback").addEventListener("click", function(){ if (i > 0) { i--; render(); } });
   el("tskip").addEventListener("click", function(){ answers[i] = null; next(); });
   el("tredo").addEventListener("click", function(){
