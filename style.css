@@ -1699,3 +1699,198 @@ footer a:hover { text-decoration: underline; }
 }
 .minibtn:hover { border-color: var(--primary); color: var(--primary); }
 .minibtn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* ===============================
+   MOOD DIARY  (engagement.html)
+================================= */
+
+/* An author display rule beats the UA stylesheet's [hidden] {display:none},
+   so anything toggled by the hidden attribute needs this to actually hide. */
+[hidden] { display: none !important; }
+
+.field-label {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.field-opt { font-size: 12px; font-weight: 400; color: var(--muted); }
+
+.field-input {
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--surface);
+  transition: border-color .18s ease;
+}
+.field-input:focus { outline: none; border-color: var(--primary); }
+textarea.field-input { resize: vertical; line-height: 1.5; }
+
+/* the 1–5 scale */
+.mscale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.mstep {
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 12px 4px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+.mstep b {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+}
+.mstep span { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.25; }
+.mstep:hover { border-color: var(--sage); background: var(--mist); transform: translateY(-1px); }
+.mstep.on { border-color: var(--primary); background: var(--mist); }
+.mstep.on b, .mstep.on span { color: var(--primary-deep); }
+.mstep:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* tags */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  border-radius: 99px;
+  padding: 8px 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color .18s ease, background .18s ease, color .18s ease;
+}
+.chip:hover { border-color: var(--sage); }
+.chip.on { border-color: var(--primary); background: var(--mist); color: var(--primary-deep); font-weight: 600; }
+.chip:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.entry-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+.saved-flag { font-size: 12.5px; color: var(--primary); margin-top: 10px; min-height: 18px; }
+
+/* shared panel for calendar + patterns */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  max-width: 760px;
+  margin: 36px auto 0;
+  padding: clamp(22px, 4vw, 34px);
+  text-align: left;
+}
+.cal-empty {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  text-align: center;
+  margin: 0;
+}
+
+/* eight-week grid */
+.cal-wrap { overflow-x: auto; }
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  min-width: 260px;
+  margin-bottom: 6px;
+}
+.cal-days span { font-size: 10.5px; color: var(--muted); text-align: center; }
+.cal {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  min-width: 260px;
+}
+.cell { aspect-ratio: 1; border-radius: 4px; background: var(--mist-2); }
+.cell.k0 { background: var(--mist-2); }
+.cell.k1 { background: #C2694F; }
+.cell.k2 { background: #DBA05E; }
+.cell.k3 { background: #C8CE92; }
+.cell.k4 { background: #8FC4A5; }
+.cell.k5 { background: #4F9077; }
+
+.cal-key {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+.cal-key .k { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.cal-key .k0 { background: var(--mist-2); }
+.cal-key .k1 { background: #C2694F; }
+.cal-key .k3 { background: #C8CE92; }
+.cal-key .k5 { background: #4F9077; }
+.cal-key i { font-style: normal; margin-right: 10px; }
+
+.facts {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.fact b {
+  display: block;
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--primary);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.fact span { font-size: 12px; color: var(--muted); }
+
+/* one finding */
+.insight { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 20px; }
+.insight:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+.insight h3 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 7px;
+}
+.insight p { font-size: 14px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
+
+/* the shareable block */
+.summary {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  background: var(--mist);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@media (max-width: 560px) {
+  .mscale { gap: 5px; }
+  .mstep { padding: 10px 2px 8px; }
+  .mstep b { font-size: 17px; }
+  .mstep span { font-size: 9.5px; }
+  .facts { gap: 18px; }
+  .fact b { font-size: 22px; }
+}
