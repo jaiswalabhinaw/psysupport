@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Wellbeing Challenge | Free Mental Health Quiz – PsySupport</title>
+<meta name="description" content="Take the free weekly wellbeing quiz. Ten questions on sleep, stress and anxiety, every answer explained. Top scorers win a free counselling session or a discount.">
+<meta name="keywords" content="mental health quiz India, wellbeing challenge, sleep quiz, stress quiz, free mental health quiz, wellbeing competition Noida">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.psysupport.in/challenge.html">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<meta property="og:title" content="Weekly Wellbeing Challenge – PsySupport">
+<meta property="og:description" content="Ten questions a week on sleep, stress and anxiety. Every answer explained. Top scorers win a session.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.psysupport.in/challenge.html">
+<meta property="og:image" content="https://www.psysupport.in/hero.jpg">
+<meta property="og:site_name" content="PsySupport">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Weekly Wellbeing Challenge – PsySupport">
+<meta name="twitter:description" content="Ten questions a week on sleep, stress and anxiety. Every answer explained.">
+<meta name="twitter:image" content="https://www.psysupport.in/hero.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.psysupport.in/" },
+    { "@type": "ListItem", "position": 2, "name": "Weekly Wellbeing Challenge", "item": "https://www.psysupport.in/challenge.html" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#1E7485">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">
+    <a href="index.html">
+      <img src="blogo.png" alt="PsySupport Logo" width="180" height="58">
+    </a>
+  </div>
+
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="anxiety.html">Anxiety</a></li>
+    <li><a href="overthinking.html">Overthinking</a></li>
+    <li><a href="depression.html">Depression</a></li>
+    <li><a href="assessments.html">Assessments</a></li>
+    <li><a href="engagement.html">Mood Diary</a></li>
+    <li><a href="challenge.html" aria-current="page">Challenge</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+
+  <div class="nav-btns">
+    <a href="index.html#booking" class="btn">Book</a>
+    <a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session."
+       class="btn green" target="_blank" rel="noopener">Talk</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="hero">
+  <h1>Weekly Wellbeing Challenge<br><span>Ten questions. Every answer explained.</span></h1>
+  <p>
+    A new quiz each week on sleep, stress and how minds actually work &mdash; the things people get
+    told wrongly all the time. Free, takes about three minutes, and you learn something whether you
+    finish first or last.
+  </p>
+</section>
+
+<!-- ================= THE QUIZ ================= -->
+<section class="section white" id="quiz">
+  <p class="eyebrow" style="justify-content:center">This week</p>
+  <h2 id="quiz-title">Sleep, stress and the myths in between</h2>
+  <p class="section-subtitle">
+    Nobody is scored on how they feel. This is a knowledge quiz &mdash; getting a question wrong just
+    means you get told the answer.
+  </p>
+
+  <div class="tool" id="tool">
+    <div class="tool-head">
+      <div>
+        <b id="q-head">Week <span id="week-no"></span></b>
+        <p id="q-sub">Closes Sunday, 11pm</p>
+      </div>
+      <span class="tool-count" id="q-count">10 questions</span>
+    </div>
+    <div class="bar"><i id="q-bar" style="width:0"></i></div>
+
+    <div class="tool-body">
+
+      <!-- start -->
+      <div id="scr-start">
+        <p class="quiz-lead">
+          Ten questions, one at a time. You will see whether you were right straight away, and why.
+          There is no time limit, though answering faster breaks a tie.
+        </p>
+        <button class="btn" type="button" id="start">Start the quiz</button>
+        <p class="privacy-note" style="margin-top:22px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+          Nothing is sent anywhere while you play. You only share anything if you choose to put your
+          score on the leaderboard at the end.
+        </p>
+      </div>
+
+      <!-- question -->
+      <div id="scr-q" hidden>
+        <p class="q-text" id="q-text"></p>
+        <div class="opts" id="q-opts" role="group" aria-label="Choose an answer"></div>
+        <div class="q-feedback" id="q-feedback" hidden>
+          <p class="q-mark" id="q-mark"></p>
+          <p class="q-why" id="q-why"></p>
+          <button class="btn" type="button" id="q-next">Next question</button>
+        </div>
+      </div>
+
+      <!-- result -->
+      <div id="scr-res" hidden aria-live="polite">
+        <div class="q-score">
+          <b id="final-score">0</b>
+          <span>out of <span id="final-total">10</span></span>
+        </div>
+        <p class="q-verdict" id="verdict"></p>
+        <p class="q-time" id="time-took"></p>
+
+        <div id="submit-box"></div>
+
+        <div class="q-review" id="review"></div>
+
+        <div class="tool-nav">
+          <button class="linkbtn" type="button" id="retake">&#8635; Take it again</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEADERBOARD ================= -->
+<section class="section light" id="leaderboard">
+  <p class="eyebrow" style="justify-content:center">Standings</p>
+  <h2>This week&rsquo;s top 15</h2>
+  <p class="section-subtitle">
+    Resets every Monday, so a bad week never keeps you out of the next one. Anyone who would rather
+    not be named appears as a player number instead.
+  </p>
+
+  <div class="panel">
+    <div id="lb-state" class="lb-empty">Loading the board&hellip;</div>
+    <div id="lb-wrap" hidden>
+      <div class="lb-head"><span>Rank</span><span>Player</span><span>Score</span><span>Prize</span></div>
+      <div id="lb"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRIZES ================= -->
+<section class="section white" id="prizes">
+  <p class="eyebrow" style="justify-content:center">What you can win</p>
+  <h2>Prizes are sessions, not cash</h2>
+  <p class="section-subtitle">
+    A conversation with a counsellor is worth more than a small cash prize, and it is the thing we
+    actually have to give.
+  </p>
+
+  <div class="prizes">
+    <div class="prize gold">
+      <b>1st</b>
+      <h3>A full free session</h3>
+      <p>Forty-five minutes with a counsellor, at no charge, online or in person.</p>
+    </div>
+    <div class="prize silver">
+      <b>2nd &ndash; 3rd</b>
+      <h3>Half price session</h3>
+      <p>50% off a first booking, valid for one month from the announcement.</p>
+    </div>
+    <div class="prize bronze">
+      <b>4th &ndash; 15th</b>
+      <h3>25% off</h3>
+      <p>A discount code for a first session, plus the wellbeing guide as a PDF.</p>
+    </div>
+    <div class="prize all">
+      <b>Everyone</b>
+      <h3>The answers, explained</h3>
+      <p>Every question comes with the reasoning behind it, whatever you scored. That part is the point.</p>
+    </div>
+  </div>
+
+  <p class="section-subtitle" style="margin-top:26px;font-size:13px">
+    Winners are announced Monday and contacted on the details they gave. Prizes cannot be exchanged
+    for cash. Full rules are on the <a href="terms.html">terms page</a>.
+  </p>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="section light">
+  <p class="eyebrow" style="justify-content:center">Why a quiz</p>
+  <h2>Why we do not score anyone on their mood</h2>
+  <div class="grid cols-3">
+    <div class="card">
+      <h3>A bad week is not a low score</h3>
+      <p>Ranking people on how they feel would put whoever is struggling most at the bottom every week. That is the opposite of what this is for.</p>
+    </div>
+    <div class="card">
+      <h3>Nobody has to perform</h3>
+      <p>Because the quiz is about knowledge, there is no reason to pretend you are fine to do well. You can be having an awful week and still win.</p>
+    </div>
+    <div class="card">
+      <h3>Your diary stays private</h3>
+      <p>The <a href="engagement.html">mood diary</a> never leaves your phone and has nothing to do with the leaderboard. Only a quiz score is ever shared.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section white">
+  <div style="text-align:center;max-width:640px;margin:0 auto">
+    <h2>Come back next Monday</h2>
+    <p style="margin:14px 0 26px;color:var(--ink-soft)">
+      A new set of ten goes up every week. In between, the mood diary is the thing that actually
+      shows you how your weeks are going.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="engagement.html" class="btn">Open the mood diary</a>
+      <a href="index.html#booking" class="btn green">Book a session</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>
+  <strong>PsySupport</strong> provides mental health counseling and emotional wellness guidance in Noida and online across India.
+  <br>
+  Not a substitute for medical or psychiatric treatment.
+  </p>
+  <p class="footer-links">
+    <a href="about.html">About</a> &middot;
+    <a href="privacy.html">Privacy Policy</a> &middot;
+    <a href="terms.html">Terms of Use</a> &middot;
+    <a href="tel:+918756680477">+91 87566 80477</a>
+  </p>
+  <p class="footer-crisis">
+    PsySupport provides counselling and emotional support, and is not an emergency service.
+    If you are in crisis or having thoughts of self-harm, please call the KIRAN helpline free on
+    <a href="tel:18005990019">1800-599-0019</a>, or emergency services on <a href="tel:112">112</a>.
+  </p>
+</footer>
+
+<a href="https://wa.me/918756680477?text=Hello%20PsySupport,%20I%20want%20to%20book%20a%20session."
+   class="whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"/></svg>
+</a>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ==================================================================
+     CONFIGURATION — the only two lines you need to fill in.
+
+     Both come from SETUP-GOOGLE.md. Until they are filled in the quiz
+     works normally and the leaderboard says it opens soon, so this
+     page is safe to publish before the Google side exists.
+  ================================================================== */
+  var CONFIG = {
+    clientId: "",   // e.g. "1234567890-abc.apps.googleusercontent.com"
+    endpoint: ""    // e.g. "https://script.google.com/macros/s/AKfy.../exec"
+  };
+
+  var el = function (id) { return document.getElementById(id); };
+  var ready = !!(CONFIG.clientId && CONFIG.endpoint);
+
+  /* ---------- this week's questions ----------
+     Ten a week. Swap the list each Monday and bump WEEK_TITLE.
+     `a` is the index of the correct option.                        */
+  var QUESTIONS = [
+    {
+      q: "You have been lying awake for about 25 minutes. What actually helps?",
+      o: ["Stay in bed and keep trying", "Get up, sit somewhere else, come back when sleepy", "Scroll your phone until you feel tired"],
+      a: 1,
+      why: "Lying awake trains the brain to treat bed as a place for being awake. Getting up and returning only when sleepy is standard advice in sleep clinics, and it works better than willpower."
+    },
+    {
+      q: "Which of these is a myth about anxiety?",
+      o: ["It can cause genuine chest pain", "Avoiding what frightens you cures it", "It disturbs sleep and appetite"],
+      a: 1,
+      why: "Avoidance settles the fear for an hour and feeds it for a month. Facing things gradually is what shrinks anxiety. The other two statements are true — anxiety produces real physical symptoms."
+    },
+    {
+      q: "A friend says they feel hopeless. What is the most useful first response?",
+      o: ["Tell them to think positive", "List the reasons they should feel lucky", "Ask what has been hardest, then listen"],
+      a: 2,
+      why: "Being told to cheer up mostly teaches people to stop talking. A genuine question and real attention is what makes someone continue, and continuing is what helps."
+    },
+    {
+      q: "Does asking someone directly whether they are thinking of suicide increase the risk?",
+      o: ["Yes, it plants the idea", "No, and it usually brings relief", "Only if they are already low"],
+      a: 1,
+      why: "This is one of the most harmful myths there is. Research consistently finds that asking directly does not plant the idea — it often comes as a relief, because someone finally said the thing out loud. Ask plainly."
+    },
+    {
+      q: "For calming your body quickly, which breathing pattern works best?",
+      o: ["Breathe in longer than you breathe out", "Breathe out longer than you breathe in", "Breathe in and out equally, as fast as possible"],
+      a: 1,
+      why: "A long exhale is what signals the nervous system to settle. Breathing in for four and out for six or eight does more than the deep, fast breathing people usually attempt when panicking."
+    },
+    {
+      q: "How does regular moderate exercise compare with other treatments for mild depression?",
+      o: ["It makes no real difference", "It has a genuine, measurable effect", "It helps only if you enjoy it"],
+      a: 1,
+      why: "The effect is real and repeatedly measured — for mild to moderate depression, regular exercise performs comparably to some other first-line options. It is not a replacement for treatment when things are severe, but it is not a soft suggestion either."
+    },
+    {
+      q: "During a panic attack, is the body actually in danger?",
+      o: ["Yes, the heart is under strain", "No — it feels awful but it is not dangerous", "Only if it lasts over ten minutes"],
+      a: 1,
+      why: "Panic attacks are intensely unpleasant and completely survivable. Knowing that they peak and pass on their own, usually within minutes, is itself one of the more effective things for reducing them."
+    },
+    {
+      q: "What helps most with constant overthinking?",
+      o: ["Try to stop the thoughts", "Set aside a fixed 15 minutes a day to worry", "Stay busy so you never think"],
+      a: 1,
+      why: "Trying not to think about something reliably produces more of it. Scheduled worry time — a set slot where you let yourself think it through — is a technique counsellors use because postponing works far better than suppressing."
+    },
+    {
+      q: "Are the stages of grief a fixed order everyone passes through?",
+      o: ["Yes, in order, then it ends", "No — grief moves back and forth unpredictably", "Only for close family bereavement"],
+      a: 1,
+      why: "The famous five stages were never meant as a sequence to complete. Real grief loops, doubles back and arrives out of order. Expecting a tidy progression makes people feel they are grieving wrongly."
+    },
+    {
+      q: "Screens late at night disturb sleep mainly because of:",
+      o: ["The light alone", "The light plus what the content does to your mind", "Neither, that is a myth"],
+      a: 1,
+      why: "Blue light gets all the attention, but an argument in a comment thread or a work email at midnight keeps you awake far more effectively than the screen's brightness does. What you look at matters as much as the light."
+    }
+  ];
+
+  var WEEK_TITLE = "Sleep, stress and the myths in between";
+
+  /* ---------- week number, matching the backend ---------- */
+  function weekId(d) {
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    var day = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - day);
+    var start = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    var wk = Math.ceil((((d - start) / 86400000) + 1) / 7);
+    return d.getUTCFullYear() + "-W" + String(wk).padStart(2, "0");
+  }
+
+  /* ---------- state ---------- */
+  var i = 0, answers = [], started = 0, elapsed = 0, locked = false;
+
+  function show(id) {
+    ["scr-start", "scr-q", "scr-res"].forEach(function (x) { el(x).hidden = x !== id; });
+  }
+
+  function askQuestion() {
+    var Q = QUESTIONS[i];
+    locked = false;
+    el("q-count").textContent = "Question " + (i + 1) + " of " + QUESTIONS.length;
+    el("q-bar").style.width = (i / QUESTIONS.length) * 100 + "%";
+    el("q-text").textContent = Q.q;
+    el("q-feedback").hidden = true;
+
+    el("q-opts").innerHTML = "";
+    Q.o.forEach(function (text, idx) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "opt qopt";
+      b.textContent = text;
+      b.addEventListener("click", function () { pick(idx); });
+      el("q-opts").appendChild(b);
+    });
+  }
+
+  function pick(choice) {
+    if (locked) return;
+    locked = true;
+
+    var Q = QUESTIONS[i];
+    var right = choice === Q.a;
+    answers.push(right);
+
+    var btns = el("q-opts").querySelectorAll(".qopt");
+    Array.prototype.forEach.call(btns, function (b, idx) {
+      b.disabled = true;
+      if (idx === Q.a) b.classList.add("correct");
+      else if (idx === choice) b.classList.add("wrong");
+    });
+
+    el("q-mark").textContent = right ? "✓ Correct" : "✕ Not this time";
+    el("q-mark").className = "q-mark " + (right ? "ok" : "no");
+    el("q-why").textContent = Q.why;
+    el("q-feedback").hidden = false;
+    el("q-next").textContent = (i === QUESTIONS.length - 1) ? "See your score" : "Next question";
+  }
+
+  function nextQuestion() {
+    i++;
+    if (i < QUESTIONS.length) askQuestion();
+    else finish();
+  }
+
+  function finish() {
+    elapsed = Math.round((Date.now() - started) / 1000);
+    var score = answers.filter(Boolean).length;
+
+    el("q-bar").style.width = "100%";
+    el("q-count").textContent = "Finished";
+    el("final-score").textContent = score;
+    el("final-total").textContent = QUESTIONS.length;
+
+    el("verdict").textContent =
+      score === QUESTIONS.length ? "Every single one. That is genuinely rare." :
+      score >= 8 ? "Strong score — you know this material." :
+      score >= 5 ? "A decent score, and the explanations below cover the rest." :
+      "Plenty to take away from this one — the explanations are below.";
+
+    var mins = Math.floor(elapsed / 60), secs = elapsed % 60;
+    el("time-took").textContent = "Took you " +
+      (mins ? mins + " min " : "") + secs + " sec. Time is only used to break a tie.";
+
+    el("review").innerHTML = QUESTIONS.map(function (Q, n) {
+      return '<div class="rev"><b>' + Q.q + "</b>" +
+        '<p><span class="' + (answers[n] ? "ok" : "no") + '">' +
+        (answers[n] ? "Correct" : "Missed") + "</span> — the answer is “" +
+        Q.o[Q.a] + "”. " + Q.why + "</p></div>";
+    }).join("");
+
+    buildSubmit(score);
+    show("scr-res");
+  }
+
+  /* ==================================================================
+     SUBMITTING A SCORE
+
+     Until CONFIG is filled in there is no sign-in and no leaderboard,
+     so the page says so plainly rather than showing a button that
+     cannot work.
+  ================================================================== */
+  function buildSubmit(score) {
+    var box = el("submit-box");
+
+    if (!ready) {
+      box.innerHTML =
+        '<div class="soon">' +
+        "<b>The leaderboard opens shortly</b>" +
+        "<p>Sign-in and weekly prizes are being set up. The quiz itself is complete — " +
+        "a new one goes up every Monday, so do come back.</p>" +
+        '<a class="btn" href="engagement.html">Try the mood diary</a>' +
+        "</div>";
+      return;
+    }
+
+    box.innerHTML =
+      '<div class="signin">' +
+      "<b>Put this score on the board?</b>" +
+      "<p>Sign in so your " + score + "/" + QUESTIONS.length +
+      " counts for this week. Winners are announced on Monday.</p>" +
+      '<div id="gbtn"></div>' +
+      '<p class="signin-note">You choose separately whether your name is shown and whether we may ' +
+      "contact you. Nothing is ticked for you.</p>" +
+      "</div>";
+
+    loadGoogle(score);
+  }
+
+  function loadGoogle(score) {
+    var s = document.createElement("script");
+    s.src = "https://accounts.google.com/gsi/client";
+    s.async = true;
+    s.defer = true;
+    s.onload = function () {
+      if (!window.google || !google.accounts || !google.accounts.id) return signInFailed();
+      google.accounts.id.initialize({
+        client_id: CONFIG.clientId,
+        callback: function (res) { onSignIn(res, score); }
+      });
+      google.accounts.id.renderButton(el("gbtn"), {
+        theme: "outline", size: "large", shape: "pill", text: "signin_with", width: 260
+      });
+    };
+    s.onerror = signInFailed;
+    document.head.appendChild(s);
+  }
+
+  function signInFailed() {
+    var g = el("gbtn");
+    if (g) g.innerHTML = '<p class="signin-note">Sign-in could not load just now. ' +
+      "Your score is safe on this page — try again in a moment.</p>";
+  }
+
+  /* Reads the name out of the token purely to greet the person.
+     The backend does its own verification; nothing here is trusted. */
+  function peek(jwt) {
+    try {
+      var part = jwt.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+      return JSON.parse(decodeURIComponent(escape(window.atob(part))));
+    } catch (e) { return {}; }
+  }
+
+  function onSignIn(res, score) {
+    var who = peek(res.credential);
+    var box = el("submit-box");
+
+    box.innerHTML =
+      '<div class="signin">' +
+      '<div class="who"><div class="who-pic">' +
+      ((who.name || "?").charAt(0).toUpperCase()) + "</div><div><b>" +
+      (who.name || "Signed in") + "</b><i>" + (who.email || "") + "</i></div></div>" +
+
+      '<p class="field-label" style="margin-top:20px"><label for="ph">Phone number</label>' +
+      '<span class="field-opt">optional — so we can tell you if you win</span></p>' +
+      '<input class="field-input" type="tel" id="ph" inputmode="tel" placeholder="10 digit number">' +
+
+      '<p class="consent-lead">Each of these is a separate choice:</p>' +
+
+      '<label class="consent"><input type="checkbox" id="c-board"><span>' +
+      "Show my <b>name</b> on the leaderboard" +
+      "<i>Leave it off and you appear as a player number. Your score and prize are unaffected.</i>" +
+      "</span></label>" +
+
+      '<label class="consent"><input type="checkbox" id="c-contact"><span>' +
+      "PsySupport may <b>contact me about counselling</b>" +
+      "<i>Nothing about the challenge changes if you leave this off.</i>" +
+      "</span></label>" +
+
+      '<label class="consent"><input type="checkbox" id="c-tips"><span>' +
+      "Email me the <b>weekly wellbeing tip</b>" +
+      "<i>One a week. Every email has an unsubscribe link.</i>" +
+      "</span></label>" +
+
+      '<div class="entry-actions"><button class="btn" type="button" id="send">Submit my score</button></div>' +
+      '<p class="saved-flag" id="send-flag" role="status"></p>' +
+      "</div>";
+
+    el("send").addEventListener("click", function () {
+      send(res.credential, score);
+    });
+  }
+
+  function send(credential, score) {
+    var btn = el("send");
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+
+    var payload = {
+      action: "score",
+      credential: credential,
+      week: weekId(new Date()),
+      score: score,
+      total: QUESTIONS.length,
+      seconds: elapsed,
+      phone: (el("ph").value || "").trim(),
+      showName: el("c-board").checked,
+      mayContact: el("c-contact").checked,
+      wantsTips: el("c-tips").checked
+    };
+
+    // text/plain keeps this a simple request, so the browser does not
+    // send a preflight that Apps Script cannot answer.
+    fetch(CONFIG.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (out) {
+        if (!out || !out.ok) throw new Error(out && out.error ? out.error : "rejected");
+        el("submit-box").innerHTML =
+          '<div class="soon done"><b>✓ Your score is in</b>' +
+          "<p>You are on this week's board. Winners are announced Monday" +
+          (payload.phone ? " and we will message you if you place." : ".") + "</p></div>";
+        loadBoard();
+        el("leaderboard").scrollIntoView({ behavior: "smooth", block: "start" });
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = "Submit my score";
+        el("send-flag").textContent = "That did not go through. Check your connection and try again.";
+      });
+  }
+
+  /* ==================================================================
+     LEADERBOARD
+     Real data only. With no backend configured it says so; with one
+     configured but nobody having played yet, it says that instead.
+  ================================================================== */
+  function prizeFor(rank) {
+    if (rank === 1) return "Free session";
+    if (rank <= 3) return "50% off";
+    if (rank <= 15) return "25% off";
+    return "";
+  }
+
+  function loadBoard() {
+    var state = el("lb-state"), wrap = el("lb-wrap");
+
+    if (!ready) {
+      wrap.hidden = true;
+      state.hidden = false;
+      state.innerHTML = "<b>The board opens with the first week of the challenge.</b>" +
+        "<span>Sign-in and prizes are being set up now. The quiz above is live and complete.</span>";
+      return;
+    }
+
+    fetch(CONFIG.endpoint + "?action=board&week=" + encodeURIComponent(weekId(new Date())))
+      .then(function (r) { return r.json(); })
+      .then(function (out) {
+        var rows = (out && out.rows) || [];
+        if (!rows.length) {
+          wrap.hidden = true;
+          state.hidden = false;
+          state.innerHTML = "<b>Nobody has played yet this week.</b>" +
+            "<span>The board resets every Monday. Take the quiz above and you will be first on it.</span>";
+          return;
+        }
+        state.hidden = true;
+        wrap.hidden = false;
+        el("lb").innerHTML = rows.slice(0, 15).map(function (r, n) {
+          var rank = n + 1;
+          var named = !!r.name;
+          return '<div class="lb-row' + (rank <= 3 ? " top" + rank : "") + '">' +
+            '<span class="lb-rank">' + rank + "</span>" +
+            '<span class="lb-name' + (named ? "" : " anon") + '">' +
+            (named ? escapeHtml(r.name) : "Player " + (r.id || rank)) + "</span>" +
+            '<span class="lb-score">' + r.score + "</span>" +
+            '<span class="lb-prize">' + prizeFor(rank) + "</span></div>";
+        }).join("");
+      })
+      .catch(function () {
+        wrap.hidden = true;
+        state.hidden = false;
+        state.innerHTML = "<b>The board could not be loaded just now.</b>" +
+          "<span>It should be back shortly. The quiz above works either way.</span>";
+      });
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  /* ---------- wiring ---------- */
+  if (!el("start")) return;
+
+  el("quiz-title").textContent = WEEK_TITLE;
+  el("week-no").textContent = weekId(new Date()).split("-W")[1];
+  el("q-count").textContent = QUESTIONS.length + " questions";
+
+  el("start").addEventListener("click", function () {
+    i = 0; answers = []; started = Date.now();
+    show("scr-q");
+    askQuestion();
+  });
+
+  el("q-next").addEventListener("click", nextQuestion);
+
+  el("retake").addEventListener("click", function () {
+    i = 0; answers = []; started = Date.now();
+    show("scr-q");
+    askQuestion();
+    el("tool").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  loadBoard();
+})();
+</script>
+
+</body>
+</html>
