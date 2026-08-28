@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Preview — Login, Leads &amp; Progress | PsySupport</title>
+<title>Preview — Weekly Quiz, Leaderboard &amp; Leads | PsySupport</title>
 
-<!-- This is a working preview for the site owner, not a public page. -->
+<!-- Working preview for the site owner. Not a public page. -->
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -21,253 +21,324 @@
 <body>
 
 <div class="demo-bar">
-  <b>Preview only</b> — यह page सिर्फ़ आपको दिखाने के लिए है. Google login यहाँ नक़ली है, असली नहीं.
-  <button class="demo-reset" type="button" id="reset">फिर से शुरू करें</button>
+  <b>Preview only</b> — nothing here is live. The Google sign-in is simulated, so you can walk the
+  whole thing through now.
+  <button class="demo-reset" type="button" id="reset">Start over</button>
 </div>
 
 <main id="main">
 
 <section class="hero" style="padding-top:38px">
-  <h1>ऐसा दिखेगा<br><span>Login, leads और progress</span></h1>
+  <h1>The Weekly Challenge<br><span>How it would work</span></h1>
   <p>
-    नीचे चार हिस्से हैं. हर हिस्से के ऊपर एक हरी लाइन में लिखा है कि वो हिस्सा क्या कर रहा है और
-    data कहाँ जा रहा है. नीचे के बटन दबाकर आप पूरा अनुभव चला कर देख सकते हैं.
+    Six parts below. Each one has a green line above it saying what that part does and where the data
+    goes. Press the buttons to run it — the quiz, the leaderboard and the sign-up all work.
   </p>
 </section>
 
-<!-- ============ 1. DIARY KHULI RAHEGI ============ -->
+<!-- ============ 1. THE QUIZ ============ -->
 <section class="section white">
-  <p class="note-strip">1 — Diary सबके लिए खुली. कोई login नहीं. Data सिर्फ़ phone में.</p>
-  <h2>Diary पहले जैसी</h2>
+  <p class="note-strip">1 — Ranked on knowledge, never on mood. This is the change that makes the whole idea work.</p>
+  <h2>Weekly Wellbeing Quiz</h2>
   <p class="section-subtitle">
-    कोई भी आए, तुरंत लिखना शुरू करे. यहाँ कुछ नहीं बदल रहा — यही इसकी ताक़त है.
+    Ten questions a week about sleep, stress and how minds actually work. Score is correct answers
+    plus speed. Nobody is ever ranked on how they feel.
   </p>
 
   <div class="tool">
     <div class="tool-head">
       <div>
-        <b>आज की entry</b>
-        <p id="demo-date"></p>
+        <b id="q-head">This week &mdash; Sleep &amp; Stress</b>
+        <p id="q-sub">Week 34 &middot; closes Sunday 11pm</p>
       </div>
-      <span class="tool-count" id="demo-count">0 दिन</span>
+      <span class="tool-count" id="q-count">3 questions</span>
     </div>
-    <div class="bar"><i id="demo-bar" style="width:0"></i></div>
-    <div class="tool-body">
-      <p class="field-label">आज का दिन कैसा रहा?</p>
-      <div class="mscale" id="mscale">
-        <button class="mstep" type="button" data-mood="1"><b>1</b><span>बहुत मुश्किल</span></button>
-        <button class="mstep" type="button" data-mood="2"><b>2</b><span>मुश्किल</span></button>
-        <button class="mstep" type="button" data-mood="3"><b>3</b><span>ठीक</span></button>
-        <button class="mstep" type="button" data-mood="4"><b>4</b><span>अच्छा</span></button>
-        <button class="mstep" type="button" data-mood="5"><b>5</b><span>बहुत अच्छा</span></button>
-      </div>
-      <div class="entry-actions">
-        <button class="btn" type="button" id="demo-save">आज सेव करें</button>
-      </div>
-      <p class="saved-flag" id="demo-flag"></p>
+    <div class="bar"><i id="q-bar" style="width:0"></i></div>
 
-      <div class="demo-hint">
-        <b>तेज़ी से चलाकर देखिए</b>
-        <div class="hist-btns">
-          <button class="minibtn" type="button" data-add="3">+3 दिन</button>
-          <button class="minibtn" type="button" data-add="7">+7 दिन</button>
-          <button class="minibtn" type="button" data-add="30">+30 दिन</button>
+    <div class="tool-body">
+      <div id="q-intro">
+        <p class="quiz-lead">
+          A short demo &mdash; three questions instead of ten. Answer them and you will land on the
+          leaderboard below.
+        </p>
+        <button class="btn" type="button" id="q-start">Start the quiz</button>
+      </div>
+
+      <div id="q-play" hidden>
+        <p class="q-text" id="q-text"></p>
+        <div class="opts" id="q-opts"></div>
+      </div>
+
+      <div id="q-done" hidden>
+        <div class="q-score">
+          <b id="q-final">0</b>
+          <span>out of 3</span>
         </div>
+        <p class="q-verdict" id="q-verdict"></p>
+        <div class="q-learn" id="q-learn"></div>
+        <button class="linkbtn" type="button" id="q-again">Take it again</button>
       </div>
     </div>
   </div>
+
+  <p class="aside">
+    Everyone gets an explanation after each answer, so the quiz teaches something even to whoever
+    finishes last. That is the part that makes it worth entering twice.
+  </p>
 </section>
 
-<!-- ============ 2. GAMIFICATION — PHONE ME ============ -->
+<!-- ============ 2. LEADERBOARD ============ -->
 <section class="section light">
-  <p class="note-strip">2 — पूरा game phone में चलता है. Server की ज़रूरत नहीं. कुछ बाहर नहीं जाता.</p>
-  <h2>Progress — बिना सज़ा वाला</h2>
+  <p class="note-strip">2 — Quiz scores live on the server. This is a knowledge score, not health data.</p>
+  <h2>This week&rsquo;s top 15</h2>
   <p class="section-subtitle">
-    Level कभी नीचे नहीं गिरता. हफ़्ते में 2 दिन छूटना allowed है. दौड़ने वाले app का मज़ा,
-    बिना उस डर के कि छूट गया तो सब गया.
+    Resets every Monday, so nobody is ever permanently out of it. Anyone who did not tick the
+    leaderboard box shows as a player number instead of a name.
   </p>
 
   <div class="panel">
-    <!-- level -->
-    <div class="lvl">
-      <div class="lvl-badge"><b id="lvl-num">1</b><span>Level</span></div>
-      <div class="lvl-body">
-        <div class="lvl-top">
-          <b id="lvl-name">शुरुआत</b>
-          <i id="lvl-next">अगले level तक 7 entries</i>
-        </div>
-        <div class="lvl-bar"><i id="lvl-fill" style="width:0"></i></div>
-        <p class="lvl-note">यह कभी कम नहीं होता. एक बार मिला, हमेशा के लिए आपका.</p>
-      </div>
+    <div class="lb-head">
+      <span>Rank</span><span>Player</span><span>Score</span><span>Prize</span>
     </div>
+    <div id="lb"></div>
+    <p class="lb-you" id="lb-you" hidden></p>
+  </div>
+</section>
 
-    <!-- rings -->
-    <h3 class="blk">इस हफ़्ते के तीन छल्ले</h3>
-    <div class="rings" id="rings"></div>
-    <p class="lvl-note" style="margin-top:12px">
-      आधा भरा छल्ला भी दिखता है. कुछ न करने पर कोई लाल निशान नहीं आता.
-    </p>
+<!-- ============ 3. REWARDS ============ -->
+<section class="section white">
+  <p class="note-strip warn">3 — Prizes are your own service, not cash. Costs you time only when someone actually books.</p>
+  <h2>What winners get</h2>
+  <p class="section-subtitle">
+    Cash buys you prize-hunters. A session turns the winner into a client, and often into a review.
+  </p>
 
-    <!-- weeks, not days -->
-    <h3 class="blk">हफ़्ते पूरे किए</h3>
-    <div class="weeks" id="weeks"></div>
-    <p class="lvl-note" style="margin-top:10px">
-      एक हफ़्ते में <b>4 या ज़्यादा दिन</b> लिखा = हफ़्ता पूरा. लगातार दिन गिनने की ज़रूरत नहीं —
-      बीमार पड़ने पर streak नहीं टूटती.
+  <div class="prizes">
+    <div class="prize gold">
+      <b>1st</b>
+      <h3>A full free session</h3>
+      <p>45 minutes, no charge. Your best lead of the week, already interested and already engaged.</p>
+    </div>
+    <div class="prize silver">
+      <b>2nd &ndash; 3rd</b>
+      <h3>Half price session</h3>
+      <p>50% off a first booking, valid for a month.</p>
+    </div>
+    <div class="prize bronze">
+      <b>4th &ndash; 15th</b>
+      <h3>25% off + guide</h3>
+      <p>Discount code plus the wellbeing guide as a PDF.</p>
+    </div>
+    <div class="prize all">
+      <b>Everyone</b>
+      <h3>A tip that fits you</h3>
+      <p>One practical suggestion aimed at whichever section you scored lowest on. Nobody leaves with nothing.</p>
+    </div>
+  </div>
+
+  <div class="cert">
+    <div class="cert-paper">
+      <span>PsySupport</span>
+      <b>Wellbeing Champion</b>
+      <i>August 2026 &middot; Top 15</i>
+      <em>Rahul Sharma</em>
+    </div>
+    <div class="cert-why">
+      <h3>And a certificate for the top 15</h3>
+      <p>
+        A shareable PDF. People post these on LinkedIn, which puts PsySupport in front of their whole
+        network. It costs you nothing to produce and is often worth more than the discount.
+      </p>
+    </div>
+  </div>
+
+  <div class="law" style="margin-top:30px">
+    <b>Why not cash</b>
+    <p>
+      Prize money over &#8377;10,000 means deducting 30% TDS under Section 194B, collecting PAN details
+      and filing returns. Prize competitions also run into state-level rules. Beyond the paperwork,
+      cash attracts people who want cash &mdash; they enter, they win, they never book. A free session
+      attracts people who want a session.
     </p>
   </div>
 </section>
 
-<!-- ============ 3. UNLOCK LADDER ============ -->
-<section class="section white">
-  <p class="note-strip">3 — असली चीज़ें unlock होती हैं. Badge नहीं. यही booking तक ले जाता है.</p>
-  <h2>आगे क्या खुलेगा</h2>
+<!-- ============ 4. TEAM CHALLENGE ============ -->
+<section class="section light">
+  <p class="note-strip">4 — The idea with the most money behind it. Worth building second.</p>
+  <h2>College &amp; company challenge</h2>
   <p class="section-subtitle">
-    हर पड़ाव पर कुछ काम की चीज़ मिलती है — और आख़िर में पहले session का coupon.
+    The same quiz, scored by team. Companies already have budget for employee wellbeing, and this is
+    a door into it that costs you nothing to open.
   </p>
-  <div class="panel"><div id="ladder"></div></div>
+
+  <div class="panel">
+    <div class="teams">
+      <div class="team"><b>1</b><span>Amity University</span><i>142 players &middot; avg 7.8</i><div class="tbar"><em style="width:88%"></em></div></div>
+      <div class="team"><b>2</b><span>Sharda University</span><i>98 players &middot; avg 7.4</i><div class="tbar"><em style="width:81%"></em></div></div>
+      <div class="team"><b>3</b><span>HCL Noida &mdash; Team Alpha</span><i>64 players &middot; avg 7.1</i><div class="tbar"><em style="width:76%"></em></div></div>
+      <div class="team"><b>4</b><span>Jaypee Institute</span><i>51 players &middot; avg 6.6</i><div class="tbar"><em style="width:69%"></em></div></div>
+    </div>
+    <p class="lvl-note" style="margin-top:16px">
+      A college running this for a week gives you a few hundred sign-ups and a reason to email their
+      counselling office. That conversation is where a paid workshop comes from.
+    </p>
+  </div>
 </section>
 
-<!-- ============ 4. LOGIN + LEAD ============ -->
-<section class="section light">
-  <p class="note-strip warn">4 — यहाँ पहली बार data आपके पास आता है. सिर्फ़ मंज़ूरी मिलने पर.</p>
-  <h2>Login — माँगा जाता है, थोपा नहीं</h2>
+<!-- ============ 5. SIGN UP + CONSENT ============ -->
+<section class="section white">
+  <p class="note-strip warn">5 — The only point where data reaches you. Every use asked for separately.</p>
+  <h2>Signing up</h2>
   <p class="section-subtitle">
-    3 entries के बाद ही दिखता है — जब आदमी को diary की आदत लग चुकी हो और कुछ मिल चुका हो.
-    Skip करने पर diary पूरी तरह चलती रहती है.
+    Asked at the end of the quiz, when someone has a score they want on the board. That is the moment
+    people will hand over a number &mdash; not before.
   </p>
 
   <div class="tool" id="login-box">
 
-    <!-- a. abhi jaldi hai -->
     <div class="tool-body" id="stage-early">
       <p class="stage-msg">
-        अभी login का card नहीं दिखेगा.<br>
-        <b>3 entries के बाद</b> दिखता है. ऊपर "+3 दिन" दबाकर देखिए.
+        Take the quiz above first.<br>
+        The sign-up appears once there is a score to submit.
       </p>
     </div>
 
-    <!-- b. login ki peshkash -->
     <div class="tool-body" id="stage-offer" hidden>
       <div class="offer">
-        <b>अपनी diary सुरक्षित कर लें</b>
+        <b>You scored <span id="offer-score">3</span>/3. Put it on the board?</b>
         <p>
-          फ़ोन बदलने या browser साफ़ होने पर diary चली जाती है. Sign in करने पर वो वापस मिल जाएगी —
-          और हर हफ़्ते आपकी pattern report भी.
+          Sign in so your score counts this week. Winners are announced Monday morning, and prizes
+          go to the top 15.
         </p>
         <button class="gbtn" type="button" id="do-login">
           <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45 24c0-1.6-.1-2.7-.4-4H24v7.5h12c-.2 2-1.5 5-4.4 7l6.7 5.2C42.2 36 45 30.6 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-6.9-5.4c-1.9 1.3-4.4 2.2-7.6 2.2-5.8 0-10.7-3.8-12.5-9.1l-7.1 5.5C8.1 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.5 28.4c-.5-1.4-.7-2.9-.7-4.4s.3-3 .7-4.4l-7.1-5.5C2.9 17 2 20.4 2 24s.9 7 2.4 9.9l7.1-5.5z"/><path fill="#EA4335" d="M24 10.7c3.2 0 5.4 1.4 6.7 2.6l6-5.9C33 3.9 28.9 2 24 2 15.4 2 8.1 6.9 4.4 14.1l7.1 5.5c1.8-5.3 6.7-9.1 12.5-9.1z"/></svg>
-          Google से Sign in करें
+          Sign in with Google
         </button>
-        <button class="linkbtn" type="button" id="skip-login">अभी नहीं — diary ऐसे ही चलाऊँ</button>
+        <button class="linkbtn" type="button" id="skip-login">No thanks &mdash; just show me the answers</button>
       </div>
     </div>
 
-    <!-- c. consent + phone -->
     <div class="tool-body" id="stage-consent" hidden>
       <div class="who">
         <div class="who-pic">R</div>
         <div>
-          <b>नमस्ते, राहुल शर्मा</b>
+          <b>Rahul Sharma</b>
           <i>rahul.sharma@gmail.com</i>
         </div>
-        <span class="who-ok">&#10003; जुड़ गया</span>
+        <span class="who-ok">&#10003; signed in</span>
       </div>
 
       <p class="got-note">
-        Google से बस इतना मिला — नाम और email. <b>Phone number Google कभी नहीं देता.</b>
+        That is everything Google gives you &mdash; a name and an email.
+        <b>Google never hands over a phone number.</b>
       </p>
 
       <p class="field-label" style="margin-top:22px">
-        <label for="ph">फ़ोन नंबर</label>
-        <span class="field-opt">optional — WhatsApp पर report भेजने के लिए</span>
+        <label for="ph">Phone number</label>
+        <span class="field-opt">optional &mdash; so we can tell you if you win</span>
       </p>
       <input class="field-input" type="tel" id="ph" placeholder="98xxxxxxxx" inputmode="tel">
 
+      <p class="consent-lead">Each of these is a separate question, and all of them start unticked:</p>
+
       <label class="consent">
-        <input type="checkbox" id="cons">
-        <span>
-          PsySupport मुझसे counselling के बारे में <b>संपर्क कर सकता है</b>.
-          <i>यह ख़ाली छोड़ सकते हैं — diary फिर भी पूरी चलेगी.</i>
-        </span>
+        <input type="checkbox" id="c-board">
+        <span>Show my <b>name</b> on the public leaderboard
+          <i>Leave it off and you appear as &ldquo;Player 47&rdquo;. Your score still counts.</i></span>
+      </label>
+
+      <label class="consent">
+        <input type="checkbox" id="c-contact">
+        <span>PsySupport may <b>contact me about counselling</b>
+          <i>Nothing changes about the quiz if you leave this off.</i></span>
+      </label>
+
+      <label class="consent">
+        <input type="checkbox" id="c-tips">
+        <span>Send me the <b>weekly wellbeing tip</b> by email
+          <i>One email a week. Unsubscribe link in every one.</i></span>
       </label>
 
       <div class="entry-actions" style="margin-top:20px">
-        <button class="btn" type="button" id="save-lead">सेव करें</button>
-        <button class="linkbtn" type="button" id="skip-lead">छोड़ दें</button>
+        <button class="btn" type="button" id="save-lead">Submit my score</button>
+        <button class="linkbtn" type="button" id="skip-lead">Skip</button>
       </div>
     </div>
 
-    <!-- d. ho gaya -->
     <div class="tool-body" id="stage-done" hidden>
       <p class="stage-msg ok">
-        <b>&#10003; हो गया</b><br>
-        राहुल की diary अब जुड़ी हुई है. नीचे देखिए कि आपकी Sheet में क्या पहुँचा —
-        और क्या नहीं पहुँचा.
+        <b>&#10003; You are on the board</b><br>
+        Scroll up to see where Rahul landed, then look below at exactly what reached your sheet.
       </p>
-      <button class="linkbtn" type="button" id="again">दोबारा चलाकर देखें</button>
+      <button class="linkbtn" type="button" id="again">Run it again</button>
     </div>
   </div>
 </section>
 
-<!-- ============ 5. KYA JAATA HAI ============ -->
-<section class="section white">
-  <p class="note-strip">5 — सबसे ज़रूरी हिस्सा. यही लाइन आपको क़ानूनी रूप से सुरक्षित रखती है.</p>
-  <h2>क्या आपके पास आया, क्या नहीं</h2>
+<!-- ============ 6. WHAT YOU GET ============ -->
+<section class="section light">
+  <p class="note-strip">6 — The line that keeps you clear of holding health records.</p>
+  <h2>What reaches you, and what never does</h2>
 
   <div class="split">
     <div class="split-col go">
-      <h3>&#8594; आपकी Google Sheet में</h3>
+      <h3>&#8594; Into your Google Sheet</h3>
       <table class="sheet" id="sheet-out">
-        <tr><th>तारीख़</th><td>28 Aug 2026</td></tr>
-        <tr><th>नाम</th><td>राहुल शर्मा</td></tr>
+        <tr><th>Date</th><td>28 Aug 2026</td></tr>
+        <tr><th>Name</th><td>Rahul Sharma</td></tr>
         <tr><th>Email</th><td>rahul.sharma@gmail.com</td></tr>
-        <tr><th>Phone</th><td id="out-ph">—</td></tr>
-        <tr><th>Consent</th><td id="out-cons">—</td></tr>
-        <tr><th>कितनी entries</th><td id="out-n">—</td></tr>
+        <tr><th>Phone</th><td id="out-ph">&mdash;</td></tr>
+        <tr><th>Quiz score</th><td id="out-score">&mdash;</td></tr>
+        <tr><th>Show name?</th><td id="out-board">&mdash;</td></tr>
+        <tr><th>May contact?</th><td id="out-contact">&mdash;</td></tr>
+        <tr><th>Weekly tip?</th><td id="out-tips">&mdash;</td></tr>
       </table>
-      <p class="split-note">बस इतना. सिर्फ़ पहचान — तकलीफ़ नहीं.</p>
+      <p class="split-note">
+        A quiz result is a knowledge score. It says nothing about anyone&rsquo;s mental health.
+      </p>
     </div>
 
     <div class="split-col stay">
-      <h3>&#10005; फ़ोन में ही रहा</h3>
+      <h3>&#10005; Stays on their phone</h3>
       <ul class="stayed">
-        <li>हर दिन का mood (1–5)</li>
-        <li>नींद के घंटे</li>
-        <li>Tags — काम, परिवार, पैसा</li>
-        <li><b>आपने जो लिखा</b> — वो notes</li>
-        <li>Patterns और calendar</li>
+        <li>Every day&rsquo;s mood</li>
+        <li>Hours slept</li>
+        <li>Tags &mdash; work, family, money</li>
+        <li><b>Anything they wrote</b> in the notes</li>
+        <li>Their patterns and calendar</li>
       </ul>
       <p class="split-note">
-        यही असली health data है, और यह कभी बाहर नहीं जाता.
+        The diary is the real health data, and it never leaves the device.
       </p>
     </div>
   </div>
 
   <div class="law">
-    <b>यह बँटवारा क्यों ज़रूरी है</b>
+    <b>The rules this has to follow</b>
     <p>
-      नाम-नंबर रखना सामान्य business है. लेकिन अगर <i>"राहुल का मूड 2/5 था"</i> आपकी Sheet में
-      चला जाए, तो आप health records रखने वाले बन जाएँगे — DPDP Act की सबसे भारी ज़िम्मेदारी.
-      इसलिए diary का data phone में ही रहता है.
+      Two separate things are happening here, and keeping them apart is what makes the whole design
+      workable. The competition runs on your server because a quiz score is ordinary data. The diary
+      stays on the phone because a mood record is not. They never meet.
     </p>
     <ul>
-      <li>☐ Consent का box पहले से tick <b>नहीं</b> रहेगा</li>
-      <li>जिसने tick किया <b>सिर्फ़ उसी को</b> फ़ोन करना है</li>
-      <li>Phone देना ज़रूरी नहीं — बिना दिए भी सब चलेगा</li>
-      <li><b>Session होते ही lead delete</b> — जैसा आपने तय किया</li>
-      <li>कोई भी कहे तो उसका record हटाना होगा</li>
+      <li>No box is ever pre-ticked, and each permission is asked separately</li>
+      <li>Only call people who ticked <b>may contact</b> &mdash; having the number is not permission</li>
+      <li>Only show names of people who ticked <b>show my name</b></li>
+      <li>Leads are deleted after their session, as you decided</li>
+      <li>Anyone can ask to be removed, and you have to do it</li>
+      <li>The competition needs a published terms page &mdash; who can enter, how winners are picked, how prizes are given</li>
     </ul>
   </div>
 </section>
 
-<section class="section light">
+<section class="section white">
   <div style="max-width:680px;margin:0 auto;text-align:center">
-    <h2>यह असली में लगाने के लिए</h2>
+    <h2>Before any of this goes live</h2>
     <p class="section-subtitle">
-      आपको Google में तीन चीज़ें बनानी होंगी — सब मुफ़्त. मैंने पूरी guide और backend का code
-      अलग से लिख दिया है (<b>SETUP-GOOGLE.md</b> और <b>apps-script.gs</b>).
-      आप बस दो values भेज दीजिए, मैं site में जोड़ दूँगा.
+      Google setup is in <b>SETUP-GOOGLE.md</b> and the backend is in <b>apps-script.gs</b>.
+      The privacy policy has to be updated first &mdash; that stops being optional the moment the
+      first name lands in the sheet.
     </p>
   </div>
 </section>
@@ -275,7 +346,7 @@
 </main>
 
 <footer>
-  <p><strong>PsySupport</strong> — internal preview. यह page search में नहीं आएगा.</p>
+  <p><strong>PsySupport</strong> — internal preview. This page is not indexed and is not linked from the site.</p>
 </footer>
 
 <style>
@@ -288,55 +359,78 @@
 .note-strip{max-width:760px;margin:0 auto 20px;padding:9px 16px;border-left:3px solid var(--sage);
   background:var(--mist);border-radius:0 8px 8px 0;font-size:12.5px;color:var(--ink-soft);text-align:left}
 .note-strip.warn{border-left-color:var(--honey)}
+.aside{max-width:760px;margin:22px auto 0;font-size:13px;color:var(--muted);line-height:1.7;text-align:left}
 
-.demo-hint{margin-top:24px;padding-top:20px;border-top:1px dashed var(--line)}
-.demo-hint b{display:block;font-size:12px;color:var(--muted);margin-bottom:9px;font-weight:500}
+/* quiz */
+.quiz-lead{font-size:14px;color:var(--ink-soft);line-height:1.7;margin:0 0 20px}
+.q-score{text-align:center;margin-bottom:8px}
+.q-score b{font-family:'Newsreader',Georgia,serif;font-size:52px;font-weight:500;color:var(--primary);
+  line-height:1;display:block}
+.q-score span{font-size:12.5px;color:var(--muted)}
+.q-verdict{text-align:center;font-size:15px;color:var(--ink);margin:12px 0 20px}
+.q-learn{border-top:1px solid var(--line);padding-top:18px}
+.q-learn div{padding:11px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.65}
+.q-learn div:last-child{border-bottom:0}
+.q-learn b{display:block;color:var(--ink);margin-bottom:3px;font-size:13px}
+.q-learn p{margin:0;color:var(--ink-soft)}
+.q-learn .ok{color:var(--secondary-dark);font-weight:600}
+.q-learn .no{color:#B4543C;font-weight:600}
+#q-again{margin-top:18px}
 
-/* level */
-.lvl{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.lvl-badge{width:78px;height:78px;border-radius:50%;background:var(--primary);color:#fff;flex:none;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
-.lvl-badge b{font-family:'Newsreader',Georgia,serif;font-size:30px;font-weight:500;line-height:1}
-.lvl-badge span{font-size:9.5px;letter-spacing:.5px;opacity:.85}
-.lvl-body{flex:1;min-width:210px}
-.lvl-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;margin-bottom:9px}
-.lvl-top b{font-family:'Newsreader',Georgia,serif;font-size:20px;font-weight:500;color:var(--ink)}
-.lvl-top i{font-style:normal;font-size:12px;color:var(--muted)}
-.lvl-bar{height:7px;border-radius:99px;background:var(--mist-2);overflow:hidden}
-.lvl-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--sage));
-  border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1)}
-.lvl-note{font-size:12px;color:var(--muted);margin:9px 0 0;line-height:1.55}
+/* leaderboard */
+.lb-head,.lb-row{display:grid;grid-template-columns:46px 1fr 62px 92px;gap:10px;align-items:center}
+.lb-head{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;
+  padding-bottom:10px;border-bottom:1px solid var(--line)}
+.lb-row{padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.lb-row:last-child{border-bottom:0}
+.lb-rank{font-family:'Newsreader',Georgia,serif;font-size:17px;color:var(--muted);font-weight:500}
+.lb-row.top1 .lb-rank,.lb-row.top2 .lb-rank,.lb-row.top3 .lb-rank{color:var(--primary)}
+.lb-name{color:var(--ink)}
+.lb-name.anon{color:var(--muted);font-style:italic}
+.lb-score{font-variant-numeric:tabular-nums;color:var(--ink-soft)}
+.lb-prize{font-size:11px;color:var(--secondary-dark);font-weight:600}
+.lb-row.me{background:var(--mist);margin:0 -12px;padding:11px 12px;border-radius:8px}
+.lb-row.me .lb-name{font-weight:600;color:var(--primary-deep)}
+.lb-you{margin:16px 0 0;font-size:12.5px;color:var(--muted);line-height:1.6;
+  padding-top:14px;border-top:1px solid var(--line)}
 
-.blk{font-family:'Newsreader',Georgia,serif;font-size:18px;font-weight:500;color:var(--ink);
-  margin:30px 0 14px;padding-top:22px;border-top:1px solid var(--line)}
+/* prizes */
+.prizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;
+  max-width:940px;margin:34px auto 0;text-align:left}
+.prize{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--surface)}
+.prize b{display:inline-block;font-size:11px;letter-spacing:.7px;text-transform:uppercase;
+  padding:4px 11px;border-radius:99px;margin-bottom:13px;font-weight:600}
+.prize.gold b{background:#F6E2B8;color:#6B4E12}
+.prize.silver b{background:#E2E7E8;color:#40565A}
+.prize.bronze b{background:#EEDDD0;color:#6E4A2E}
+.prize.all b{background:var(--mist-2);color:var(--ink-soft)}
+.prize h3{font-size:16px;margin-bottom:7px;color:var(--ink)}
+.prize p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0}
 
-/* rings */
-.rings{display:flex;gap:22px;flex-wrap:wrap}
-.ring{text-align:center;width:96px}
-.ring svg{transform:rotate(-90deg)}
-.ring-t{font-size:11.5px;color:var(--ink-soft);margin-top:7px;line-height:1.35}
-.ring-t b{display:block;font-size:12.5px;color:var(--ink);font-weight:600}
+.cert{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;max-width:820px;
+  margin:38px auto 0;text-align:left}
+.cert-paper{width:210px;border:2px solid var(--honey);border-radius:10px;padding:20px 16px;
+  text-align:center;background:#FDFBF6}
+.cert-paper span{display:block;font-size:10px;letter-spacing:2px;color:var(--honey);
+  text-transform:uppercase;margin-bottom:9px}
+.cert-paper b{display:block;font-family:'Newsreader',Georgia,serif;font-size:19px;color:var(--ink);
+  font-weight:500;line-height:1.25}
+.cert-paper i{display:block;font-style:normal;font-size:10.5px;color:var(--muted);margin:7px 0 12px}
+.cert-paper em{display:block;font-style:normal;font-family:'Newsreader',Georgia,serif;font-size:16px;
+  color:var(--primary-deep);border-top:1px solid var(--line);padding-top:10px}
+.cert-why h3{font-size:17px;margin-bottom:8px}
+.cert-why p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin:0}
 
-/* weeks */
-.weeks{display:flex;gap:9px;flex-wrap:wrap}
-.wk{width:38px;height:38px;border-radius:9px;background:var(--mist-2);display:flex;
-  align-items:center;justify-content:center;font-size:11px;color:var(--muted);font-weight:500}
-.wk.on{background:var(--sage);color:#fff}
-.wk.now{outline:2px solid var(--primary);outline-offset:2px}
+/* teams */
+.teams{display:grid;gap:15px}
+.team{display:grid;grid-template-columns:28px 1fr;gap:11px;align-items:baseline}
+.team b{font-family:'Newsreader',Georgia,serif;font-size:19px;color:var(--primary);font-weight:500}
+.team span{font-size:14px;color:var(--ink);grid-column:2}
+.team i{grid-column:2;font-style:normal;font-size:11.5px;color:var(--muted);display:block;margin:2px 0 6px}
+.tbar{grid-column:2;height:6px;background:var(--mist-2);border-radius:99px;overflow:hidden}
+.tbar em{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--sage));border-radius:99px}
 
-/* ladder */
-.rung{display:flex;gap:15px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--line)}
-.rung:first-child{border-top:0;padding-top:0}
-.rung-n{width:42px;height:42px;border-radius:50%;flex:none;display:flex;align-items:center;
-  justify-content:center;font-size:12.5px;font-weight:600;background:var(--mist-2);color:var(--muted)}
-.rung.got .rung-n{background:var(--sage);color:#fff}
-.rung-b b{display:block;font-size:14.5px;color:var(--ink);margin-bottom:3px}
-.rung-b p{font-size:13px;color:var(--ink-soft);margin:0;line-height:1.55}
-.rung-b i{font-style:normal;display:inline-block;margin-top:6px;font-size:11.5px;
-  color:var(--secondary-dark);font-weight:600}
-.rung.prize .rung-b b{color:var(--primary-deep)}
-
-/* login */
+/* sign-up */
 .stage-msg{font-size:14px;color:var(--ink-soft);line-height:1.7;margin:0;text-align:center}
 .stage-msg.ok{color:var(--secondary-dark)}
 .offer b{display:block;font-family:'Newsreader',Georgia,serif;font-size:20px;color:var(--ink);margin-bottom:7px}
@@ -354,11 +448,12 @@
 .who i{font-style:normal;font-size:12.5px;color:var(--muted)}
 .who-ok{margin-left:auto;font-size:11.5px;color:var(--secondary-dark);font-weight:600}
 .got-note{font-size:12.5px;color:var(--muted);margin:14px 0 0;line-height:1.6}
+.consent-lead{font-size:12.5px;color:var(--muted);margin:24px 0 12px}
 
-.consent{display:flex;gap:11px;align-items:flex-start;margin-top:22px;padding:15px;
+.consent{display:flex;gap:11px;align-items:flex-start;margin-bottom:10px;padding:14px;
   border:1.5px solid var(--line);border-radius:12px;cursor:pointer;background:var(--mist)}
 .consent input{margin-top:3px;width:17px;height:17px;flex:none;accent-color:var(--primary)}
-.consent span{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.consent span{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
 .consent i{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:4px}
 
 /* what goes where */
@@ -380,11 +475,13 @@
 .law p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin:0 0 14px}
 .law ul{margin:0;padding-left:19px}
 .law li{font-size:13px;color:var(--ink-soft);line-height:1.9}
+.lvl-note{font-size:12px;color:var(--muted);line-height:1.6}
 
+@media (max-width:760px){ .cert{grid-template-columns:1fr;justify-items:center;text-align:center} }
 @media (max-width:700px){ .split{grid-template-columns:1fr} }
-@media (max-width:560px){
-  .mstep b{font-size:16px} .mstep span{font-size:9px}
-  .rings{gap:14px;justify-content:center} .ring{width:84px}
+@media (max-width:520px){
+  .lb-head,.lb-row{grid-template-columns:34px 1fr 46px;gap:8px}
+  .lb-head span:last-child,.lb-prize{display:none}
 }
 </style>
 
@@ -393,161 +490,208 @@
   "use strict";
   var el = function (id) { return document.getElementById(id); };
 
-  // ---- demo state, kept only for this preview ----
-  var KEY = "psy-preview";
-  var s = { n: 0, mood: null, logged: false, phone: "", consent: false };
+  var KEY = "psy-preview2";
+  var s = { score: null, done: false, stage: "early", phone: "", board: false, contact: false, tips: false };
   try { var r = sessionStorage.getItem(KEY); if (r) s = JSON.parse(r); } catch (e) {}
   function keep() { try { sessionStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
 
-  var LEVELS = [
-    { at: 0,  name: "शुरुआत" },
-    { at: 7,  name: "आदत बनती हुई" },
-    { at: 21, name: "पक्की आदत" },
-    { at: 45, name: "अपने को जानने वाला" },
-    { at: 90, name: "पूरा साल भर का साथी" }
+  /* ---- three sample questions ---- */
+  var QS = [
+    {
+      q: "You cannot sleep. It has been 25 minutes. What actually helps?",
+      o: ["Stay in bed and keep trying", "Get up, sit elsewhere, return when sleepy", "Check your phone until tired"],
+      a: 1,
+      why: "Lying awake teaches the brain that bed is a place for being awake. Leaving and coming back when sleepy is what sleep clinics actually advise."
+    },
+    {
+      q: "Which one is a myth about anxiety?",
+      o: ["It can cause real chest pain", "Avoiding what scares you cures it", "It affects sleep and appetite"],
+      a: 1,
+      why: "Avoidance settles the fear for an hour and grows it for a month. Facing things gradually is what shrinks anxiety — the other two statements are true."
+    },
+    {
+      q: "A friend says they feel hopeless. What is the most useful first response?",
+      o: ["Tell them to think positive", "List reasons they should be happy", "Ask what has been hardest, and listen"],
+      a: 2,
+      why: "Being told to cheer up mostly teaches people to stop talking. A question and genuine attention is what makes someone continue."
+    }
   ];
 
-  var LADDER = [
-    { at: 3,  t: "पहला pattern दिखेगा",        d: "Diary बताना शुरू करेगी कि आपके दिन किस तरफ़ जा रहे हैं.", p: "" },
-    { at: 7,  t: "साँस वाला अभ्यास खुलेगा",     d: "घबराहट में 2 मिनट में शांत करने वाला तरीक़ा — guide के साथ.", p: "" },
-    { at: 14, t: "हफ़्ते का report card",       d: "हर रविवार एक साफ़ तस्वीर, जो चाहें तो share कर सकें.", p: "" },
-    { at: 21, t: "“चिंता का समय” तकनीक", d: "Overthinking रोकने का वो तरीक़ा जो counsellor सिखाते हैं.", p: "" },
-    { at: 30, t: "पहले session पर छूट",        d: "एक महीने की मेहनत के बाद, बात करने का मौक़ा — रियायती दर पर.", p: "यहाँ booking आती है" }
+  var qi = 0, got = [];
+
+  /* ---- a plausible board to sit inside ---- */
+  var BOARD = [
+    { n: "Ananya K.",  s: 10, anon: false },
+    { n: "Player 12",  s: 10, anon: true  },
+    { n: "Rohit M.",   s: 9,  anon: false },
+    { n: "Sneha P.",   s: 9,  anon: false },
+    { n: "Player 31",  s: 9,  anon: true  },
+    { n: "Kabir S.",   s: 8,  anon: false },
+    { n: "Meera J.",   s: 8,  anon: false },
+    { n: "Player 47",  s: 8,  anon: true  },
+    { n: "Arjun T.",   s: 7,  anon: false },
+    { n: "Divya R.",   s: 7,  anon: false }
   ];
 
-  function level() {
-    var i = 0;
-    for (var k = 0; k < LEVELS.length; k++) if (s.n >= LEVELS[k].at) i = k;
-    return i;
+  function prize(rank) {
+    if (rank === 1) return "Free session";
+    if (rank <= 3) return "50% off";
+    if (rank <= 15) return "25% off";
+    return "";
   }
 
-  function ring(pct, label, sub) {
-    var R = 26, C = 2 * Math.PI * R, off = C * (1 - Math.min(pct, 1));
-    return '<div class="ring"><svg width="64" height="64" viewBox="0 0 64 64">' +
-      '<circle cx="32" cy="32" r="' + R + '" fill="none" stroke="var(--mist-2)" stroke-width="7"/>' +
-      '<circle cx="32" cy="32" r="' + R + '" fill="none" stroke="var(--primary)" stroke-width="7" ' +
-      'stroke-linecap="round" stroke-dasharray="' + C + '" stroke-dashoffset="' + off + '"/>' +
-      '</svg><p class="ring-t"><b>' + label + '</b>' + sub + '</p></div>';
+  function drawBoard() {
+    var rows = BOARD.slice();
+    var mine = null;
+
+    if (s.done && s.stage === "done") {
+      // scale the 3-question demo onto the 10-question board
+      var scaled = Math.round((s.score / QS.length) * 10);
+      mine = { n: s.board ? "Rahul Sharma" : "Player 63", s: scaled, anon: !s.board, me: true };
+      rows.push(mine);
+    }
+
+    rows.sort(function (a, b) { return b.s - a.s; });
+
+    el("lb").innerHTML = rows.map(function (r, i) {
+      var rank = i + 1;
+      return '<div class="lb-row' + (rank <= 3 ? " top" + rank : "") + (r.me ? " me" : "") + '">' +
+        '<span class="lb-rank">' + rank + "</span>" +
+        '<span class="lb-name' + (r.anon ? " anon" : "") + '">' + r.n + (r.me ? " &larr; you" : "") + "</span>" +
+        '<span class="lb-score">' + r.s + "</span>" +
+        '<span class="lb-prize">' + prize(rank) + "</span></div>";
+    }).join("");
+
+    var you = el("lb-you");
+    if (mine) {
+      you.hidden = false;
+      you.innerHTML = s.board
+        ? "You ticked <b>show my name</b>, so your name appears. Untick it and you would show as &ldquo;Player 63&rdquo; with the same score and the same prize."
+        : "You left <b>show my name</b> unticked, so you appear as &ldquo;Player 63&rdquo;. Your score still counts and you still win the prize &mdash; the board simply does not name you.";
+    } else {
+      you.hidden = true;
+    }
+  }
+
+  function askQ() {
+    var Q = QS[qi];
+    el("q-text").textContent = Q.q;
+    el("q-count").textContent = "Question " + (qi + 1) + " of " + QS.length;
+    el("q-bar").style.width = ((qi) / QS.length) * 100 + "%";
+    el("q-opts").innerHTML = Q.o.map(function (t, i) {
+      return '<button class="opt" type="button" data-i="' + i + '" style="width:100%;text-align:left">' + t + "</button>";
+    }).join("");
+    Array.prototype.forEach.call(el("q-opts").querySelectorAll(".opt"), function (b) {
+      b.addEventListener("click", function () {
+        got.push(+b.dataset.i === QS[qi].a);
+        qi++;
+        if (qi < QS.length) askQ(); else finish();
+      });
+    });
+  }
+
+  function finish() {
+    s.score = got.filter(Boolean).length;
+    s.done = true;
+    s.stage = "offer";
+    el("q-play").hidden = true;
+    el("q-done").hidden = false;
+    el("q-bar").style.width = "100%";
+    el("q-count").textContent = "Finished";
+    el("q-final").textContent = s.score;
+
+    el("q-verdict").textContent =
+      s.score === QS.length ? "Every one right. That is rare." :
+      s.score === 0 ? "None right this time — which is exactly why the explanations are below." :
+      "Not bad. The ones you missed are explained below.";
+
+    el("q-learn").innerHTML = QS.map(function (Q, i) {
+      return "<div><b>" + Q.q + "</b>" +
+        '<p><span class="' + (got[i] ? "ok" : "no") + '">' + (got[i] ? "Correct" : "Missed") + "</span> &mdash; " +
+        "the answer is &ldquo;" + Q.o[Q.a] + "&rdquo;. " + Q.why + "</p></div>";
+    }).join("");
+
+    el("offer-score").textContent = s.score;
+    draw();
   }
 
   function draw() {
-    // diary
-    el("demo-count").textContent = s.n + " दिन";
-    el("demo-bar").style.width = s.mood ? "100%" : "0";
+    ["stage-early", "stage-offer", "stage-consent", "stage-done"].forEach(function (id) {
+      el(id).hidden = true;
+    });
+    el("stage-" + s.stage).hidden = false;
 
-    // level
-    var i = level(), L = LEVELS[i], nxt = LEVELS[i + 1];
-    el("lvl-num").textContent = i + 1;
-    el("lvl-name").textContent = L.name;
-    if (nxt) {
-      var span = nxt.at - L.at, done = s.n - L.at;
-      el("lvl-next").textContent = "अगले level तक " + (nxt.at - s.n) + " entries";
-      el("lvl-fill").style.width = Math.min(100, (done / span) * 100) + "%";
-    } else {
-      el("lvl-next").textContent = "सबसे ऊपर पहुँच गए";
-      el("lvl-fill").style.width = "100%";
+    var on = s.stage === "done";
+    el("out-ph").textContent = on ? (s.phone || "(not given)") : "—";
+    el("out-score").textContent = on ? Math.round((s.score / QS.length) * 10) + " / 10" : "—";
+    function yn(v, yes, no) {
+      return on ? (v ? '<b style="color:var(--secondary-dark)">&#10003; ' + yes + "</b>"
+                     : '<b style="color:var(--honey)">&#10005; ' + no + "</b>") : "—";
     }
+    el("out-board").innerHTML   = yn(s.board,   "yes",       "no — show as Player 63");
+    el("out-contact").innerHTML = yn(s.contact, "yes",       "no — do not call");
+    el("out-tips").innerHTML    = yn(s.tips,    "subscribed", "no");
 
-    // rings — is hafte ka hisaab (demo ke liye seedha)
-    var wk = Math.min(s.n, 7);
-    el("rings").innerHTML =
-      ring(wk / 4, wk + "/4", "दिन लिखे") +
-      ring(Math.min(s.n, 5) / 5, Math.min(s.n, 5) + "/5", "रातें ठीक सोए") +
-      ring(Math.min(s.n, 2) / 2, Math.min(s.n, 2) + "/2", "अपना ख़याल");
-
-    // weeks
-    var full = Math.floor(s.n / 4), h = "";
-    for (var w = 1; w <= 8; w++) {
-      h += '<div class="wk' + (w <= full ? " on" : "") + (w === full + 1 ? " now" : "") + '">' + w + "</div>";
-    }
-    el("weeks").innerHTML = h;
-
-    // ladder
-    el("ladder").innerHTML = LADDER.map(function (x) {
-      var got = s.n >= x.at;
-      return '<div class="rung' + (got ? " got" : "") + (x.p ? " prize" : "") + '">' +
-        '<div class="rung-n">' + (got ? "&#10003;" : x.at) + "</div>" +
-        '<div class="rung-b"><b>' + x.t + "</b><p>" + x.d + "</p>" +
-        (got ? '<i>&#10003; खुल गया</i>' : '<i style="color:var(--muted);font-weight:400">' +
-          (x.at - s.n) + " entries और</i>") +
-        (x.p ? ' <i>&#8226; ' + x.p + "</i>" : "") +
-        "</div></div>";
-    }).join("");
-
-    // login stage
-    var stages = ["stage-early", "stage-offer", "stage-consent", "stage-done"];
-    stages.forEach(function (id) { el(id).hidden = true; });
-    if (s.logged === "done") el("stage-done").hidden = false;
-    else if (s.logged === true) el("stage-consent").hidden = false;
-    else if (s.n >= 3) el("stage-offer").hidden = false;
-    else el("stage-early").hidden = false;
-
-    // sheet
-    el("out-ph").textContent = s.logged === "done" ? (s.phone || "(नहीं दिया)") : "—";
-    el("out-cons").innerHTML = s.logged === "done"
-      ? (s.consent ? '<b style="color:var(--secondary-dark)">&#10003; हाँ — फ़ोन कर सकते हैं</b>'
-                   : '<b style="color:var(--honey)">&#10005; नहीं — फ़ोन नहीं करना</b>')
-      : "—";
-    el("out-n").textContent = s.logged === "done" ? s.n : "—";
-
+    drawBoard();
     keep();
   }
 
-  // wiring
-  Array.prototype.forEach.call(document.querySelectorAll(".mstep"), function (b) {
-    b.addEventListener("click", function () {
-      s.mood = +b.dataset.mood;
-      Array.prototype.forEach.call(document.querySelectorAll(".mstep"), function (x) {
-        x.classList.toggle("on", x === b);
-      });
-      draw();
-    });
+  /* ---- wiring ---- */
+  el("q-start").addEventListener("click", function () {
+    qi = 0; got = [];
+    el("q-intro").hidden = true;
+    el("q-play").hidden = false;
+    el("q-done").hidden = true;
+    askQ();
   });
 
-  el("demo-save").addEventListener("click", function () {
-    if (!s.mood) { el("demo-flag").textContent = "पहले दिन चुनिए."; return; }
-    s.n++; s.mood = null;
-    Array.prototype.forEach.call(document.querySelectorAll(".mstep"), function (x) { x.classList.remove("on"); });
-    el("demo-flag").textContent = "सेव हो गया. कुल " + s.n + " दिन.";
+  el("q-again").addEventListener("click", function () {
+    s = { score: null, done: false, stage: "early", phone: "", board: false, contact: false, tips: false };
+    el("q-done").hidden = true;
+    el("q-intro").hidden = false;
+    el("q-bar").style.width = "0";
+    el("q-count").textContent = QS.length + " questions";
     draw();
   });
 
-  Array.prototype.forEach.call(document.querySelectorAll("[data-add]"), function (b) {
-    b.addEventListener("click", function () {
-      s.n += +b.dataset.add;
-      el("demo-flag").textContent = b.dataset.add + " दिन जोड़ दिए. कुल " + s.n + ".";
-      draw();
-    });
-  });
-
-  el("do-login").addEventListener("click", function () { s.logged = true; draw(); });
+  el("do-login").addEventListener("click", function () { s.stage = "consent"; draw(); });
   el("skip-login").addEventListener("click", function () {
-    el("demo-flag").textContent = "छोड़ दिया — diary फिर भी पूरी चलती है.";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    el("q-done").scrollIntoView({ behavior: "smooth", block: "center" });
   });
+
   el("save-lead").addEventListener("click", function () {
-    s.phone = el("ph").value.trim();
-    s.consent = el("cons").checked;
-    s.logged = "done";
+    s.phone   = el("ph").value.trim();
+    s.board   = el("c-board").checked;
+    s.contact = el("c-contact").checked;
+    s.tips    = el("c-tips").checked;
+    s.stage   = "done";
     draw();
-    el("sheet-out").scrollIntoView({ behavior: "smooth", block: "center" });
+    el("lb").scrollIntoView({ behavior: "smooth", block: "center" });
   });
+
   el("skip-lead").addEventListener("click", function () {
-    s.phone = ""; s.consent = false; s.logged = "done"; draw();
+    s.phone = ""; s.board = false; s.contact = false; s.tips = false;
+    s.stage = "done"; draw();
   });
+
   el("again").addEventListener("click", function () {
-    s.logged = false; el("ph").value = ""; el("cons").checked = false; draw();
+    s.stage = "offer";
+    el("ph").value = "";
+    el("c-board").checked = el("c-contact").checked = el("c-tips").checked = false;
+    draw();
   });
+
   el("reset").addEventListener("click", function () {
-    s = { n: 0, mood: null, logged: false, phone: "", consent: false };
-    el("ph").value = ""; el("cons").checked = false; el("demo-flag").textContent = "";
-    Array.prototype.forEach.call(document.querySelectorAll(".mstep"), function (x) { x.classList.remove("on"); });
+    s = { score: null, done: false, stage: "early", phone: "", board: false, contact: false, tips: false };
+    el("ph").value = "";
+    el("c-board").checked = el("c-contact").checked = el("c-tips").checked = false;
+    el("q-done").hidden = true; el("q-play").hidden = true; el("q-intro").hidden = false;
+    el("q-bar").style.width = "0";
+    el("q-count").textContent = QS.length + " questions";
     draw();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  var d = new Date();
-  el("demo-date").textContent = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
   draw();
 })();
 </script>
