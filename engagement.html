@@ -42,6 +42,10 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Poppins:wght@400;500;600&display=swap"></noscript>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E7485">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mood Diary">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -93,6 +97,8 @@
   <p class="section-subtitle">
     Nothing here is a test and there is no right answer. Skip anything you do not feel like answering.
   </p>
+
+  <p class="welcome" id="welcome" hidden></p>
 
   <div class="tool">
     <div class="tool-head">
@@ -250,6 +256,97 @@
     <div class="card">
       <h3>It makes the first session easier</h3>
       <p>Counsellors ask what has been happening. Arriving with two months of actual days beats trying to reconstruct it under pressure, and it saves a session's worth of guessing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KEEPING IT ================= -->
+<section class="section white" id="keep">
+  <p class="eyebrow" style="justify-content:center">Keeping your diary</p>
+  <h2>Two minutes now saves two months later</h2>
+  <p class="section-subtitle">
+    A browser can clear its own storage &mdash; phones do it to free space, and iPhones do it
+    automatically if you go a few weeks without opening a site. Either of these stops that happening.
+  </p>
+
+  <div class="tool">
+    <div class="tool-head">
+      <div>
+        <b>Add the diary to your home screen</b>
+        <p>The surest fix, and it opens like an app</p>
+      </div>
+    </div>
+    <div class="tool-body">
+      <p class="keep-copy">
+        Installed to your home screen, the diary gets storage the browser will not quietly clear,
+        it opens in one tap without the address bar, and it works with no signal. Nothing is uploaded
+        &mdash; it is the same page, kept properly.
+      </p>
+
+      <div class="hist-btns" style="margin-top:16px">
+        <button class="btn" type="button" id="install" hidden>Add to home screen</button>
+      </div>
+
+      <div class="howto" id="howto-ios" hidden>
+        <b>On iPhone or iPad</b>
+        <ol>
+          <li>Tap the <b>Share</b> button at the bottom of Safari (the square with an arrow).</li>
+          <li>Scroll down and tap <b>Add to Home Screen</b>.</li>
+          <li>Tap <b>Add</b>. The diary appears as an icon with your other apps.</li>
+        </ol>
+        <p>It has to be Safari &mdash; Chrome on iPhone cannot install pages.</p>
+      </div>
+
+      <div class="howto" id="howto-generic" hidden>
+        <b>On Android</b>
+        <ol>
+          <li>Open the browser menu (the three dots, top right).</li>
+          <li>Tap <b>Add to Home screen</b> or <b>Install app</b>.</li>
+          <li>Confirm. The diary appears with your other apps.</li>
+        </ol>
+      </div>
+
+      <p class="keep-done" id="installed" hidden>
+        &#10003; You are running the installed diary. Your entries are kept properly here.
+      </p>
+    </div>
+  </div>
+
+  <div class="tool" style="margin-top:26px">
+    <div class="tool-head">
+      <div>
+        <b>Or keep a backup copy</b>
+        <p>Also how you move the diary to a new phone</p>
+      </div>
+    </div>
+    <div class="tool-body">
+      <p class="keep-copy">
+        A backup is a small file holding everything you have logged. Save it somewhere you keep things
+        &mdash; it restores onto any phone or computer, including a new one.
+      </p>
+
+      <div class="hist-btns" style="margin-top:16px">
+        <button class="minibtn" type="button" id="backup-file">Download a backup</button>
+        <button class="minibtn" type="button" id="backup-code">Copy as text</button>
+        <button class="minibtn" type="button" id="restore-open">Restore a backup</button>
+      </div>
+      <p class="saved-flag" id="backup-flag" role="status"></p>
+
+      <div id="restore-box" hidden>
+        <p class="field-label" style="margin-top:22px">
+          <label for="restore-text">Paste a backup, or choose the file you saved</label>
+        </p>
+        <textarea class="field-input" id="restore-text" rows="3" placeholder="Paste the backup text here"></textarea>
+        <div class="hist-btns" style="margin-top:12px">
+          <button class="minibtn" type="button" id="restore-go">Restore from text</button>
+          <label class="minibtn" for="restore-file" style="display:inline-flex;align-items:center">Choose a file</label>
+          <input type="file" id="restore-file" accept="application/json,.json,.txt" style="position:absolute;left:-9999px">
+        </div>
+        <p class="keep-copy" style="margin-top:12px;font-size:12.5px">
+          Restoring merges the backup with anything already here. Where both have the same day,
+          the backup wins.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -645,8 +742,64 @@
     if (entries.length) { live.hidden = false; blank.hidden = true; renderCalendar(entries); }
     else { live.hidden = true; blank.hidden = false; }
 
+    renderWelcome(entries);
     renderInsights(entries);
     renderSummary(entries);
+  }
+
+  /* ----------------------------------------------------------------
+     How long since the last entry. Deliberately not a streak: this
+     says what happened, and never implies you failed at anything.
+  ---------------------------------------------------------------- */
+  function renderWelcome(entries) {
+    var box = el("welcome");
+    if (entries.length < 2) { box.hidden = true; return; }
+
+    var last = entries.map(function (e) { return e.date; }).sort().pop();
+    if (last === today()) { box.hidden = true; return; }
+
+    var days = Math.round((parse(today()) - parse(last)) / 86400000);
+    var since = days === 1 ? "yesterday" : days + " days ago";
+    box.textContent = "Welcome back. Your last entry was " + since +
+      ", and you have " + entries.length + " in the diary. Picking it up again is the whole skill.";
+    box.hidden = false;
+  }
+
+  /* ----------------------------------------------------------------
+     Backup and restore. No account and no server, so the visitor
+     holds the only copy — which means they need a way to carry it.
+  ---------------------------------------------------------------- */
+  function backupText() {
+    var data = read();
+    return JSON.stringify({ psysupport: "mood-diary", v: 1, saved: today(), entries: data.entries });
+  }
+
+  function applyBackup(raw) {
+    var parsed;
+    try { parsed = JSON.parse(raw); }
+    catch (e) { return { ok: false, msg: "That does not look like a backup file." }; }
+
+    var incoming = parsed && parsed.entries;
+    if (Object.prototype.toString.call(incoming) !== "[object Array]") {
+      return { ok: false, msg: "That file has no diary entries in it." };
+    }
+
+    // Keep only rows that actually look like entries, so a truncated or
+    // hand-edited file cannot poison the diary.
+    var clean = incoming.filter(function (e) {
+      return e && /^\d{4}-\d{2}-\d{2}$/.test(e.date) && e.mood >= 1 && e.mood <= 5;
+    });
+    if (!clean.length) return { ok: false, msg: "No usable entries in that backup." };
+
+    var byDate = {};
+    read().entries.forEach(function (e) { byDate[e.date] = e; });
+    clean.forEach(function (e) { byDate[e.date] = e; });   // backup wins on a clash
+
+    var merged = Object.keys(byDate).sort().map(function (k) { return byDate[k]; });
+    if (!write({ entries: merged })) {
+      return { ok: false, msg: "Could not save — this browser is out of storage space." };
+    }
+    return { ok: true, msg: "Restored. Your diary now holds " + merged.length + " days." };
   }
 
   function flash(node, msg) {
@@ -750,9 +903,117 @@
     flash(el("wipe-flag"), "Diary deleted.");
   });
 
+  /* ---------- ask the browser to stop evicting us ---------- */
+  if (navigator.storage && navigator.storage.persist) {
+    navigator.storage.persisted().then(function (already) {
+      if (!already) navigator.storage.persist();
+    }).catch(function () {});
+  }
+
+  /* ---------- add to home screen ---------- */
+  var standalone = window.matchMedia("(display-mode: standalone)").matches ||
+                   window.navigator.standalone === true;
+
+  if (standalone) {
+    el("installed").hidden = false;
+  } else {
+    var ua = navigator.userAgent;
+    var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+                (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    // Chromium fires this and lets us install properly; everyone else gets
+    // the written steps, because there is no API to do it for them.
+    var prompt = null;
+
+    window.addEventListener("beforeinstallprompt", function (e) {
+      e.preventDefault();
+      prompt = e;
+      el("install").hidden = false;
+      el("howto-ios").hidden = true;
+      el("howto-generic").hidden = true;
+    });
+
+    el("install").addEventListener("click", function () {
+      if (!prompt) return;
+      prompt.prompt();
+      prompt.userChoice.then(function () {
+        prompt = null;
+        el("install").hidden = true;
+      });
+    });
+
+    if (isIOS) el("howto-ios").hidden = false;
+    else el("howto-generic").hidden = false;
+
+    window.addEventListener("appinstalled", function () {
+      el("install").hidden = true;
+      el("howto-ios").hidden = true;
+      el("howto-generic").hidden = true;
+      el("installed").hidden = false;
+    });
+  }
+
+  /* ---------- backup ---------- */
+  el("backup-file").addEventListener("click", function () {
+    if (!read().entries.length) { flash(el("backup-flag"), "Nothing to back up yet."); return; }
+    var blob = new Blob([backupText()], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "psysupport-diary-" + today() + ".json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    flash(el("backup-flag"), "Backup saved to your downloads.");
+  });
+
+  el("backup-code").addEventListener("click", function () {
+    if (!read().entries.length) { flash(el("backup-flag"), "Nothing to back up yet."); return; }
+    var text = backupText();
+    var done = function () { flash(el("backup-flag"), "Copied. Paste it somewhere you will find again."); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+    } else { fallbackCopy(text, done); }
+  });
+
+  el("restore-open").addEventListener("click", function () {
+    var box = el("restore-box");
+    box.hidden = !box.hidden;
+  });
+
+  el("restore-go").addEventListener("click", function () {
+    var raw = el("restore-text").value.trim();
+    if (!raw) { flash(el("backup-flag"), "Paste a backup first."); return; }
+    var r = applyBackup(raw);
+    flash(el("backup-flag"), r.msg);
+    if (r.ok) { el("restore-text").value = ""; loadToday(); renderAll(); }
+  });
+
+  el("restore-file").addEventListener("change", function (ev) {
+    var f = ev.target.files && ev.target.files[0];
+    if (!f) return;
+    var fr = new FileReader();
+    fr.onload = function () {
+      var r = applyBackup(String(fr.result));
+      flash(el("backup-flag"), r.msg);
+      if (r.ok) { loadToday(); renderAll(); }
+    };
+    fr.onerror = function () { flash(el("backup-flag"), "Could not read that file."); };
+    fr.readAsText(f);
+    ev.target.value = "";
+  });
+
   loadToday();
   renderAll();
 })();
+
+/* Registered outside the diary's own closure so a failure here can never
+   stop the page working. An unsupported browser simply skips it. */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("sw.js").catch(function () {});
+  });
+}
 </script>
 
 </body>
