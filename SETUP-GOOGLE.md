@@ -23,6 +23,38 @@ or send them to me and I will:
 
 ---
 
+## Part 0 — Which Google account (decide this first)
+
+**Any Google account works.** A free `@gmail.com` is enough — no Workspace
+subscription, no card, no billing account.
+
+But choose deliberately, because this account is hard to change later and two
+things about it are not obvious:
+
+**It owns everything.** The Cloud project, the Sheet, the Apps Script and every
+score in it all belong to whichever account creates them. Moving them to a
+different account later means redoing the whole setup and re-issuing the
+Client ID.
+
+**Its support email is shown publicly.** When a visitor taps "Sign in with
+Google", the screen displays your app name and the support email you entered.
+Everyone who signs in sees that address. A personal address looks careless
+here; something like `psysupport.in@gmail.com` does not.
+
+**Do not use your everyday personal Gmail.** That account is about to hold your
+clients' names, emails and phone numbers. Keeping that separate from your
+personal mail is worth the five minutes:
+
+1. Create a new free Google account, e.g. `psysupport.in@gmail.com`
+2. Turn on **2-step verification** on it immediately, before anything else
+3. Use that account for every step below
+
+If you later get Google Workspace on your own domain, an address like
+`hello@psysupport.in` is better still — but a free Gmail is perfectly fine to
+start, and nothing about this setup has to change if you upgrade later.
+
+---
+
 ## Part 1 — Create the Sheet (3 minutes)
 
 1. Go to **[sheets.new](https://sheets.new)**
